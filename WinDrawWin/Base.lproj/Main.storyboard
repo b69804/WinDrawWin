@@ -1,8 +1,16 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14C1514" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="V8M-67-Suf">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <mutableArray key="Raleway-Regular.ttf">
+            <string>Raleway-Regular</string>
+            <string>Raleway-Regular</string>
+            <string>Raleway-Regular</string>
+            <string>Raleway-Regular</string>
+        </mutableArray>
+    </customFonts>
     <scenes>
         <!--Choose Games-->
         <scene sceneID="ufC-wZ-h7g">
@@ -13,12 +21,16 @@
                         <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="1" y="-1" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Bkgrnd.png" translatesAutoresizingMaskIntoConstraints="NO" id="o4g-rW-2eX">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bGh-xd-sLf">
-                                <rect key="frame" x="110" y="113" width="154" height="72"/>
+                                <rect key="frame" x="110" y="147" width="154" height="72"/>
                                 <color key="backgroundColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="Raleway-Regular" family="Raleway" pointSize="15"/>
                                 <state key="normal" title="Home Team">
                                     <color key="titleColor" red="0.40000000000000002" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -28,8 +40,9 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rdv-Eu-pFs">
-                                <rect key="frame" x="110" y="215" width="154" height="72"/>
+                                <rect key="frame" x="110" y="249" width="154" height="72"/>
                                 <color key="backgroundColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="Raleway-Regular" family="Raleway" pointSize="15"/>
                                 <state key="normal" title="Draw">
                                     <color key="titleColor" red="0.40000000000000002" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -39,8 +52,9 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6PN-p0-OKx">
-                                <rect key="frame" x="110" y="325" width="154" height="72"/>
+                                <rect key="frame" x="110" y="359" width="154" height="72"/>
                                 <color key="backgroundColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="Raleway-Regular" family="Raleway" pointSize="15"/>
                                 <state key="normal" title="Away Team">
                                     <color key="titleColor" red="0.40000000000000002" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -52,6 +66,7 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Hs-4Q-kqK">
                                 <rect key="frame" x="110" y="454" width="154" height="72"/>
                                 <color key="backgroundColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="Raleway-Regular" family="Raleway" pointSize="15"/>
                                 <state key="normal" title="Start Predicting!">
                                     <color key="titleColor" red="0.40000000000000002" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -60,6 +75,36 @@
                                     <action selector="onStart:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="ZGm-AU-U3l"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vz9-11-oZP">
+                                <rect key="frame" x="0.0" y="606" width="94" height="61"/>
+                                <state key="normal" image="MakePick_Selected.png">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3ie-sw-IvE">
+                                <rect key="frame" x="94" y="606" width="94" height="61"/>
+                                <state key="normal" image="MyPicksButton.png">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="V8M-67-Suf" kind="show" id="WoQ-UU-jMf"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xeh-EC-0jF">
+                                <rect key="frame" x="188" y="606" width="94" height="61"/>
+                                <state key="normal" image="RankingButton.png">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dLa-eE-6Sg">
+                                <rect key="frame" x="282" y="606" width="93" height="61"/>
+                                <state key="normal" image="MyProfileButton.png">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Logo_Horiz.png" translatesAutoresizingMaskIntoConstraints="NO" id="wdC-n7-IBx">
+                                <rect key="frame" x="61" y="28" width="253" height="42"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -75,5 +120,150 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
         </scene>
+        <!--MyPicks-->
+        <scene sceneID="zBW-pa-WTW">
+            <objects>
+                <viewController title="MyPicks" id="V8M-67-Suf" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="NZs-FV-fC9"/>
+                        <viewControllerLayoutGuide type="bottom" id="iHd-a9-Mkb"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="a4c-nf-uNn">
+                        <rect key="frame" x="0.0" y="-1" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Logo_Horiz.png" translatesAutoresizingMaskIntoConstraints="NO" id="SX6-1Y-fz2">
+                                <rect key="frame" x="61" y="28" width="253" height="42"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="El0-gJ-YoE">
+                                <rect key="frame" x="282" y="606" width="93" height="61"/>
+                                <state key="normal" image="MyProfileButton.png">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cfx-so-mDI">
+                                <rect key="frame" x="94" y="606" width="94" height="61"/>
+                                <state key="normal" image="MyPicks_Selected.png">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fT9-rY-xJe">
+                                <rect key="frame" x="188" y="606" width="94" height="61"/>
+                                <state key="normal" image="RankingButton.png">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JQ6-OM-vvw">
+                                <rect key="frame" x="0.0" y="606" width="94" height="61"/>
+                                <state key="normal" image="MakePickButton.png">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="vXZ-lx-hvc" kind="show" id="fCp-7J-uE7"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="a7j-G8-SCN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="304.5" y="1052.5"/>
+        </scene>
+        <!--Rankings-->
+        <scene sceneID="h3T-TG-P0k">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="og7-9w-4t6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController title="Rankings" id="tkI-iD-N90" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ns5-Tw-aPn"/>
+                        <viewControllerLayoutGuide type="bottom" id="ym1-5I-kPe"/>
+                    </layoutGuides>
+                    <view key="view" autoresizesSubviews="NO" contentMode="scaleToFill" id="PP3-iT-2TT">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Bkgrnd.png" translatesAutoresizingMaskIntoConstraints="NO" id="1Tb-Iz-oTe">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7c5-Bj-akn">
+                                <rect key="frame" x="0.0" y="535" width="150" height="64"/>
+                                <state key="normal" backgroundImage="MakePickButton.png">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2u4-ti-ybn">
+                                <rect key="frame" x="300" y="535" width="150" height="64"/>
+                                <state key="normal" backgroundImage="Rankings_Selected.png">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T8Q-hh-FZO">
+                                <rect key="frame" x="450" y="535" width="150" height="65"/>
+                                <state key="normal" backgroundImage="MyProfileButton.png">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hgJ-Od-3pU">
+                                <rect key="frame" x="150" y="535" width="150" height="64"/>
+                                <state key="normal" backgroundImage="MyPicksButton.png">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo_Horiz.png" translatesAutoresizingMaskIntoConstraints="NO" id="4rx-MV-kWG">
+                                <rect key="frame" x="173" y="28" width="254" height="42"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="254" id="UAj-cI-2y5"/>
+                                    <constraint firstAttribute="height" constant="42" id="XWT-f0-tRh"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="2u4-ti-ybn" firstAttribute="height" secondItem="T8Q-hh-FZO" secondAttribute="height" constant="-1" id="0IH-LQ-OdE"/>
+                            <constraint firstItem="4rx-MV-kWG" firstAttribute="top" secondItem="ns5-Tw-aPn" secondAttribute="bottom" constant="8" symbolic="YES" id="3kZ-R4-Xls"/>
+                            <constraint firstItem="T8Q-hh-FZO" firstAttribute="width" secondItem="2u4-ti-ybn" secondAttribute="width" id="88P-Uz-nn7"/>
+                            <constraint firstItem="2u4-ti-ybn" firstAttribute="width" secondItem="hgJ-Od-3pU" secondAttribute="width" id="8ev-xN-ifP"/>
+                            <constraint firstItem="T8Q-hh-FZO" firstAttribute="bottom" secondItem="ym1-5I-kPe" secondAttribute="top" id="8iL-K3-0B4"/>
+                            <constraint firstItem="1Tb-Iz-oTe" firstAttribute="top" secondItem="PP3-iT-2TT" secondAttribute="top" id="96v-br-gdI"/>
+                            <constraint firstAttribute="trailing" secondItem="T8Q-hh-FZO" secondAttribute="trailing" id="KjU-KI-XhI"/>
+                            <constraint firstItem="1Tb-Iz-oTe" firstAttribute="bottom" secondItem="ym1-5I-kPe" secondAttribute="top" id="NDQ-im-cR5"/>
+                            <constraint firstItem="ym1-5I-kPe" firstAttribute="top" secondItem="7c5-Bj-akn" secondAttribute="bottom" constant="1" id="Qdc-pa-yaf"/>
+                            <constraint firstItem="4rx-MV-kWG" firstAttribute="centerX" secondItem="1Tb-Iz-oTe" secondAttribute="centerX" id="SOl-2Z-E3K"/>
+                            <constraint firstItem="2u4-ti-ybn" firstAttribute="leading" secondItem="hgJ-Od-3pU" secondAttribute="trailing" id="Umi-08-sox"/>
+                            <constraint firstItem="T8Q-hh-FZO" firstAttribute="height" secondItem="2u4-ti-ybn" secondAttribute="height" constant="1" id="VD0-BI-7M9"/>
+                            <constraint firstItem="1Tb-Iz-oTe" firstAttribute="leading" secondItem="7c5-Bj-akn" secondAttribute="leading" id="ZGA-JV-kN0"/>
+                            <constraint firstItem="7c5-Bj-akn" firstAttribute="leading" secondItem="PP3-iT-2TT" secondAttribute="leading" id="ajM-Bg-nkG"/>
+                            <constraint firstItem="7c5-Bj-akn" firstAttribute="top" secondItem="hgJ-Od-3pU" secondAttribute="top" id="b1a-v3-rw1"/>
+                            <constraint firstItem="T8Q-hh-FZO" firstAttribute="top" secondItem="2u4-ti-ybn" secondAttribute="top" id="cAn-Tx-g6p"/>
+                            <constraint firstItem="T8Q-hh-FZO" firstAttribute="bottom" secondItem="2u4-ti-ybn" secondAttribute="bottom" constant="1" id="cZ1-2J-aXh"/>
+                            <constraint firstItem="T8Q-hh-FZO" firstAttribute="leading" secondItem="2u4-ti-ybn" secondAttribute="trailing" id="cfb-Xp-Nip"/>
+                            <constraint firstItem="hgJ-Od-3pU" firstAttribute="leading" secondItem="7c5-Bj-akn" secondAttribute="trailing" id="jv7-gp-2bI"/>
+                            <constraint firstItem="7c5-Bj-akn" firstAttribute="bottom" secondItem="hgJ-Od-3pU" secondAttribute="bottom" id="kvQ-pa-qPz"/>
+                            <constraint firstItem="7c5-Bj-akn" firstAttribute="height" secondItem="hgJ-Od-3pU" secondAttribute="height" id="mHN-fN-OqE"/>
+                            <constraint firstItem="hgJ-Od-3pU" firstAttribute="top" secondItem="2u4-ti-ybn" secondAttribute="top" id="ozB-K1-KMN"/>
+                            <constraint firstItem="1Tb-Iz-oTe" firstAttribute="trailing" secondItem="T8Q-hh-FZO" secondAttribute="trailing" id="rSA-nc-AGF"/>
+                            <constraint firstItem="7c5-Bj-akn" firstAttribute="top" secondItem="1Tb-Iz-oTe" secondAttribute="bottom" constant="-65" id="sRy-bT-VW7"/>
+                            <constraint firstItem="2u4-ti-ybn" firstAttribute="width" secondItem="T8Q-hh-FZO" secondAttribute="width" id="yFR-Co-CKV"/>
+                            <constraint firstItem="hgJ-Od-3pU" firstAttribute="bottom" secondItem="2u4-ti-ybn" secondAttribute="bottom" id="z6F-mw-j9W"/>
+                            <constraint firstItem="7c5-Bj-akn" firstAttribute="width" secondItem="hgJ-Od-3pU" secondAttribute="width" id="zw6-FN-Q1Q"/>
+                        </constraints>
+                    </view>
+                </viewController>
+            </objects>
+            <point key="canvasLocation" x="1740" y="448"/>
+        </scene>
     </scenes>
+    <resources>
+        <image name="Bkgrnd.png" width="750" height="1334"/>
+        <image name="Logo_Horiz.png" width="629" height="90"/>
+        <image name="MakePickButton.png" width="376" height="231"/>
+        <image name="MakePick_Selected.png" width="376" height="231"/>
+        <image name="MyPicksButton.png" width="376" height="231"/>
+        <image name="MyPicks_Selected.png" width="376" height="231"/>
+        <image name="MyProfileButton.png" width="376" height="231"/>
+        <image name="RankingButton.png" width="376" height="231"/>
+        <image name="Rankings_Selected.png" width="376" height="231"/>
+    </resources>
 </document>

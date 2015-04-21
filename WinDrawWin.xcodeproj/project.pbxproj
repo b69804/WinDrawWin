@@ -30,6 +30,17 @@
 		5D2C8AED1A827F48000C15A9 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D2C8AE71A827F48000C15A9 /* Security.framework */; };
 		5D2C8AEE1A827F48000C15A9 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D2C8AE81A827F48000C15A9 /* StoreKit.framework */; };
 		5D2C8AEF1A827F48000C15A9 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D2C8AE91A827F48000C15A9 /* SystemConfiguration.framework */; };
+		5D3E55EF1AE6BE630009DB45 /* Bkgrnd.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D3E55EE1AE6BE630009DB45 /* Bkgrnd.png */; };
+		5D3E55F11AE6C04A0009DB45 /* Logo_Horiz.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D3E55F01AE6C04A0009DB45 /* Logo_Horiz.png */; };
+		5D3E55F61AE6D9C20009DB45 /* MakePickButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D3E55F21AE6D9C20009DB45 /* MakePickButton.png */; };
+		5D3E55F71AE6D9C20009DB45 /* MyPicksButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D3E55F31AE6D9C20009DB45 /* MyPicksButton.png */; };
+		5D3E55F81AE6D9C20009DB45 /* MyProfileButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D3E55F41AE6D9C20009DB45 /* MyProfileButton.png */; };
+		5D3E55F91AE6D9C20009DB45 /* RankingButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D3E55F51AE6D9C20009DB45 /* RankingButton.png */; };
+		5D3E55FB1AE6DCDD0009DB45 /* raleway in Resources */ = {isa = PBXBuildFile; fileRef = 5D3E55FA1AE6DCDD0009DB45 /* raleway */; };
+		5D3E56001AE6DFFF0009DB45 /* MakePick_Selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D3E55FC1AE6DFFF0009DB45 /* MakePick_Selected.png */; };
+		5D3E56011AE6DFFF0009DB45 /* MyPicks_Selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D3E55FD1AE6DFFF0009DB45 /* MyPicks_Selected.png */; };
+		5D3E56021AE6DFFF0009DB45 /* MyProfile_Selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D3E55FE1AE6DFFF0009DB45 /* MyProfile_Selected.png */; };
+		5D3E56031AE6DFFF0009DB45 /* Rankings_Selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D3E55FF1AE6DFFF0009DB45 /* Rankings_Selected.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,6 +83,17 @@
 		5D2C8AE71A827F48000C15A9 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		5D2C8AE81A827F48000C15A9 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		5D2C8AE91A827F48000C15A9 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		5D3E55EE1AE6BE630009DB45 /* Bkgrnd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Bkgrnd.png; sourceTree = "<group>"; };
+		5D3E55F01AE6C04A0009DB45 /* Logo_Horiz.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Logo_Horiz.png; sourceTree = "<group>"; };
+		5D3E55F21AE6D9C20009DB45 /* MakePickButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MakePickButton.png; sourceTree = "<group>"; };
+		5D3E55F31AE6D9C20009DB45 /* MyPicksButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MyPicksButton.png; sourceTree = "<group>"; };
+		5D3E55F41AE6D9C20009DB45 /* MyProfileButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MyProfileButton.png; sourceTree = "<group>"; };
+		5D3E55F51AE6D9C20009DB45 /* RankingButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = RankingButton.png; sourceTree = "<group>"; };
+		5D3E55FA1AE6DCDD0009DB45 /* raleway */ = {isa = PBXFileReference; lastKnownFileType = folder; path = raleway; sourceTree = "<group>"; };
+		5D3E55FC1AE6DFFF0009DB45 /* MakePick_Selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MakePick_Selected.png; sourceTree = "<group>"; };
+		5D3E55FD1AE6DFFF0009DB45 /* MyPicks_Selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MyPicks_Selected.png; sourceTree = "<group>"; };
+		5D3E55FE1AE6DFFF0009DB45 /* MyProfile_Selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MyProfile_Selected.png; sourceTree = "<group>"; };
+		5D3E55FF1AE6DFFF0009DB45 /* Rankings_Selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Rankings_Selected.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -130,11 +152,22 @@
 		5D2C8AA81A827C4F000C15A9 /* WinDrawWin */ = {
 			isa = PBXGroup;
 			children = (
+				5D3E55FA1AE6DCDD0009DB45 /* raleway */,
 				5D2C8AAD1A827C4F000C15A9 /* AppDelegate.h */,
 				5D2C8AAE1A827C4F000C15A9 /* AppDelegate.m */,
 				5D2C8AB01A827C4F000C15A9 /* ChooseGames.h */,
+				5D3E55F21AE6D9C20009DB45 /* MakePickButton.png */,
+				5D3E55F31AE6D9C20009DB45 /* MyPicksButton.png */,
+				5D3E55FC1AE6DFFF0009DB45 /* MakePick_Selected.png */,
+				5D3E55FD1AE6DFFF0009DB45 /* MyPicks_Selected.png */,
+				5D3E55FE1AE6DFFF0009DB45 /* MyProfile_Selected.png */,
+				5D3E55FF1AE6DFFF0009DB45 /* Rankings_Selected.png */,
+				5D3E55F41AE6D9C20009DB45 /* MyProfileButton.png */,
+				5D3E55F51AE6D9C20009DB45 /* RankingButton.png */,
 				5D2C8AB11A827C4F000C15A9 /* ChooseGames.m */,
 				5D2C8AB31A827C4F000C15A9 /* Main.storyboard */,
+				5D3E55F01AE6C04A0009DB45 /* Logo_Horiz.png */,
+				5D3E55EE1AE6BE630009DB45 /* Bkgrnd.png */,
 				5D2C8AB61A827C4F000C15A9 /* Images.xcassets */,
 				5D2C8AB81A827C4F000C15A9 /* LaunchScreen.xib */,
 				5D2C8AA91A827C4F000C15A9 /* Supporting Files */,
@@ -279,8 +312,19 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5D3E55F91AE6D9C20009DB45 /* RankingButton.png in Resources */,
+				5D3E55F71AE6D9C20009DB45 /* MyPicksButton.png in Resources */,
+				5D3E56021AE6DFFF0009DB45 /* MyProfile_Selected.png in Resources */,
+				5D3E56001AE6DFFF0009DB45 /* MakePick_Selected.png in Resources */,
+				5D3E56011AE6DFFF0009DB45 /* MyPicks_Selected.png in Resources */,
+				5D3E55F81AE6D9C20009DB45 /* MyProfileButton.png in Resources */,
 				5D2C8AB51A827C4F000C15A9 /* Main.storyboard in Resources */,
+				5D3E55EF1AE6BE630009DB45 /* Bkgrnd.png in Resources */,
+				5D3E55F11AE6C04A0009DB45 /* Logo_Horiz.png in Resources */,
+				5D3E56031AE6DFFF0009DB45 /* Rankings_Selected.png in Resources */,
 				5D2C8ABA1A827C4F000C15A9 /* LaunchScreen.xib in Resources */,
+				5D3E55F61AE6D9C20009DB45 /* MakePickButton.png in Resources */,
+				5D3E55FB1AE6DCDD0009DB45 /* raleway in Resources */,
 				5D2C8AB71A827C4F000C15A9 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -500,6 +544,7 @@
 				5D2C8ACB1A827C4F000C15A9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		5D2C8ACC1A827C4F000C15A9 /* Build configuration list for PBXNativeTarget "WinDrawWinTests" */ = {
 			isa = XCConfigurationList;
@@ -508,6 +553,7 @@
 				5D2C8ACE1A827C4F000C15A9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
