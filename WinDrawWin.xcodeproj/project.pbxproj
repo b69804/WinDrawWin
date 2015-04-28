@@ -41,6 +41,13 @@
 		5D3E56011AE6DFFF0009DB45 /* MyPicks_Selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D3E55FD1AE6DFFF0009DB45 /* MyPicks_Selected.png */; };
 		5D3E56021AE6DFFF0009DB45 /* MyProfile_Selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D3E55FE1AE6DFFF0009DB45 /* MyProfile_Selected.png */; };
 		5D3E56031AE6DFFF0009DB45 /* Rankings_Selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D3E55FF1AE6DFFF0009DB45 /* Rankings_Selected.png */; };
+		5D3E56061AE7F14E0009DB45 /* selectedPick.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D3E56051AE7F14E0009DB45 /* selectedPick.m */; };
+		5D9C2B4E1AEE8C59009B7D3B /* Team.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D9C2B4D1AEE8C59009B7D3B /* Team.m */; };
+		5D9C2B511AEECB5C009B7D3B /* MyPicks.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D9C2B501AEECB5C009B7D3B /* MyPicks.m */; };
+		5D9C2B541AEEEECC009B7D3B /* CustomCell1.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D9C2B531AEEEECC009B7D3B /* CustomCell1.m */; };
+		5D9C2B561AEF1D66009B7D3B /* arsenal.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D9C2B551AEF1D66009B7D3B /* arsenal.png */; };
+		5D9C2B581AEF3287009B7D3B /* LCFC.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D9C2B571AEF3287009B7D3B /* LCFC.png */; };
+		5D9C2B5A1AEF32F3009B7D3B /* newcastle.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D9C2B591AEF32F3009B7D3B /* newcastle.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -94,6 +101,17 @@
 		5D3E55FD1AE6DFFF0009DB45 /* MyPicks_Selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MyPicks_Selected.png; sourceTree = "<group>"; };
 		5D3E55FE1AE6DFFF0009DB45 /* MyProfile_Selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MyProfile_Selected.png; sourceTree = "<group>"; };
 		5D3E55FF1AE6DFFF0009DB45 /* Rankings_Selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Rankings_Selected.png; sourceTree = "<group>"; };
+		5D3E56041AE7F14E0009DB45 /* selectedPick.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = selectedPick.h; sourceTree = "<group>"; };
+		5D3E56051AE7F14E0009DB45 /* selectedPick.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = selectedPick.m; sourceTree = "<group>"; };
+		5D9C2B4C1AEE8C59009B7D3B /* Team.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Team.h; sourceTree = "<group>"; };
+		5D9C2B4D1AEE8C59009B7D3B /* Team.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Team.m; sourceTree = "<group>"; };
+		5D9C2B4F1AEECB5C009B7D3B /* MyPicks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyPicks.h; sourceTree = "<group>"; };
+		5D9C2B501AEECB5C009B7D3B /* MyPicks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyPicks.m; sourceTree = "<group>"; };
+		5D9C2B521AEEEECC009B7D3B /* CustomCell1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomCell1.h; sourceTree = "<group>"; };
+		5D9C2B531AEEEECC009B7D3B /* CustomCell1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomCell1.m; sourceTree = "<group>"; };
+		5D9C2B551AEF1D66009B7D3B /* arsenal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arsenal.png; sourceTree = "<group>"; };
+		5D9C2B571AEF3287009B7D3B /* LCFC.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LCFC.png; sourceTree = "<group>"; };
+		5D9C2B591AEF32F3009B7D3B /* newcastle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = newcastle.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -156,15 +174,26 @@
 				5D2C8AAD1A827C4F000C15A9 /* AppDelegate.h */,
 				5D2C8AAE1A827C4F000C15A9 /* AppDelegate.m */,
 				5D2C8AB01A827C4F000C15A9 /* ChooseGames.h */,
+				5D2C8AB11A827C4F000C15A9 /* ChooseGames.m */,
+				5D9C2B4F1AEECB5C009B7D3B /* MyPicks.h */,
+				5D9C2B501AEECB5C009B7D3B /* MyPicks.m */,
+				5D9C2B521AEEEECC009B7D3B /* CustomCell1.h */,
+				5D9C2B531AEEEECC009B7D3B /* CustomCell1.m */,
+				5D3E56041AE7F14E0009DB45 /* selectedPick.h */,
+				5D3E56051AE7F14E0009DB45 /* selectedPick.m */,
+				5D9C2B4C1AEE8C59009B7D3B /* Team.h */,
+				5D9C2B4D1AEE8C59009B7D3B /* Team.m */,
 				5D3E55F21AE6D9C20009DB45 /* MakePickButton.png */,
 				5D3E55F31AE6D9C20009DB45 /* MyPicksButton.png */,
+				5D9C2B591AEF32F3009B7D3B /* newcastle.png */,
+				5D9C2B571AEF3287009B7D3B /* LCFC.png */,
 				5D3E55FC1AE6DFFF0009DB45 /* MakePick_Selected.png */,
 				5D3E55FD1AE6DFFF0009DB45 /* MyPicks_Selected.png */,
 				5D3E55FE1AE6DFFF0009DB45 /* MyProfile_Selected.png */,
+				5D9C2B551AEF1D66009B7D3B /* arsenal.png */,
 				5D3E55FF1AE6DFFF0009DB45 /* Rankings_Selected.png */,
 				5D3E55F41AE6D9C20009DB45 /* MyProfileButton.png */,
 				5D3E55F51AE6D9C20009DB45 /* RankingButton.png */,
-				5D2C8AB11A827C4F000C15A9 /* ChooseGames.m */,
 				5D2C8AB31A827C4F000C15A9 /* Main.storyboard */,
 				5D3E55F01AE6C04A0009DB45 /* Logo_Horiz.png */,
 				5D3E55EE1AE6BE630009DB45 /* Bkgrnd.png */,
@@ -315,13 +344,16 @@
 				5D3E55F91AE6D9C20009DB45 /* RankingButton.png in Resources */,
 				5D3E55F71AE6D9C20009DB45 /* MyPicksButton.png in Resources */,
 				5D3E56021AE6DFFF0009DB45 /* MyProfile_Selected.png in Resources */,
+				5D9C2B581AEF3287009B7D3B /* LCFC.png in Resources */,
 				5D3E56001AE6DFFF0009DB45 /* MakePick_Selected.png in Resources */,
 				5D3E56011AE6DFFF0009DB45 /* MyPicks_Selected.png in Resources */,
 				5D3E55F81AE6D9C20009DB45 /* MyProfileButton.png in Resources */,
 				5D2C8AB51A827C4F000C15A9 /* Main.storyboard in Resources */,
 				5D3E55EF1AE6BE630009DB45 /* Bkgrnd.png in Resources */,
+				5D9C2B5A1AEF32F3009B7D3B /* newcastle.png in Resources */,
 				5D3E55F11AE6C04A0009DB45 /* Logo_Horiz.png in Resources */,
 				5D3E56031AE6DFFF0009DB45 /* Rankings_Selected.png in Resources */,
+				5D9C2B561AEF1D66009B7D3B /* arsenal.png in Resources */,
 				5D2C8ABA1A827C4F000C15A9 /* LaunchScreen.xib in Resources */,
 				5D3E55F61AE6D9C20009DB45 /* MakePickButton.png in Resources */,
 				5D3E55FB1AE6DCDD0009DB45 /* raleway in Resources */,
@@ -343,7 +375,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5D9C2B511AEECB5C009B7D3B /* MyPicks.m in Sources */,
+				5D9C2B4E1AEE8C59009B7D3B /* Team.m in Sources */,
 				5D2C8AB21A827C4F000C15A9 /* ChooseGames.m in Sources */,
+				5D3E56061AE7F14E0009DB45 /* selectedPick.m in Sources */,
+				5D9C2B541AEEEECC009B7D3B /* CustomCell1.m in Sources */,
 				5D2C8AAF1A827C4F000C15A9 /* AppDelegate.m in Sources */,
 				5D2C8AAC1A827C4F000C15A9 /* main.m in Sources */,
 			);

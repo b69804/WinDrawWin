@@ -7,21 +7,34 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <Parse/Parse.h>
+#import "Team.h"
+
+@class selectedPick;
 
 @interface ChooseGames : UIViewController
+
+
 {
     NSMutableArray *gamesThisWeek;
     IBOutlet UIButton *homeTeamButton;
     IBOutlet UIButton *awayTeamButton;
     IBOutlet UIButton *drawButton;
     IBOutlet UIButton *start;
-    int *gameNumber;
+    PFObject *eachGame;
+    int gameNumber;
+    bool *firstGame;
+    selectedPick *choosenPick;
+    NSMutableArray *allPicks;
+    NSMutableArray *allTeams;
+    NSMutableDictionary *dictionaryOfTeams;
 }
 
 -(IBAction)onHomeTeamSelected:(id)sender;
 -(IBAction)onAwayTeamSelected:(id)sender;
 -(IBAction)onDrawselected:(id)sender;
 -(IBAction)onStart:(id)sender;
+-(void)createAllTeams;
 
 
 
