@@ -10,6 +10,7 @@
 #import "selectedPick.h"
 #import "Team.h"
 #import <Parse/Parse.h>
+#import "Reachability.h"
 
 @interface ChooseGames ()
 
@@ -18,6 +19,13 @@
 @implementation ChooseGames
 
 - (void)viewDidLoad {
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reachabilityDidChange:) name:kReachabilityChangedNotification object:nil];
+    
+    PFUser *currentUser = [PFUser currentUser];
+    if (currentUser == nil){
+        [self performSegueWithIdentifier:@"logout" sender:self];
+    }
     
     gamesThisWeek = [[NSMutableArray alloc]init];
     choosenPick = [[selectedPick alloc] init];
@@ -97,6 +105,22 @@
     [self nextGame];
 }
 
+- (void)reachabilityDidChange:(NSNotification *)notification {
+    Reachability *reachability = (Reachability *)[notification object];
+    
+    if ([reachability isReachable]) {
+        NSLog(@"Reachable");
+    } else {
+        UIAlertView * alert =[[UIAlertView alloc ]
+                              initWithTitle:@"Check your Interwebs!"
+                              message:@"We are having trouble connecting to the internet.  Please check your network settings and get a valid data connection."
+                              delegate:self
+                              cancelButtonTitle:@"Okay"
+                              otherButtonTitles: nil];
+        [alert show];
+    }
+}
+
 -(IBAction)onStart:(id)sender{
     gameNumber = 0;
     [self nextGame];
@@ -104,36 +128,35 @@
     awayTeamButton.hidden = false;
     drawButton.hidden = false;
     start.hidden = true;
-    
+    drawImageView.image = [UIImage imageNamed:@"Draw.png"];
+    [self StartTimer];
 }
 
 - (void)nextGame{
     
     if (gameNumber == 10) {
+        paused = YES;
         UIAlertView *noMoreGames = [[UIAlertView alloc] initWithTitle:@"All Games Selected" message:@"You have made all your selections for this week.  Let's see what you picked." delegate:self cancelButtonTitle:@"Okay" otherButtonTitles:nil];
         [noMoreGames show];
     } else {
         eachGame = [gamesThisWeek objectAtIndex:gameNumber];
         NSString *hTeam = eachGame[@"HomeTeam"];
+        NSLog(@"%@", hTeam);
         Team *home = [[Team alloc] init];
         home = [dictionaryOfTeams objectForKey:hTeam];
         //[homeTeamButton setTitle:home.name forState:UIControlStateNormal];
         UIImage *homeImage = [UIImage imageNamed:home.logo];
-        homeTeamButton.imageView.contentMode = UIViewContentModeScaleAspectFill;
-        homeTeamButton.contentVerticalAlignment = UIControlContentVerticalAlignmentTop;
-        homeTeamButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentCenter;
-        homeTeamButton.imageEdgeInsets = UIEdgeInsetsMake(0, 0, 0, 0);
-        [homeTeamButton setBackgroundImage:homeImage forState:UIControlStateNormal];
+        NSLog(@"%@", home.logo);
+        homeImageView.image = homeImage;
         
         NSString *aTeam = eachGame[@"AwayTeam"];
         Team *away = [[Team alloc] init];
         away = [dictionaryOfTeams objectForKey:aTeam];
+        NSLog(@"%@", aTeam);
         //[awayTeamButton setTitle:away.name forState:UIControlStateNormal];
         UIImage *awayImage = [UIImage imageNamed:away.logo];
-        awayTeamButton.imageView.contentMode = UIViewContentModeScaleAspectFill;
-        awayTeamButton.contentVerticalAlignment = UIControlContentVerticalAlignmentTop;
-        awayTeamButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentCenter;
-        [awayTeamButton setBackgroundImage:awayImage forState:UIControlStateNormal];
+        NSLog(@"%@", away.logo);
+        awayImageView.image = awayImage;
         
         gameNumber++;
     }
@@ -142,11 +165,14 @@
 
 -(void)writeFile{
     NSData *data = [NSKeyedArchiver archivedDataWithRootObject:allPicks];
+    PFUser* current = [PFUser currentUser];
     PFFile *file = [PFFile fileWithName:@"picks.txt" data:data];
     [file saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         if (succeeded) {
             PFObject *myPicks = [PFObject objectWithClassName:@"MyPicks"];
+            myPicks.ACL = [PFACL ACLWithUser:current];
             myPicks[@"myPickFile"] = file;
+            myPicks[@"WeekNo"] = eachGame[@"Week"];
             [myPicks saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error){
                 if (succeeded) {
                     [self performSegueWithIdentifier:@"myPicks" sender:self];
@@ -160,12 +186,38 @@
     }];
 }
 
+-(void) StartTimer
+{
+    timer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(timerTick:) userInfo:nil repeats:YES];
+    [[NSRunLoop currentRunLoop] addTimer:timer forMode:NSDefaultRunLoopMode];
+}
+
+- (void)timerTick:(NSTimer *)timer
+{
+    if (paused == NO){
+        timeSec++;
+        if (timeSec == 90)
+        {
+            UIAlertView * alert =[[UIAlertView alloc ] initWithTitle:@"Time's Up!"
+                                                             message:@"You have run out of time!"
+                                                            delegate:self
+                                                   cancelButtonTitle:@"Okay."
+                                                   otherButtonTitles: nil];
+            [alert show];
+            paused = YES;
+        }
+        NSString* timeNow = [NSString stringWithFormat:@"%02d", timeSec];
+        countdown.text= timeNow;
+    }
+}
+
 -(void)createAllTeams{
     
     Team *arsenal = [[Team alloc] init];
     arsenal.name = @"Arsenal";
     arsenal.nickname = @"AFC";
     arsenal.stadium = @"Emirates";
+    arsenal.logo = @"arsenal.png";
     [allTeams addObject:arsenal];
     [dictionaryOfTeams setObject:arsenal forKey:arsenal.nickname];
     
@@ -173,7 +225,7 @@
     leicester.name = @"Leicster City";
     leicester.nickname = @"LCFC";
     leicester.stadium = @"King Power Stadium";
-    leicester.logo = @"LCFC.png";
+    leicester.logo = @"lcfc.png";
     [allTeams addObject:leicester];
     [dictionaryOfTeams setObject:leicester forKey:leicester.nickname];
     
@@ -181,7 +233,7 @@
     newcastle.name = @"Newcastle United";
     newcastle.nickname = @"NUFC";
     newcastle.stadium = @"St. James Park";
-    newcastle.logo = @"newcastle.png";
+    newcastle.logo = @"nufc.png";
     [allTeams addObject:newcastle];
     [dictionaryOfTeams setObject:newcastle forKey:newcastle.nickname];
     
@@ -189,6 +241,7 @@
     astonVilla.name = @"Aston Villa";
     astonVilla.nickname = @"AVFC";
     astonVilla.stadium = @"Villa Park";
+    astonVilla.logo = @"villa.png";
     [allTeams addObject:astonVilla];
     [dictionaryOfTeams setObject:astonVilla forKey:astonVilla.nickname];
     
@@ -196,6 +249,7 @@
     everton.name = @"Everton";
     everton.nickname = @"EFC";
     everton.stadium = @"Goodison Park";
+    everton.logo = @"everton.png";
     [allTeams addObject:everton];
     [dictionaryOfTeams setObject:everton forKey:everton.nickname];
     
@@ -203,6 +257,7 @@
     liverpool.name = @"Liverpool";
     liverpool.nickname = @"LFC";
     liverpool.stadium = @"Anfield";
+    liverpool.logo = @"liverpool.png";
     [allTeams addObject:liverpool];
     [dictionaryOfTeams setObject:liverpool forKey:liverpool.nickname];
     
@@ -210,6 +265,7 @@
     qpr.name = @"Queen's Park Rangers";
     qpr.nickname = @"QPR";
     qpr.stadium = @"Loftus Road";
+    qpr.logo = @"QPR.png";
     [allTeams addObject:qpr];
     [dictionaryOfTeams setObject:qpr forKey:qpr.nickname];
     
@@ -217,6 +273,7 @@
     sunderland.name = @"Sunderland";
     sunderland.nickname = @"SUFC";
     sunderland.stadium = @"Stadium of Light";
+    sunderland.logo = @"sunderland.png";
     [allTeams addObject:sunderland];
     [dictionaryOfTeams setObject:sunderland forKey:sunderland.nickname];
     
@@ -224,6 +281,7 @@
     southampton.name = @"Southampton";
     southampton.nickname = @"SOFC";
     southampton.stadium = @"St. Mary's";
+    southampton.logo = @"southampton.png";
     [allTeams addObject:southampton];
     [dictionaryOfTeams setObject:southampton forKey:southampton.nickname];
     
@@ -231,6 +289,7 @@
     swansea.name = @"Swansea City";
     swansea.nickname = @"SWAN";
     swansea.stadium = @"Liberty Stadium";
+    swansea.logo = @"swansea.png";
     [allTeams addObject:swansea];
     [dictionaryOfTeams setObject:swansea forKey:swansea.nickname];
     
@@ -238,6 +297,7 @@
     stoke.name = @"Stoke City";
     stoke.nickname = @"STKE";
     stoke.stadium = @"Britannia Stadium";
+    stoke.logo = @"stokecity.png";
     [allTeams addObject:stoke];
     [dictionaryOfTeams setObject:stoke forKey:stoke.nickname];
     
@@ -245,6 +305,7 @@
     westham.name = @"West Ham";
     westham.nickname = @"WHFC";
     westham.stadium = @"Boleyn Ground";
+    westham.logo = @"westham.png";
     [allTeams addObject:westham];
     [dictionaryOfTeams setObject:westham forKey:westham.nickname];
     
@@ -252,6 +313,7 @@
     burnley.name = @"Burnley";
     burnley.nickname = @"BURN";
     burnley.stadium = @"Turf Moor";
+    burnley.logo = @"burnley.png";
     [allTeams addObject:burnley];
     [dictionaryOfTeams setObject:burnley forKey:burnley.nickname];
     
@@ -259,6 +321,7 @@
     united.name = @"Manchester United";
     united.nickname = @"MUFC";
     united.stadium = @"Old Trafford";
+    united.logo = @"united.png";
     [allTeams addObject:united];
     [dictionaryOfTeams setObject:united forKey:united.nickname];
     
@@ -266,6 +329,7 @@
     westbrom.name = @"West Brom";
     westbrom.nickname = @"WBA";
     westbrom.stadium = @"The Hawthorns";
+    westbrom.logo = @"westbrom.png";
     [allTeams addObject:westbrom];
     [dictionaryOfTeams setObject:westbrom forKey:westbrom.nickname];
     
@@ -273,6 +337,7 @@
     chelski.name = @"Chelsea";
     chelski.nickname = @"CFC";
     chelski.stadium = @"Stamford Bridge";
+    chelski.logo = @"chelsea.png";
     [allTeams addObject:chelski];
     [dictionaryOfTeams setObject:chelski forKey:chelski.nickname];
     
@@ -280,6 +345,7 @@
     crystalpalace.name = @"Crystal Palace";
     crystalpalace.nickname = @"CPA";
     crystalpalace.stadium = @"Selhurst Park";
+    crystalpalace.logo = @"palace.png";
     [allTeams addObject:crystalpalace];
     [dictionaryOfTeams setObject:crystalpalace forKey:crystalpalace.nickname];
     
@@ -287,6 +353,7 @@
     citeh.name = @"Manchester City";
     citeh.nickname = @"MCFC";
     citeh.stadium = @"Etihad Stadium";
+    citeh.logo = @"citeh.png";
     [allTeams addObject:citeh];
     [dictionaryOfTeams setObject:citeh forKey:citeh.nickname];
     
@@ -294,6 +361,7 @@
     spurs.name = @"Tottenham";
     spurs.nickname = @"TOT";
     spurs.stadium = @"White Hart Lane";
+    spurs.logo = @"spurs.png";
     [allTeams addObject:spurs];
     [dictionaryOfTeams setObject:spurs forKey:spurs.nickname];
     
@@ -301,6 +369,7 @@
     hull.name = @"Hull City";
     hull.nickname = @"HULL";
     hull.stadium = @"KC Stadium";
+    hull.logo = @"hull.png";
     [allTeams addObject:hull];
     [dictionaryOfTeams setObject:hull forKey:hull.nickname];
     

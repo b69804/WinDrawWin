@@ -20,6 +20,13 @@
     IBOutlet UIButton *homeTeamButton;
     IBOutlet UIButton *awayTeamButton;
     IBOutlet UIButton *drawButton;
+    IBOutlet UIImageView *homeImageView;
+    IBOutlet UIImageView *awayImageView;
+    IBOutlet UIImageView *drawImageView;
+    IBOutlet UILabel *countdown;
+    NSTimer *timer;
+    BOOL paused;
+    int timeSec;
     IBOutlet UIButton *start;
     PFObject *eachGame;
     int gameNumber;
@@ -35,6 +42,7 @@
 -(IBAction)onDrawselected:(id)sender;
 -(IBAction)onStart:(id)sender;
 -(void)createAllTeams;
+-(void) StartTimer;
 
 
 

@@ -10,13 +10,14 @@
 
 @implementation selectedPick
 
-@synthesize teamPicked, matchUp;
+@synthesize teamPicked, matchUp, isCorrect;
 
 - (void)encodeWithCoder:(NSCoder *)encoder
 {
     
     [encoder encodeObject:self.teamPicked forKey:@"teamPicked"];
     [encoder encodeObject:self.matchUp forKey:@"matchUp"];
+    [encoder encodeBool:self.isCorrect forKey:@"isCorrect"];
 }
 
 - (id)initWithCoder:(NSCoder *)decoder
@@ -26,6 +27,7 @@
     {
         self.teamPicked = [decoder decodeObjectForKey:@"teamPicked"];
         self.matchUp = [decoder decodeObjectForKey:@"matchUp"];
+        self.isCorrect = [decoder decodeObjectForKey:@"isCorrect"];
     }
     return self;
 }

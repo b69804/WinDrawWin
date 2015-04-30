@@ -45,9 +45,40 @@
 		5D9C2B4E1AEE8C59009B7D3B /* Team.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D9C2B4D1AEE8C59009B7D3B /* Team.m */; };
 		5D9C2B511AEECB5C009B7D3B /* MyPicks.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D9C2B501AEECB5C009B7D3B /* MyPicks.m */; };
 		5D9C2B541AEEEECC009B7D3B /* CustomCell1.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D9C2B531AEEEECC009B7D3B /* CustomCell1.m */; };
-		5D9C2B561AEF1D66009B7D3B /* arsenal.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D9C2B551AEF1D66009B7D3B /* arsenal.png */; };
-		5D9C2B581AEF3287009B7D3B /* LCFC.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D9C2B571AEF3287009B7D3B /* LCFC.png */; };
-		5D9C2B5A1AEF32F3009B7D3B /* newcastle.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D9C2B591AEF32F3009B7D3B /* newcastle.png */; };
+		5D9C2B671AF1A702009B7D3B /* rankingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D9C2B661AF1A702009B7D3B /* rankingCell.m */; };
+		5D9C2B6A1AF1A731009B7D3B /* Rankings.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D9C2B691AF1A731009B7D3B /* Rankings.m */; };
+		5D9C2B6D1AF1AF45009B7D3B /* UserRankings.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D9C2B6C1AF1AF45009B7D3B /* UserRankings.m */; };
+		5D9C2B701AF288A2009B7D3B /* UserCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D9C2B6F1AF288A2009B7D3B /* UserCell.m */; };
+		5D9C2B731AF288CD009B7D3B /* UserProfile.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D9C2B721AF288CD009B7D3B /* UserProfile.m */; };
+		5D9C2B761AF28977009B7D3B /* UserScores.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D9C2B751AF28977009B7D3B /* UserScores.m */; };
+		5D9C2B791AF2A1F1009B7D3B /* Correct.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D9C2B771AF2A1F1009B7D3B /* Correct.png */; };
+		5D9C2B7A1AF2A1F1009B7D3B /* Incorrect.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D9C2B781AF2A1F1009B7D3B /* Incorrect.png */; };
+		5D9C2B7D1AF2A296009B7D3B /* WeeklyDetail.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D9C2B7C1AF2A296009B7D3B /* WeeklyDetail.m */; };
+		5D9C2B801AF2A2C1009B7D3B /* resultDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D9C2B7F1AF2A2C1009B7D3B /* resultDetailCell.m */; };
+		5D9C2B831AF2C095009B7D3B /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D9C2B821AF2C095009B7D3B /* Reachability.m */; };
+		5D9C2B861AF2C0B4009B7D3B /* Login.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D9C2B851AF2C0B4009B7D3B /* Login.m */; };
+		5D9C2B891AF2C408009B7D3B /* SetupAccount.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D9C2B881AF2C408009B7D3B /* SetupAccount.m */; };
+		5D9C2B8B1AF2D5E7009B7D3B /* Draw.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D9C2B8A1AF2D5E7009B7D3B /* Draw.png */; };
+		5D9C2B901AF2E536009B7D3B /* arsenal.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D9C2B8C1AF2E536009B7D3B /* arsenal.png */; };
+		5D9C2B911AF2E536009B7D3B /* burnley.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D9C2B8D1AF2E536009B7D3B /* burnley.png */; };
+		5D9C2B921AF2E536009B7D3B /* chelsea.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D9C2B8E1AF2E536009B7D3B /* chelsea.png */; };
+		5D9C2B931AF2E536009B7D3B /* citeh.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D9C2B8F1AF2E536009B7D3B /* citeh.png */; };
+		5D9C2BA01AF2E54D009B7D3B /* everton.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D9C2B941AF2E54D009B7D3B /* everton.png */; };
+		5D9C2BA11AF2E54D009B7D3B /* hull.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D9C2B951AF2E54D009B7D3B /* hull.png */; };
+		5D9C2BA21AF2E54D009B7D3B /* liverpool.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D9C2B961AF2E54D009B7D3B /* liverpool.png */; };
+		5D9C2BA31AF2E54D009B7D3B /* palace.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D9C2B971AF2E54D009B7D3B /* palace.png */; };
+		5D9C2BA41AF2E54D009B7D3B /* QPR.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D9C2B981AF2E54D009B7D3B /* QPR.png */; };
+		5D9C2BA51AF2E54D009B7D3B /* southampton.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D9C2B991AF2E54D009B7D3B /* southampton.png */; };
+		5D9C2BA61AF2E54D009B7D3B /* spurs.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D9C2B9A1AF2E54D009B7D3B /* spurs.png */; };
+		5D9C2BA71AF2E54D009B7D3B /* stokecity.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D9C2B9B1AF2E54D009B7D3B /* stokecity.png */; };
+		5D9C2BA81AF2E54D009B7D3B /* sunderland.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D9C2B9C1AF2E54D009B7D3B /* sunderland.png */; };
+		5D9C2BA91AF2E54D009B7D3B /* swansea.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D9C2B9D1AF2E54D009B7D3B /* swansea.png */; };
+		5D9C2BAA1AF2E54D009B7D3B /* united.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D9C2B9E1AF2E54D009B7D3B /* united.png */; };
+		5D9C2BAB1AF2E54D009B7D3B /* villa.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D9C2B9F1AF2E54D009B7D3B /* villa.png */; };
+		5D9C2BAE1AF2E55A009B7D3B /* westbrom.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D9C2BAC1AF2E55A009B7D3B /* westbrom.png */; };
+		5D9C2BAF1AF2E55A009B7D3B /* westham.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D9C2BAD1AF2E55A009B7D3B /* westham.png */; };
+		5D9C2BB21AF2F233009B7D3B /* lcfc.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D9C2BB01AF2F233009B7D3B /* lcfc.png */; };
+		5D9C2BB31AF2F233009B7D3B /* nufc.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D9C2BB11AF2F233009B7D3B /* nufc.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -109,9 +140,51 @@
 		5D9C2B501AEECB5C009B7D3B /* MyPicks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyPicks.m; sourceTree = "<group>"; };
 		5D9C2B521AEEEECC009B7D3B /* CustomCell1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomCell1.h; sourceTree = "<group>"; };
 		5D9C2B531AEEEECC009B7D3B /* CustomCell1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomCell1.m; sourceTree = "<group>"; };
-		5D9C2B551AEF1D66009B7D3B /* arsenal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arsenal.png; sourceTree = "<group>"; };
-		5D9C2B571AEF3287009B7D3B /* LCFC.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LCFC.png; sourceTree = "<group>"; };
-		5D9C2B591AEF32F3009B7D3B /* newcastle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = newcastle.png; sourceTree = "<group>"; };
+		5D9C2B651AF1A702009B7D3B /* rankingCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rankingCell.h; sourceTree = "<group>"; };
+		5D9C2B661AF1A702009B7D3B /* rankingCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = rankingCell.m; sourceTree = "<group>"; };
+		5D9C2B681AF1A731009B7D3B /* Rankings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Rankings.h; sourceTree = "<group>"; };
+		5D9C2B691AF1A731009B7D3B /* Rankings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Rankings.m; sourceTree = "<group>"; };
+		5D9C2B6B1AF1AF45009B7D3B /* UserRankings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserRankings.h; sourceTree = "<group>"; };
+		5D9C2B6C1AF1AF45009B7D3B /* UserRankings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserRankings.m; sourceTree = "<group>"; };
+		5D9C2B6E1AF288A2009B7D3B /* UserCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserCell.h; sourceTree = "<group>"; };
+		5D9C2B6F1AF288A2009B7D3B /* UserCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserCell.m; sourceTree = "<group>"; };
+		5D9C2B711AF288CD009B7D3B /* UserProfile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserProfile.h; sourceTree = "<group>"; };
+		5D9C2B721AF288CD009B7D3B /* UserProfile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserProfile.m; sourceTree = "<group>"; };
+		5D9C2B741AF28977009B7D3B /* UserScores.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserScores.h; sourceTree = "<group>"; };
+		5D9C2B751AF28977009B7D3B /* UserScores.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserScores.m; sourceTree = "<group>"; };
+		5D9C2B771AF2A1F1009B7D3B /* Correct.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Correct.png; sourceTree = "<group>"; };
+		5D9C2B781AF2A1F1009B7D3B /* Incorrect.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Incorrect.png; sourceTree = "<group>"; };
+		5D9C2B7B1AF2A296009B7D3B /* WeeklyDetail.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeeklyDetail.h; sourceTree = "<group>"; };
+		5D9C2B7C1AF2A296009B7D3B /* WeeklyDetail.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeeklyDetail.m; sourceTree = "<group>"; };
+		5D9C2B7E1AF2A2C1009B7D3B /* resultDetailCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = resultDetailCell.h; sourceTree = "<group>"; };
+		5D9C2B7F1AF2A2C1009B7D3B /* resultDetailCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = resultDetailCell.m; sourceTree = "<group>"; };
+		5D9C2B811AF2C095009B7D3B /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
+		5D9C2B821AF2C095009B7D3B /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
+		5D9C2B841AF2C0B4009B7D3B /* Login.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Login.h; sourceTree = "<group>"; };
+		5D9C2B851AF2C0B4009B7D3B /* Login.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Login.m; sourceTree = "<group>"; };
+		5D9C2B871AF2C408009B7D3B /* SetupAccount.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SetupAccount.h; sourceTree = "<group>"; };
+		5D9C2B881AF2C408009B7D3B /* SetupAccount.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SetupAccount.m; sourceTree = "<group>"; };
+		5D9C2B8A1AF2D5E7009B7D3B /* Draw.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Draw.png; sourceTree = "<group>"; };
+		5D9C2B8C1AF2E536009B7D3B /* arsenal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arsenal.png; sourceTree = "<group>"; };
+		5D9C2B8D1AF2E536009B7D3B /* burnley.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = burnley.png; sourceTree = "<group>"; };
+		5D9C2B8E1AF2E536009B7D3B /* chelsea.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = chelsea.png; sourceTree = "<group>"; };
+		5D9C2B8F1AF2E536009B7D3B /* citeh.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = citeh.png; sourceTree = "<group>"; };
+		5D9C2B941AF2E54D009B7D3B /* everton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = everton.png; sourceTree = "<group>"; };
+		5D9C2B951AF2E54D009B7D3B /* hull.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hull.png; sourceTree = "<group>"; };
+		5D9C2B961AF2E54D009B7D3B /* liverpool.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = liverpool.png; sourceTree = "<group>"; };
+		5D9C2B971AF2E54D009B7D3B /* palace.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = palace.png; sourceTree = "<group>"; };
+		5D9C2B981AF2E54D009B7D3B /* QPR.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = QPR.png; sourceTree = "<group>"; };
+		5D9C2B991AF2E54D009B7D3B /* southampton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = southampton.png; sourceTree = "<group>"; };
+		5D9C2B9A1AF2E54D009B7D3B /* spurs.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spurs.png; sourceTree = "<group>"; };
+		5D9C2B9B1AF2E54D009B7D3B /* stokecity.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = stokecity.png; sourceTree = "<group>"; };
+		5D9C2B9C1AF2E54D009B7D3B /* sunderland.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sunderland.png; sourceTree = "<group>"; };
+		5D9C2B9D1AF2E54D009B7D3B /* swansea.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = swansea.png; sourceTree = "<group>"; };
+		5D9C2B9E1AF2E54D009B7D3B /* united.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = united.png; sourceTree = "<group>"; };
+		5D9C2B9F1AF2E54D009B7D3B /* villa.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = villa.png; sourceTree = "<group>"; };
+		5D9C2BAC1AF2E55A009B7D3B /* westbrom.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = westbrom.png; sourceTree = "<group>"; };
+		5D9C2BAD1AF2E55A009B7D3B /* westham.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = westham.png; sourceTree = "<group>"; };
+		5D9C2BB01AF2F233009B7D3B /* lcfc.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lcfc.png; sourceTree = "<group>"; };
+		5D9C2BB11AF2F233009B7D3B /* nufc.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = nufc.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -173,6 +246,12 @@
 				5D3E55FA1AE6DCDD0009DB45 /* raleway */,
 				5D2C8AAD1A827C4F000C15A9 /* AppDelegate.h */,
 				5D2C8AAE1A827C4F000C15A9 /* AppDelegate.m */,
+				5D9C2B841AF2C0B4009B7D3B /* Login.h */,
+				5D9C2B851AF2C0B4009B7D3B /* Login.m */,
+				5D9C2B871AF2C408009B7D3B /* SetupAccount.h */,
+				5D9C2B881AF2C408009B7D3B /* SetupAccount.m */,
+				5D9C2B811AF2C095009B7D3B /* Reachability.h */,
+				5D9C2B821AF2C095009B7D3B /* Reachability.m */,
 				5D2C8AB01A827C4F000C15A9 /* ChooseGames.h */,
 				5D2C8AB11A827C4F000C15A9 /* ChooseGames.m */,
 				5D9C2B4F1AEECB5C009B7D3B /* MyPicks.h */,
@@ -183,22 +262,58 @@
 				5D3E56051AE7F14E0009DB45 /* selectedPick.m */,
 				5D9C2B4C1AEE8C59009B7D3B /* Team.h */,
 				5D9C2B4D1AEE8C59009B7D3B /* Team.m */,
+				5D9C2B681AF1A731009B7D3B /* Rankings.h */,
+				5D9C2B691AF1A731009B7D3B /* Rankings.m */,
+				5D9C2B651AF1A702009B7D3B /* rankingCell.h */,
+				5D9C2B661AF1A702009B7D3B /* rankingCell.m */,
+				5D9C2B6B1AF1AF45009B7D3B /* UserRankings.h */,
+				5D9C2B6C1AF1AF45009B7D3B /* UserRankings.m */,
+				5D9C2B6E1AF288A2009B7D3B /* UserCell.h */,
+				5D9C2B6F1AF288A2009B7D3B /* UserCell.m */,
+				5D9C2B711AF288CD009B7D3B /* UserProfile.h */,
+				5D9C2B721AF288CD009B7D3B /* UserProfile.m */,
+				5D9C2B741AF28977009B7D3B /* UserScores.h */,
+				5D9C2B751AF28977009B7D3B /* UserScores.m */,
+				5D9C2B7B1AF2A296009B7D3B /* WeeklyDetail.h */,
+				5D9C2B7C1AF2A296009B7D3B /* WeeklyDetail.m */,
+				5D9C2B7E1AF2A2C1009B7D3B /* resultDetailCell.h */,
+				5D9C2B7F1AF2A2C1009B7D3B /* resultDetailCell.m */,
+				5D2C8AB31A827C4F000C15A9 /* Main.storyboard */,
+				5D2C8AB81A827C4F000C15A9 /* LaunchScreen.xib */,
+				5D9C2B8C1AF2E536009B7D3B /* arsenal.png */,
+				5D9C2B8D1AF2E536009B7D3B /* burnley.png */,
+				5D9C2B8E1AF2E536009B7D3B /* chelsea.png */,
+				5D9C2B8F1AF2E536009B7D3B /* citeh.png */,
+				5D9C2B941AF2E54D009B7D3B /* everton.png */,
+				5D9C2B951AF2E54D009B7D3B /* hull.png */,
+				5D9C2B961AF2E54D009B7D3B /* liverpool.png */,
+				5D9C2B971AF2E54D009B7D3B /* palace.png */,
+				5D9C2B981AF2E54D009B7D3B /* QPR.png */,
+				5D9C2B991AF2E54D009B7D3B /* southampton.png */,
+				5D9C2B9A1AF2E54D009B7D3B /* spurs.png */,
+				5D9C2B9B1AF2E54D009B7D3B /* stokecity.png */,
+				5D9C2B9C1AF2E54D009B7D3B /* sunderland.png */,
+				5D9C2B9D1AF2E54D009B7D3B /* swansea.png */,
+				5D9C2B9E1AF2E54D009B7D3B /* united.png */,
+				5D9C2B9F1AF2E54D009B7D3B /* villa.png */,
+				5D9C2BAC1AF2E55A009B7D3B /* westbrom.png */,
+				5D9C2BAD1AF2E55A009B7D3B /* westham.png */,
+				5D9C2BB01AF2F233009B7D3B /* lcfc.png */,
+				5D9C2BB11AF2F233009B7D3B /* nufc.png */,
 				5D3E55F21AE6D9C20009DB45 /* MakePickButton.png */,
 				5D3E55F31AE6D9C20009DB45 /* MyPicksButton.png */,
-				5D9C2B591AEF32F3009B7D3B /* newcastle.png */,
-				5D9C2B571AEF3287009B7D3B /* LCFC.png */,
+				5D9C2B8A1AF2D5E7009B7D3B /* Draw.png */,
+				5D9C2B771AF2A1F1009B7D3B /* Correct.png */,
+				5D9C2B781AF2A1F1009B7D3B /* Incorrect.png */,
 				5D3E55FC1AE6DFFF0009DB45 /* MakePick_Selected.png */,
 				5D3E55FD1AE6DFFF0009DB45 /* MyPicks_Selected.png */,
 				5D3E55FE1AE6DFFF0009DB45 /* MyProfile_Selected.png */,
-				5D9C2B551AEF1D66009B7D3B /* arsenal.png */,
 				5D3E55FF1AE6DFFF0009DB45 /* Rankings_Selected.png */,
 				5D3E55F41AE6D9C20009DB45 /* MyProfileButton.png */,
 				5D3E55F51AE6D9C20009DB45 /* RankingButton.png */,
-				5D2C8AB31A827C4F000C15A9 /* Main.storyboard */,
 				5D3E55F01AE6C04A0009DB45 /* Logo_Horiz.png */,
 				5D3E55EE1AE6BE630009DB45 /* Bkgrnd.png */,
 				5D2C8AB61A827C4F000C15A9 /* Images.xcassets */,
-				5D2C8AB81A827C4F000C15A9 /* LaunchScreen.xib */,
 				5D2C8AA91A827C4F000C15A9 /* Supporting Files */,
 			);
 			path = WinDrawWin;
@@ -341,23 +456,43 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5D9C2BA51AF2E54D009B7D3B /* southampton.png in Resources */,
+				5D9C2B791AF2A1F1009B7D3B /* Correct.png in Resources */,
+				5D9C2B911AF2E536009B7D3B /* burnley.png in Resources */,
 				5D3E55F91AE6D9C20009DB45 /* RankingButton.png in Resources */,
 				5D3E55F71AE6D9C20009DB45 /* MyPicksButton.png in Resources */,
+				5D9C2BA71AF2E54D009B7D3B /* stokecity.png in Resources */,
+				5D9C2BAA1AF2E54D009B7D3B /* united.png in Resources */,
+				5D9C2BAB1AF2E54D009B7D3B /* villa.png in Resources */,
 				5D3E56021AE6DFFF0009DB45 /* MyProfile_Selected.png in Resources */,
-				5D9C2B581AEF3287009B7D3B /* LCFC.png in Resources */,
+				5D9C2BA01AF2E54D009B7D3B /* everton.png in Resources */,
+				5D9C2BAF1AF2E55A009B7D3B /* westham.png in Resources */,
+				5D9C2BB21AF2F233009B7D3B /* lcfc.png in Resources */,
+				5D9C2B901AF2E536009B7D3B /* arsenal.png in Resources */,
+				5D9C2B7A1AF2A1F1009B7D3B /* Incorrect.png in Resources */,
+				5D9C2BA61AF2E54D009B7D3B /* spurs.png in Resources */,
 				5D3E56001AE6DFFF0009DB45 /* MakePick_Selected.png in Resources */,
 				5D3E56011AE6DFFF0009DB45 /* MyPicks_Selected.png in Resources */,
+				5D9C2BA31AF2E54D009B7D3B /* palace.png in Resources */,
 				5D3E55F81AE6D9C20009DB45 /* MyProfileButton.png in Resources */,
 				5D2C8AB51A827C4F000C15A9 /* Main.storyboard in Resources */,
 				5D3E55EF1AE6BE630009DB45 /* Bkgrnd.png in Resources */,
-				5D9C2B5A1AEF32F3009B7D3B /* newcastle.png in Resources */,
 				5D3E55F11AE6C04A0009DB45 /* Logo_Horiz.png in Resources */,
 				5D3E56031AE6DFFF0009DB45 /* Rankings_Selected.png in Resources */,
-				5D9C2B561AEF1D66009B7D3B /* arsenal.png in Resources */,
+				5D9C2BA81AF2E54D009B7D3B /* sunderland.png in Resources */,
+				5D9C2BAE1AF2E55A009B7D3B /* westbrom.png in Resources */,
 				5D2C8ABA1A827C4F000C15A9 /* LaunchScreen.xib in Resources */,
+				5D9C2B931AF2E536009B7D3B /* citeh.png in Resources */,
+				5D9C2BA91AF2E54D009B7D3B /* swansea.png in Resources */,
 				5D3E55F61AE6D9C20009DB45 /* MakePickButton.png in Resources */,
+				5D9C2BA41AF2E54D009B7D3B /* QPR.png in Resources */,
 				5D3E55FB1AE6DCDD0009DB45 /* raleway in Resources */,
+				5D9C2BB31AF2F233009B7D3B /* nufc.png in Resources */,
 				5D2C8AB71A827C4F000C15A9 /* Images.xcassets in Resources */,
+				5D9C2BA21AF2E54D009B7D3B /* liverpool.png in Resources */,
+				5D9C2BA11AF2E54D009B7D3B /* hull.png in Resources */,
+				5D9C2B8B1AF2D5E7009B7D3B /* Draw.png in Resources */,
+				5D9C2B921AF2E536009B7D3B /* chelsea.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -376,12 +511,23 @@
 			buildActionMask = 2147483647;
 			files = (
 				5D9C2B511AEECB5C009B7D3B /* MyPicks.m in Sources */,
+				5D9C2B7D1AF2A296009B7D3B /* WeeklyDetail.m in Sources */,
+				5D9C2B6D1AF1AF45009B7D3B /* UserRankings.m in Sources */,
+				5D9C2B6A1AF1A731009B7D3B /* Rankings.m in Sources */,
 				5D9C2B4E1AEE8C59009B7D3B /* Team.m in Sources */,
+				5D9C2B861AF2C0B4009B7D3B /* Login.m in Sources */,
+				5D9C2B671AF1A702009B7D3B /* rankingCell.m in Sources */,
 				5D2C8AB21A827C4F000C15A9 /* ChooseGames.m in Sources */,
 				5D3E56061AE7F14E0009DB45 /* selectedPick.m in Sources */,
 				5D9C2B541AEEEECC009B7D3B /* CustomCell1.m in Sources */,
+				5D9C2B731AF288CD009B7D3B /* UserProfile.m in Sources */,
+				5D9C2B831AF2C095009B7D3B /* Reachability.m in Sources */,
+				5D9C2B761AF28977009B7D3B /* UserScores.m in Sources */,
+				5D9C2B891AF2C408009B7D3B /* SetupAccount.m in Sources */,
 				5D2C8AAF1A827C4F000C15A9 /* AppDelegate.m in Sources */,
+				5D9C2B701AF288A2009B7D3B /* UserCell.m in Sources */,
 				5D2C8AAC1A827C4F000C15A9 /* main.m in Sources */,
+				5D9C2B801AF2A2C1009B7D3B /* resultDetailCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

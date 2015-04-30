@@ -11,6 +11,7 @@
 #import "Team.h"
 #import "CustomCell1.h"
 #import <Parse/Parse.h>
+#import "Reachability.h"
 
 @interface MyPicks ()
 
@@ -33,50 +34,73 @@
     [self getFile];
     [super viewDidAppear:TRUE];
     NSLog(@"View did appear");
+    PFUser *currentUser = [PFUser currentUser];
+    if (currentUser == nil){
+        [self performSegueWithIdentifier:@"logout" sender:self];
+    }
+}
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reachabilityDidChange:) name:kReachabilityChangedNotification object:nil];
+}
+
+- (void)reachabilityDidChange:(NSNotification *)notification {
+    Reachability *reachability = (Reachability *)[notification object];
+    
+    if ([reachability isReachable]) {
+        NSLog(@"Reachable");
+    } else {
+        UIAlertView * alert =[[UIAlertView alloc ]
+                              initWithTitle:@"Check your Interwebs!"
+                              message:@"We are having trouble connecting to the internet.  Please check your network settings and get a valid data connection."
+                              delegate:self
+                              cancelButtonTitle:@"Okay"
+                              otherButtonTitles: nil];
+        alert.tag = 3;
+        [alert show];
+    }
 }
 
 -(void)getFile{
     PFQuery *query = [PFQuery queryWithClassName:@"MyPicks"];
-    /*if (query.trace == NO ) {
-        NSLog(@"No Query");
-        UIAlertView *pickGames = [[UIAlertView alloc] initWithTitle:@"Make Your Picks!" message:@"Looks like you have not made picks yet.  Let's get you started!" delegate:self cancelButtonTitle:@"Okay" otherButtonTitles:nil];
-                        [pickGames show];
-    }*/
+   // PFUser* current = [PFUser currentUser];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (objects.count == 0) {
             UIAlertView *pickGames = [[UIAlertView alloc] initWithTitle:@"Make Your Picks!" message:@"Looks like you have not made picks yet.  Let's get you started!" delegate:self cancelButtonTitle:@"Okay" otherButtonTitles:nil];
+            pickGames.tag = 1;
             [pickGames show];
-        }
-        if (!error) {
-            // Do something with the found objects
+        } else if (!error) {
             for (PFObject *object in objects) {
-                if (objects == nil) {
-                    if (userPicks.count == 0) {
-                    }
-                }
                 myPickFile = object;
                 PFFile *myPickData = myPickFile[@"myPickFile"];
                 [myPickData getDataInBackgroundWithBlock:^(NSData *data, NSError *error) {
                     if (data != nil) {
                         NSMutableArray *allMyPicks = [NSKeyedUnarchiver unarchiveObjectWithData:data];
-                        //[userPicks addObject:allMyPicks];
-                        NSLog(@"%@", allMyPicks);
                         for (testing in allMyPicks) {
-                            NSLog(@"%@", testing.teamPicked.name);
                             [userPicks addObject:testing];
-                            
                         }
                         [myPicks reloadData];
-                        
                     }
                 }];
             }
+            PFQuery *resultsQuery = [PFQuery queryWithClassName:@"Week24"];
+            [resultsQuery whereKey:@"resultsAvailable" containsString:@"yes"];
+            [resultsQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+                if (!error) {
+                    NSLog(@"Results are available");
+                    UIAlertView *results = [[UIAlertView alloc] initWithTitle:@"Results are In!" message:@"All games have finished for this week.  Let's see how you did!" delegate:self cancelButtonTitle:@"Okay" otherButtonTitles:nil];
+                    results.tag = 2;
+                    [results show];
+                } else {
+                    NSLog(@"Error: %@ %@", error, [error userInfo]);
+                }
+            }];
         } else {
             // Log details of the failure
             NSLog(@"Error: %@ %@", error, [error userInfo]);
         }
     }];
-    
 }
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -105,9 +129,12 @@
 
 -(void) alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
-    if (buttonIndex == 0)
+    if (alertView.tag == 1)
     {
         [self performSegueWithIdentifier:@"goToMakePicks" sender:self];
+    } else if (alertView.tag == 2){
+        //[self performSegueWithIdentifier:@"goToMakePicks" sender:self];
+        NSLog(@"Compare Results.");
     }
 }
 

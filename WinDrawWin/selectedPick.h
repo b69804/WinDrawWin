@@ -13,10 +13,12 @@
 {
     Team *teamPicked;
     NSString *matchUp;
+    bool isCorrect;
 }
 
 @property Team *teamPicked;
 @property NSString *matchUp;
+@property bool isCorrect;
 
 
 @end

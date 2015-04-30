@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import <Parse/Parse.h>
+#import "Reachability.h"
 
 @interface AppDelegate ()
 
@@ -21,6 +22,12 @@
     
     [Parse setApplicationId:@"lYiJADF9Hbs0qchIMVYjVd5cfvguM5jWebujfPPo"
                   clientKey:@"yph3Tj5ZVEs4mZlvoM54a4sWjRqiMgq10DOORyS7"];
+    
+    // Initialize Reachability
+    Reachability *reachability = [Reachability reachabilityWithHostname:@"www.google.com"];
+    
+    // Start Monitoring
+    [reachability startNotifier];
     
     return YES;
 }
