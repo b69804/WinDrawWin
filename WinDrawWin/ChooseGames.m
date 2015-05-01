@@ -34,14 +34,15 @@
     dictionaryOfTeams = [[NSMutableDictionary alloc] init];
     [self createAllTeams];
     PFQuery *query = [PFQuery queryWithClassName:@"Week24"];
+    [query orderByAscending:@"GameNo"];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (!error) {
-            [query orderByAscending:@"GameNo"];
             for (PFObject *object in objects) {
                 [gamesThisWeek addObject:object];
             }
+            //NSSortDescriptor *firstDescriptor = [[NSSortDescriptor alloc] initWithKey:@"GameNo" ascending:YES];
+            
         } else {
-            // Log details of the failure
             NSLog(@"Error: %@ %@", error, [error userInfo]);
         }
     }];
@@ -68,6 +69,7 @@
     NSString *fullAway = awayTeamMatchUp.teamPicked.name;
     NSString *match = [NSString stringWithFormat:@"%@ vs %@", fullHome, fullAway];
     choosenPick.matchUp = match;
+    choosenPick.gameNumber = eachGame[@"GameNo"];
     [allPicks addObject:choosenPick];
     [self nextGame];
 }
@@ -83,6 +85,7 @@
     NSString *fullHome = HomeTeamMatchUp.teamPicked.name;
     NSString *match = [NSString stringWithFormat:@"%@ vs %@", fullHome, fullAway];
     choosenPick.matchUp = match;
+    choosenPick.gameNumber = eachGame[@"GameNo"];
     [allPicks addObject:choosenPick];
     [self nextGame];
 }
@@ -99,7 +102,7 @@
     awayTeamMatchUp.teamPicked = [dictionaryOfTeams objectForKey:aTeam];
     NSString *fullAway = awayTeamMatchUp.teamPicked.name;
     NSString *match = [NSString stringWithFormat:@"%@ vs %@", fullHome, fullAway];
-    
+    choosenPick.gameNumber = eachGame[@"GameNo"];
     choosenPick.matchUp = match;
     [allPicks addObject:choosenPick];
     [self nextGame];
@@ -136,6 +139,7 @@
     
     if (gameNumber == 10) {
         paused = YES;
+        
         UIAlertView *noMoreGames = [[UIAlertView alloc] initWithTitle:@"All Games Selected" message:@"You have made all your selections for this week.  Let's see what you picked." delegate:self cancelButtonTitle:@"Okay" otherButtonTitles:nil];
         [noMoreGames show];
     } else {
@@ -144,7 +148,6 @@
         NSLog(@"%@", hTeam);
         Team *home = [[Team alloc] init];
         home = [dictionaryOfTeams objectForKey:hTeam];
-        //[homeTeamButton setTitle:home.name forState:UIControlStateNormal];
         UIImage *homeImage = [UIImage imageNamed:home.logo];
         NSLog(@"%@", home.logo);
         homeImageView.image = homeImage;
@@ -153,7 +156,6 @@
         Team *away = [[Team alloc] init];
         away = [dictionaryOfTeams objectForKey:aTeam];
         NSLog(@"%@", aTeam);
-        //[awayTeamButton setTitle:away.name forState:UIControlStateNormal];
         UIImage *awayImage = [UIImage imageNamed:away.logo];
         NSLog(@"%@", away.logo);
         awayImageView.image = awayImage;
@@ -173,6 +175,8 @@
             myPicks.ACL = [PFACL ACLWithUser:current];
             myPicks[@"myPickFile"] = file;
             myPicks[@"WeekNo"] = eachGame[@"Week"];
+            myTimeForPicks = [NSNumber numberWithInt:(90 - timeSec)];
+            myPicks[@"Time"] = myTimeForPicks;
             [myPicks saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error){
                 if (succeeded) {
                     [self performSegueWithIdentifier:@"myPicks" sender:self];

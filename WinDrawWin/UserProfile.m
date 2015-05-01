@@ -82,6 +82,7 @@
             for (PFObject *object in objects) {
                 myPickFile = object;
                 PFFile *myPickData = myPickFile[@"myPickFile"];
+                NSString *weekNumber = object[@"WeekNo"];
                 [myPickData getDataInBackgroundWithBlock:^(NSData *data, NSError *error) {
                     if (data != nil) {
                         NSMutableArray *allMyPicks = [NSKeyedUnarchiver unarchiveObjectWithData:data];
@@ -89,7 +90,7 @@
                             [userPicks addObject:eachPick];
                         }
                         UserScores *scoreForWeek33 = [[UserScores alloc] init];
-                        scoreForWeek33.week = [NSString stringWithFormat:@"Week %@", scoreForWeek33.week];
+                        scoreForWeek33.week = [NSString stringWithFormat:@"Week %@", weekNumber];
                         scoreForWeek33.score = 65;
                         scoreForWeek33.eachWeeksPicks = userPicks;
                         [allMyScores addObject:scoreForWeek33];
@@ -99,7 +100,6 @@
                 }];
             }
         } else {
-            // Log details of the failure
             NSLog(@"Error: %@ %@", error, [error userInfo]);
         }
     }];

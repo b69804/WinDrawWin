@@ -17,6 +17,7 @@
 }
 
 @property Team *teamPicked;
+@property NSNumber *gameNumber;
 @property NSString *matchUp;
 @property bool isCorrect;
 

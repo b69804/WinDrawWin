@@ -18,13 +18,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    //selectedArray = [[NSMutableArray alloc] init];
-    
-    //NSLog(@"%@", _thatWeeksUsersScores.eachWeeksPicks);
-    
-    //[selectedArray addObject:_thatWeeksUsersScores.eachWeeksPicks];
-    
+        
 }
 
 - (void)didReceiveMemoryWarning {

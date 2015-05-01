@@ -46,7 +46,7 @@
         UserRankings *eachPerson = [sortedArray objectAtIndex:indexPath.row];
         NSString *userName = eachPerson.specificUserName;
         NSUInteger posInArray = [sortedArray indexOfObject:eachPerson] + 1;
-        NSString *ranking = [NSString stringWithFormat:@"%lu", posInArray];
+        NSString *ranking = [NSString stringWithFormat:@"%lu", (unsigned long)posInArray];
         NSString *score = [NSString stringWithFormat:@"%d", eachPerson.score];
         
         [rankCell refreshCellWithInfo:ranking username:userName userScore:score];

@@ -22,6 +22,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     userPicks = [[NSMutableArray alloc] init];
+    resultArray = [[NSMutableDictionary alloc] init];
     // Do any additional setup after loading the view.
 }
 
@@ -33,7 +34,6 @@
 -(void)viewDidAppear:(BOOL)animated{
     [self getFile];
     [super viewDidAppear:TRUE];
-    NSLog(@"View did appear");
     PFUser *currentUser = [PFUser currentUser];
     if (currentUser == nil){
         [self performSegueWithIdentifier:@"logout" sender:self];
@@ -73,6 +73,7 @@
         } else if (!error) {
             for (PFObject *object in objects) {
                 myPickFile = object;
+                objectID = myPickFile.objectId;
                 PFFile *myPickData = myPickFile[@"myPickFile"];
                 [myPickData getDataInBackgroundWithBlock:^(NSData *data, NSError *error) {
                     if (data != nil) {
@@ -85,13 +86,21 @@
                 }];
             }
             PFQuery *resultsQuery = [PFQuery queryWithClassName:@"Week24"];
-            [resultsQuery whereKey:@"resultsAvailable" containsString:@"yes"];
+            [resultsQuery whereKey:@"resultAvailable" containsString:@"yes"];
             [resultsQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
                 if (!error) {
-                    NSLog(@"Results are available");
-                    UIAlertView *results = [[UIAlertView alloc] initWithTitle:@"Results are In!" message:@"All games have finished for this week.  Let's see how you did!" delegate:self cancelButtonTitle:@"Okay" otherButtonTitles:nil];
-                    results.tag = 2;
-                    [results show];
+                    for (PFObject *object in objects){
+                        if ([object[@"resultAvailable"] isEqualToString:@"yes"]) {
+                           // [resultArray addObject:object[@"Result"]];
+                            [resultArray setObject:object[@"Result"] forKey:object[@"GameNo"]];
+                        }
+                    }
+                    
+                    if (resultArray.count == 10){
+                        UIAlertView *results = [[UIAlertView alloc] initWithTitle:@"Results are In!" message:@"All games have finished for this week.  Head over to your profile to see how you did." delegate:self cancelButtonTitle:@"Okay" otherButtonTitles:nil];
+                        results.tag = 2;
+                        [results show];
+                    }
                 } else {
                     NSLog(@"Error: %@ %@", error, [error userInfo]);
                 }
@@ -133,9 +142,40 @@
     {
         [self performSegueWithIdentifier:@"goToMakePicks" sender:self];
     } else if (alertView.tag == 2){
-        //[self performSegueWithIdentifier:@"goToMakePicks" sender:self];
         NSLog(@"Compare Results.");
+        [self calculateResults];
     }
+}
+
+
+-(void)calculateResults{
+    for (selectedPick *myPick in userPicks) {
+        NSNumber *game = myPick.gameNumber;
+        NSString *resultToCompare = [resultArray objectForKey:game];
+        if ([myPick.teamPicked.nickname isEqualToString:resultToCompare]) {
+            NSLog(@"Match");
+            myPick.isCorrect = true;
+        } else {
+            myPick.isCorrect = false;
+        }
+    }
+    NSData *data = [NSKeyedArchiver archivedDataWithRootObject:userPicks];
+    PFFile *file = [PFFile fileWithName:@"picks.txt" data:data];
+    [file saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        if (succeeded) {
+            PFQuery *query = [PFQuery queryWithClassName:@"MyPicks"];
+            [query getObjectInBackgroundWithId:objectID block:^(PFObject *updatedPicks, NSError *error) {
+                updatedPicks[@"myPickFile"] = file;
+                [updatedPicks saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error){
+                    if (succeeded) {
+                        NSLog(@"Saved.");
+                    } else {
+                        NSLog(@"Did not save.");
+                    }
+                }];
+            }];
+        }
+    }];
 }
 
 @end

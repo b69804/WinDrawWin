@@ -17,6 +17,10 @@
     NSMutableArray *userPicks;
     selectedPick *testing;
     IBOutlet UITableView *myPicks;
+    NSMutableDictionary *resultArray;
+    NSString *objectID;
 }
+
+-(void)calculateResults;
 
 @end

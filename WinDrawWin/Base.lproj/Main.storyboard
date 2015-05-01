@@ -284,7 +284,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yQ1-vX-Mfa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="178" y="1632"/>
+            <point key="canvasLocation" x="225" y="1572"/>
         </scene>
         <!--Choose Games-->
         <scene sceneID="ufC-wZ-h7g">
@@ -560,13 +560,13 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Rpi-y1-CdG" id="WNu-gp-xcM">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uzK-qZ-o1b">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="uzK-qZ-o1b">
                                                     <rect key="frame" x="87" y="37" width="505" height="21"/>
                                                     <fontDescription key="fontDescription" name="Raleway-Regular" family="Raleway" pointSize="14"/>
                                                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qJG-HM-lah">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="11" translatesAutoresizingMaskIntoConstraints="NO" id="qJG-HM-lah">
                                                     <rect key="frame" x="36" y="8" width="425" height="21"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="21" id="9Ly-4d-O5L"/>
@@ -950,7 +950,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="done:" destination="xV9-wL-nCv" eventType="touchUpInside" id="ivg-VS-FRw"/>
+                                    <segue destination="60u-gm-wbN" kind="presentation" modalPresentationStyle="fullScreen" modalTransitionStyle="crossDissolve" id="wME-Kt-kHd"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -1239,9 +1239,9 @@
         <image name="Rankings_Selected.png" width="376" height="231"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="K2F-vh-jd6"/>
+        <segue reference="5AW-KK-EeF"/>
+        <segue reference="IvQ-e1-igO"/>
+        <segue reference="BHo-yK-k6Z"/>
         <segue reference="pX7-a8-GR7"/>
-        <segue reference="ZHL-4v-3KM"/>
-        <segue reference="8AV-un-3Yx"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -28,6 +28,7 @@
     BOOL paused;
     int timeSec;
     IBOutlet UIButton *start;
+    NSNumber *myTimeForPicks;
     PFObject *eachGame;
     int gameNumber;
     bool *firstGame;
@@ -36,6 +37,7 @@
     NSMutableArray *allTeams;
     NSMutableDictionary *dictionaryOfTeams;
 }
+
 
 -(IBAction)onHomeTeamSelected:(id)sender;
 -(IBAction)onAwayTeamSelected:(id)sender;
