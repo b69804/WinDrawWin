@@ -33,15 +33,24 @@
     allTeams = [[NSMutableArray alloc] init];
     dictionaryOfTeams = [[NSMutableDictionary alloc] init];
     [self createAllTeams];
-    PFQuery *query = [PFQuery queryWithClassName:@"Week24"];
-    [query orderByAscending:@"GameNo"];
-    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+    PFQuery *weekQuery = [PFQuery queryWithClassName:@"CurrentWeek"];
+    [weekQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (!error) {
             for (PFObject *object in objects) {
-                [gamesThisWeek addObject:object];
+                NSString *currentWeek = object[@"CurrentWeek"];
+                PFQuery *query = [PFQuery queryWithClassName:@"Week24"];
+                [query whereKey:@"Week" containsString:currentWeek];
+                [query orderByAscending:@"GameNo"];
+                [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+                    if (!error) {
+                        for (PFObject *object in objects) {
+                            [gamesThisWeek addObject:object];
+                        }
+                    } else {
+                        NSLog(@"Error: %@ %@", error, [error userInfo]);
+                    }
+                }];
             }
-            //NSSortDescriptor *firstDescriptor = [[NSSortDescriptor alloc] initWithKey:@"GameNo" ascending:YES];
-            
         } else {
             NSLog(@"Error: %@ %@", error, [error userInfo]);
         }
@@ -159,6 +168,8 @@
         UIImage *awayImage = [UIImage imageNamed:away.logo];
         NSLog(@"%@", away.logo);
         awayImageView.image = awayImage;
+        
+        drawImageView.image = [UIImage imageNamed:@"Draw.png"];
         
         gameNumber++;
     }

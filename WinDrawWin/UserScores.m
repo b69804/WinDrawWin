@@ -10,7 +10,7 @@
 
 @implementation UserScores
 
-@synthesize score, week, myPick;
+@synthesize score, week, myPick, weekNumber, time;
 @synthesize eachWeeksPicks = _eachWeeksPicks;
 
 @end

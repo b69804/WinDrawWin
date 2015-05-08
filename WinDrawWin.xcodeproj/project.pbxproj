@@ -79,6 +79,8 @@
 		5D9C2BAF1AF2E55A009B7D3B /* westham.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D9C2BAD1AF2E55A009B7D3B /* westham.png */; };
 		5D9C2BB21AF2F233009B7D3B /* lcfc.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D9C2BB01AF2F233009B7D3B /* lcfc.png */; };
 		5D9C2BB31AF2F233009B7D3B /* nufc.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D9C2BB11AF2F233009B7D3B /* nufc.png */; };
+		5D9C2BB51AFC67EC009B7D3B /* Twitter_logo_blue.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D9C2BB41AFC67EC009B7D3B /* Twitter_logo_blue.png */; };
+		5D9C2BB91AFC6A76009B7D3B /* Facebook_03.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D9C2BB81AFC6A76009B7D3B /* Facebook_03.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -185,6 +187,8 @@
 		5D9C2BAD1AF2E55A009B7D3B /* westham.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = westham.png; sourceTree = "<group>"; };
 		5D9C2BB01AF2F233009B7D3B /* lcfc.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lcfc.png; sourceTree = "<group>"; };
 		5D9C2BB11AF2F233009B7D3B /* nufc.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = nufc.png; sourceTree = "<group>"; };
+		5D9C2BB41AFC67EC009B7D3B /* Twitter_logo_blue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Twitter_logo_blue.png; sourceTree = "<group>"; };
+		5D9C2BB81AFC6A76009B7D3B /* Facebook_03.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Facebook_03.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -280,6 +284,8 @@
 				5D9C2B7F1AF2A2C1009B7D3B /* resultDetailCell.m */,
 				5D2C8AB31A827C4F000C15A9 /* Main.storyboard */,
 				5D2C8AB81A827C4F000C15A9 /* LaunchScreen.xib */,
+				5D9C2BB41AFC67EC009B7D3B /* Twitter_logo_blue.png */,
+				5D9C2BB81AFC6A76009B7D3B /* Facebook_03.png */,
 				5D9C2B8C1AF2E536009B7D3B /* arsenal.png */,
 				5D9C2B8D1AF2E536009B7D3B /* burnley.png */,
 				5D9C2B8E1AF2E536009B7D3B /* chelsea.png */,
@@ -468,6 +474,7 @@
 				5D9C2BA01AF2E54D009B7D3B /* everton.png in Resources */,
 				5D9C2BAF1AF2E55A009B7D3B /* westham.png in Resources */,
 				5D9C2BB21AF2F233009B7D3B /* lcfc.png in Resources */,
+				5D9C2BB51AFC67EC009B7D3B /* Twitter_logo_blue.png in Resources */,
 				5D9C2B901AF2E536009B7D3B /* arsenal.png in Resources */,
 				5D9C2B7A1AF2A1F1009B7D3B /* Incorrect.png in Resources */,
 				5D9C2BA61AF2E54D009B7D3B /* spurs.png in Resources */,
@@ -485,6 +492,7 @@
 				5D9C2B931AF2E536009B7D3B /* citeh.png in Resources */,
 				5D9C2BA91AF2E54D009B7D3B /* swansea.png in Resources */,
 				5D3E55F61AE6D9C20009DB45 /* MakePickButton.png in Resources */,
+				5D9C2BB91AFC6A76009B7D3B /* Facebook_03.png in Resources */,
 				5D9C2BA41AF2E54D009B7D3B /* QPR.png in Resources */,
 				5D3E55FB1AE6DCDD0009DB45 /* raleway in Resources */,
 				5D9C2BB31AF2F233009B7D3B /* nufc.png in Resources */,

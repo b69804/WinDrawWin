@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface Login : UIViewController
+@interface Login : UIViewController <UIAlertViewDelegate>
 {
     IBOutlet UIButton *loginButton;
     IBOutlet UIButton *setupAccount;

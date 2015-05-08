@@ -12,6 +12,11 @@
 @interface WeeklyDetail : UIViewController <UITableViewDataSource, UITableViewDelegate>
 {
     NSMutableArray *selectedArray;
+    NSMutableDictionary *resultArray;
+    IBOutlet UITableView *selectedWeeklyScores;
+    IBOutlet UILabel *thisWeekLabel;
+    IBOutlet UIButton *tweet;
+    IBOutlet UIButton *facebook;
 }
 
 @property (nonatomic, strong)UserScores *thatWeeksUsersScores;

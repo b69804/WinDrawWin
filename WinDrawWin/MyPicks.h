@@ -17,8 +17,10 @@
     NSMutableArray *userPicks;
     selectedPick *testing;
     IBOutlet UITableView *myPicks;
+    IBOutlet UILabel *thisWeek;
     NSMutableDictionary *resultArray;
     NSString *objectID;
+    NSString *currentWeek;
 }
 
 -(void)calculateResults;

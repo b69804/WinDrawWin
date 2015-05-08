@@ -50,6 +50,7 @@
     BOOL everythingGood = true;
     NSString *check1 = user.text;
     NSString *check2 = password.text;
+    NSString *check3 = email.text;
     int length = 8;
     if([check1 isEqualToString:@""]){
         everythingGood = false;
@@ -69,6 +70,16 @@
                               cancelButtonTitle:@"Okay"
                               otherButtonTitles: nil];
         [alert show];
+    } else if ([check3 isEqualToString:@""]){
+        everythingGood = false;
+        UIAlertView * alert =[[UIAlertView alloc ]
+                              initWithTitle:@"Email not valid"
+                              message:@"Please enter an Email Address."
+                              delegate:self
+                              cancelButtonTitle:@"Okay"
+                              otherButtonTitles: nil];
+        [alert show];
+    
     } else if(check1.length < length){
         everythingGood = false;
         UIAlertView * alert =[[UIAlertView alloc ]
@@ -93,6 +104,7 @@
         PFUser *newUser = [PFUser user];
         newUser.username = user.text;
         newUser.password = password.text;
+        newUser.email = email.text;
         [newUser signUpInBackgroundWithBlock:^(BOOL succeeded, NSError *error){
             if (!error) {
                 [self performSegueWithIdentifier:@"createdUser" sender:self];

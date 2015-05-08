@@ -15,7 +15,7 @@
     IBOutlet UITableView *userWeeklyScores;
     NSMutableArray *allMyScores;
     PFObject *myPickFile;
-    NSMutableArray *userPicks;
+    NSMutableArray *thisWeeksUserPicks;
     selectedPick *eachPick;
 }
 

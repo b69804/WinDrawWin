@@ -15,6 +15,8 @@
 }
 
 @property (nonatomic, strong) NSString *week;
+@property (nonatomic, strong) NSString *weekNumber;
+@property (nonatomic, assign) float time;
 @property (nonatomic, assign) int score;
 @property (nonatomic, assign) selectedPick *myPick;
 @property (nonatomic, strong) NSMutableArray *eachWeeksPicks;

@@ -22,7 +22,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     allMyScores = [[NSMutableArray alloc] init];
-    userPicks = [[NSMutableArray alloc] init];
+    thisWeeksUserPicks = [[NSMutableArray alloc] init];
     [self getAllMyScores];
     
     // Do any additional setup after loading the view.
@@ -76,23 +76,28 @@
 
 -(void)getAllMyScores
 {
+    [PFQuery clearAllCachedResults];
     PFQuery *query = [PFQuery queryWithClassName:@"MyPicks"];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (!error) {
             for (PFObject *object in objects) {
                 myPickFile = object;
-                PFFile *myPickData = myPickFile[@"myPickFile"];
+                PFFile *myPickData = myPickFile[@"completedPicks"];
                 NSString *weekNumber = object[@"WeekNo"];
+                NSNumber *currentScore = object[@"MyScore"];
                 [myPickData getDataInBackgroundWithBlock:^(NSData *data, NSError *error) {
                     if (data != nil) {
                         NSMutableArray *allMyPicks = [NSKeyedUnarchiver unarchiveObjectWithData:data];
                         for (eachPick in allMyPicks) {
-                            [userPicks addObject:eachPick];
+                            [thisWeeksUserPicks addObject:eachPick];
                         }
                         UserScores *scoreForWeek33 = [[UserScores alloc] init];
                         scoreForWeek33.week = [NSString stringWithFormat:@"Week %@", weekNumber];
-                        scoreForWeek33.score = 65;
-                        scoreForWeek33.eachWeeksPicks = userPicks;
+                        scoreForWeek33.weekNumber = weekNumber;
+                        scoreForWeek33.score = [currentScore intValue];
+                        NSNumber *timeNumber = object[@"Time"];
+                        scoreForWeek33.time = [timeNumber floatValue];
+                        scoreForWeek33.eachWeeksPicks = thisWeeksUserPicks;
                         [allMyScores addObject:scoreForWeek33];
                         
                         [userWeeklyScores reloadData];

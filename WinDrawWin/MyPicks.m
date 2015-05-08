@@ -63,50 +63,60 @@
 }
 
 -(void)getFile{
-    PFQuery *query = [PFQuery queryWithClassName:@"MyPicks"];
-   // PFUser* current = [PFUser currentUser];
-    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-        if (objects.count == 0) {
-            UIAlertView *pickGames = [[UIAlertView alloc] initWithTitle:@"Make Your Picks!" message:@"Looks like you have not made picks yet.  Let's get you started!" delegate:self cancelButtonTitle:@"Okay" otherButtonTitles:nil];
-            pickGames.tag = 1;
-            [pickGames show];
-        } else if (!error) {
+    PFQuery *weekQuery = [PFQuery queryWithClassName:@"CurrentWeek"];
+    [weekQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if (!error) {
             for (PFObject *object in objects) {
-                myPickFile = object;
-                objectID = myPickFile.objectId;
-                PFFile *myPickData = myPickFile[@"myPickFile"];
-                [myPickData getDataInBackgroundWithBlock:^(NSData *data, NSError *error) {
-                    if (data != nil) {
-                        NSMutableArray *allMyPicks = [NSKeyedUnarchiver unarchiveObjectWithData:data];
-                        for (testing in allMyPicks) {
-                            [userPicks addObject:testing];
+                currentWeek = object[@"CurrentWeek"];
+                thisWeek.text = currentWeek;
+                PFQuery *query = [PFQuery queryWithClassName:@"MyPicks"];
+                [query whereKey:@"WeekNo" containsString:currentWeek];
+                [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+                    if (objects.count == 0) {
+                        UIAlertView *pickGames = [[UIAlertView alloc] initWithTitle:@"Make Your Picks!" message:@"Looks like you have not made picks yet.  Let's get you started!" delegate:self cancelButtonTitle:@"Okay" otherButtonTitles:nil];
+                        pickGames.tag = 1;
+                        [pickGames show];
+                    } else if (!error) {
+                        for (PFObject *object in objects) {
+                            myPickFile = object;
+                            objectID = myPickFile.objectId;
+                            PFFile *myPickData = myPickFile[@"myPickFile"];
+                            [myPickData getDataInBackgroundWithBlock:^(NSData *data, NSError *error) {
+                                if (data != nil) {
+                                    NSMutableArray *allMyPicks = [NSKeyedUnarchiver unarchiveObjectWithData:data];
+                                    for (testing in allMyPicks) {
+                                        [userPicks addObject:testing];
+                                    }
+                                    [myPicks reloadData];
+                                }
+                            }];
                         }
-                        [myPicks reloadData];
+                        PFQuery *resultsQuery = [PFQuery queryWithClassName:@"Week24"];
+                        [resultsQuery whereKey:@"Week" containsString:currentWeek];
+                        [resultsQuery whereKey:@"resultAvailable" containsString:@"yes"];
+                        [resultsQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+                            if (!error) {
+                                for (PFObject *object in objects){
+                                    if ([object[@"resultAvailable"] isEqualToString:@"yes"]) {
+                                        [resultArray setObject:object[@"Result"] forKey:object[@"GameNo"]];
+                                    }
+                                }
+                                if (resultArray.count == 10){
+                                    UIAlertView *results = [[UIAlertView alloc] initWithTitle:@"Results are In!" message:@"All games have finished for this week.  Head over to your profile to see how you did." delegate:self cancelButtonTitle:@"Okay" otherButtonTitles:nil];
+                                    results.tag = 2;
+                                    [results show];
+                                }
+                            } else {
+                                NSLog(@"Error: %@ %@", error, [error userInfo]);
+                            }
+                        }];
+                    } else {
+                        // Log details of the failure
+                        NSLog(@"Error: %@ %@", error, [error userInfo]);
                     }
                 }];
             }
-            PFQuery *resultsQuery = [PFQuery queryWithClassName:@"Week24"];
-            [resultsQuery whereKey:@"resultAvailable" containsString:@"yes"];
-            [resultsQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-                if (!error) {
-                    for (PFObject *object in objects){
-                        if ([object[@"resultAvailable"] isEqualToString:@"yes"]) {
-                           // [resultArray addObject:object[@"Result"]];
-                            [resultArray setObject:object[@"Result"] forKey:object[@"GameNo"]];
-                        }
-                    }
-                    
-                    if (resultArray.count == 10){
-                        UIAlertView *results = [[UIAlertView alloc] initWithTitle:@"Results are In!" message:@"All games have finished for this week.  Head over to your profile to see how you did." delegate:self cancelButtonTitle:@"Okay" otherButtonTitles:nil];
-                        results.tag = 2;
-                        [results show];
-                    }
-                } else {
-                    NSLog(@"Error: %@ %@", error, [error userInfo]);
-                }
-            }];
         } else {
-            // Log details of the failure
             NSLog(@"Error: %@ %@", error, [error userInfo]);
         }
     }];
@@ -149,30 +159,56 @@
 
 
 -(void)calculateResults{
+    int numberCorrect = 0;
     for (selectedPick *myPick in userPicks) {
         NSNumber *game = myPick.gameNumber;
         NSString *resultToCompare = [resultArray objectForKey:game];
         if ([myPick.teamPicked.nickname isEqualToString:resultToCompare]) {
-            NSLog(@"Match");
             myPick.isCorrect = true;
+            numberCorrect++;
         } else {
             myPick.isCorrect = false;
         }
     }
-    NSData *data = [NSKeyedArchiver archivedDataWithRootObject:userPicks];
-    PFFile *file = [PFFile fileWithName:@"picks.txt" data:data];
+    NSInteger myScore = numberCorrect * 10;
+    NSMutableArray *newData = [[NSMutableArray alloc] init];
+    [newData addObjectsFromArray:userPicks];
+    NSData *data = [NSKeyedArchiver archivedDataWithRootObject:newData];
+    PFFile *file = [PFFile fileWithName:@"matchPicks.txt" data:data];
     [file saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         if (succeeded) {
             PFQuery *query = [PFQuery queryWithClassName:@"MyPicks"];
             [query getObjectInBackgroundWithId:objectID block:^(PFObject *updatedPicks, NSError *error) {
-                updatedPicks[@"myPickFile"] = file;
-                [updatedPicks saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error){
+                NSNumber *myTime = updatedPicks[@"Time"];
+                float myNewTime = [myTime floatValue];
+                float myNewScore = (myScore + myNewTime);
+                NSNumber *numberScore = [NSNumber numberWithFloat:myNewScore];
+                PFObject *myHighScore = [PFObject objectWithClassName:@"Rankings"];
+                myHighScore[@"Score"] = [numberScore stringValue];
+                myHighScore[@"User"] = [PFUser currentUser].username;
+                myHighScore[@"WeekNo"] = currentWeek;
+                [myHighScore saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
                     if (succeeded) {
-                        NSLog(@"Saved.");
-                    } else {
-                        NSLog(@"Did not save.");
+                        [updatedPicks saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error){
+                            if (succeeded) {
+                                NSLog(@"Saved.");
+                                updatedPicks[@"completedPicks"] = file;
+                                updatedPicks[@"MyScore"] = numberScore;
+                                [updatedPicks saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error){
+                                    if (succeeded) {
+                                        NSLog(@"Saved.");
+                                    } else {
+                                        NSLog(@"Did not save.");
+                                    }
+                                }];
+                            } else {
+                                NSLog(@"Did not save.");
+                            }
+                        }];
+                        } else {
                     }
                 }];
+                
             }];
         }
     }];

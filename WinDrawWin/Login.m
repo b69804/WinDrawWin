@@ -36,11 +36,7 @@
     }
 }
 
--(IBAction)removeKeyboard:(id)sender
-{
-    UITextField *theField = (UITextField*)sender;
-    [theField resignFirstResponder];
-}
+
 
 -(IBAction)login:(id)sender{
     BOOL everythingGood = true;
@@ -54,6 +50,7 @@
                               delegate:self
                               cancelButtonTitle:@"Okay"
                               otherButtonTitles: nil];
+        alert.tag = 2;
         [alert show];
     } else if ([check2 isEqualToString:@""]){
         everythingGood = false;
@@ -63,6 +60,7 @@
                               delegate:self
                               cancelButtonTitle:@"Okay"
                               otherButtonTitles: nil];
+        alert.tag = 2;
         [alert show];
     }
     if (everythingGood) {
@@ -76,12 +74,44 @@
                                       message:@"Please check your Username or Password!"
                                       delegate:self
                                       cancelButtonTitle:@"Okay"
-                                      otherButtonTitles: nil];
+                                      otherButtonTitles: @"Lost Password?", nil];
+                alert.tag = 1;
                 [alert show];
             }
         }];
     }
 }
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if (alertView.tag == 1)
+    {
+        [alertView dismissWithClickedButtonIndex:0 animated:YES];
+        if (buttonIndex == 1) {
+            UIAlertView * passwordReset =[[UIAlertView alloc ]
+                                  initWithTitle:@"Lost your Password?"
+                                  message:@"Please enter your email address below. Click Okay to send an email to your registered email address to reset your password."
+                                  delegate:self
+                                  cancelButtonTitle:@"Okay"
+                                  otherButtonTitles:@"Cancel", nil];
+            passwordReset.alertViewStyle = UIAlertViewStylePlainTextInput;
+            passwordReset.tag = 3;
+            [passwordReset show];
+        }
+    } else if (alertView.tag == 2) {
+        [alertView dismissWithClickedButtonIndex:0 animated:YES];
+    
+    } else if(alertView.tag == 3) {
+        [alertView dismissWithClickedButtonIndex:1 animated:YES];
+        if (buttonIndex == 0) {
+            UITextField *username = [alertView textFieldAtIndex:0];
+            [PFUser requestPasswordResetForEmailInBackground:username.text];
+            user.text = @"";
+            password.text = @"";
+        }
+    }
+}
+
 
 - (void)reachabilityDidChange:(NSNotification *)notification {
     Reachability *reachability = (Reachability *)[notification object];
@@ -111,6 +141,13 @@
         }
     }
     return YES;
+}
+
+
+-(IBAction)removeKeyboard:(id)sender
+{
+    UITextField *theField = (UITextField*)sender;
+    [theField resignFirstResponder];
 }
 
 

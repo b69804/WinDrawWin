@@ -13,8 +13,8 @@
     IBOutlet UITableView *rankTable;
     NSMutableArray *allUsersRankings;
     NSArray *sortedArray;
+    IBOutlet UILabel *weekString;
+    NSString *currentWeek;
 }
-
--(void)createRankingsInfo;
 
 @end

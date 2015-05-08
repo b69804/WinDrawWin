@@ -13,6 +13,7 @@
     IBOutlet UIButton *createAccount;
     IBOutlet UITextField *user;
     IBOutlet UITextField *password;
+    IBOutlet UITextField *email;
 }
 
 -(IBAction)removeKeyboard:(id)sender;
