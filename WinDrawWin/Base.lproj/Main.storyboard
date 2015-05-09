@@ -43,6 +43,7 @@
             <string>Raleway-Regular</string>
             <string>Raleway-Regular</string>
             <string>Raleway-Regular</string>
+            <string>Raleway-Regular</string>
         </mutableArray>
         <mutableArray key="Raleway-SemiBold.ttf">
             <string>Raleway-SemiBold</string>
@@ -90,7 +91,7 @@
                                     <action selector="removeKeyboard:" destination="pBD-mH-jBt" eventType="editingDidEndOnExit" id="KeF-s1-qOs"/>
                                 </connections>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="11" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FKO-Lr-1T5">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="11" baselineAdjustment="alignBaselines" minimumFontSize="11" translatesAutoresizingMaskIntoConstraints="NO" id="FKO-Lr-1T5">
                                 <rect key="frame" x="27" y="94" width="547" height="212"/>
                                 <string key="text">Welcome to WinDrawWin, the best EPL match prediction game!  Pick the results each week and see how you stack up against users from around the world.  Login to start playing today!</string>
                                 <fontDescription key="fontDescription" name="Raleway-Regular" family="Raleway" pointSize="21"/>
@@ -273,9 +274,25 @@
                                     <action selector="removeKeyboard:" destination="hiH-Mr-Crt" eventType="touchUpInside" id="VM6-53-OxI"/>
                                 </connections>
                             </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6je-nL-2hD">
+                                <rect key="frame" x="200" y="542" width="201" height="38"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="38" id="e4a-GT-nzk"/>
+                                    <constraint firstAttribute="width" constant="201" id="sMl-zm-WCx"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Raleway-Regular" family="Raleway" pointSize="26"/>
+                                <state key="normal" title="Back">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="pBD-mH-jBt" kind="presentation" modalPresentationStyle="fullScreen" modalTransitionStyle="flipHorizontal" id="ZLe-h9-FA9"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstAttribute="bottom" secondItem="6je-nL-2hD" secondAttribute="bottom" constant="20" symbolic="YES" id="35k-aV-f3y"/>
                             <constraint firstItem="48X-cK-n60" firstAttribute="top" secondItem="scX-rB-cLO" secondAttribute="bottom" constant="8" symbolic="YES" id="3y9-e1-LZZ"/>
                             <constraint firstItem="scX-rB-cLO" firstAttribute="top" secondItem="YYi-fw-7Kl" secondAttribute="bottom" constant="33" id="6JR-ED-eV0"/>
                             <constraint firstItem="Iha-em-dSD" firstAttribute="leading" secondItem="FGN-fw-or1" secondAttribute="leadingMargin" id="76m-Cx-QLl"/>
@@ -287,6 +304,7 @@
                             <constraint firstItem="i27-Sj-4xm" firstAttribute="leading" secondItem="Iha-em-dSD" secondAttribute="leading" id="Gev-sf-gpL"/>
                             <constraint firstItem="7CM-b0-xvi" firstAttribute="leading" secondItem="scX-rB-cLO" secondAttribute="leading" id="HLH-X6-etg"/>
                             <constraint firstItem="9IJ-wc-Blx" firstAttribute="leading" secondItem="8hJ-Xi-nhG" secondAttribute="leading" id="MHa-iI-5tz"/>
+                            <constraint firstItem="6je-nL-2hD" firstAttribute="leading" secondItem="S2E-aX-f3n" secondAttribute="leading" id="MmH-sD-WtL"/>
                             <constraint firstAttribute="trailing" secondItem="kQC-qY-yqI" secondAttribute="trailing" id="O55-3h-RDp"/>
                             <constraint firstItem="YYi-fw-7Kl" firstAttribute="top" secondItem="Iha-em-dSD" secondAttribute="bottom" constant="24" id="OAX-0M-Kuv"/>
                             <constraint firstItem="i27-Sj-4xm" firstAttribute="top" secondItem="tyX-4n-aWf" secondAttribute="bottom" constant="67" id="Pg5-QG-U8C"/>
@@ -386,7 +404,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="60u-gm-wbN" kind="show" id="mVx-Xt-MqE"/>
+                                    <segue destination="60u-gm-wbN" kind="presentation" identifier="goToMyProfile" modalPresentationStyle="fullScreen" modalTransitionStyle="flipHorizontal" id="mVx-Xt-MqE"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qtb-FP-bwO">
@@ -897,7 +915,7 @@
                                     <constraint firstAttribute="width" constant="306" id="sC9-K8-UP3"/>
                                 </constraints>
                             </imageView>
-                            <tableView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="73" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="4YK-Mp-Nmw">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="73" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="4YK-Mp-Nmw">
                                 <rect key="frame" x="0.0" y="132" width="600" height="404"/>
                                 <color key="backgroundColor" red="0.92941176469999998" green="0.10980392160000001" blue="0.14117647059999999" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="sectionIndexBackgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="calibratedRGB"/>
@@ -997,6 +1015,9 @@
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="shareViaTwitter:" destination="xV9-wL-nCv" eventType="touchUpInside" id="bzK-oi-OK3"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N2X-7B-tc3">
                                 <rect key="frame" x="522" y="544" width="62" height="47"/>
@@ -1008,6 +1029,9 @@
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="shareViaFacebook:" destination="xV9-wL-nCv" eventType="touchUpInside" id="Dob-48-m80"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -1094,7 +1118,7 @@
                                     <segue destination="pBD-mH-jBt" kind="show" identifier="logout" id="LWu-eY-gMd"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Allow WinDrawWin access to your Twitter Account?" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="BV4-P7-j2s">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Allow WinDrawWin to share to your Twitter Account?" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="BV4-P7-j2s">
                                 <rect key="frame" x="147" y="97" width="243" height="72"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="72" id="p6i-bF-sFF"/>
@@ -1104,10 +1128,10 @@
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="v5s-xu-oN6">
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="v5s-xu-oN6">
                                 <rect key="frame" x="404" y="117" width="51" height="31"/>
                             </switch>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Allow WinDrawWin access to your Facebook Account?" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="v0N-Hr-Rsl">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Allow WinDrawWin to share to your Facebook Account?" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="v0N-Hr-Rsl">
                                 <rect key="frame" x="147" y="177" width="243" height="72"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="243" id="VTo-6f-V8m"/>
@@ -1117,7 +1141,7 @@
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="2Mg-ok-e4q">
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2Mg-ok-e4q">
                                 <rect key="frame" x="404" y="197" width="51" height="31"/>
                             </switch>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Turn Off Time Constraints for making picks?" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="STo-CQ-br5">
@@ -1130,7 +1154,7 @@
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qdV-SM-O69">
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="qdV-SM-O69">
                                 <rect key="frame" x="404" y="277" width="51" height="31"/>
                             </switch>
                         </subviews>
@@ -1250,7 +1274,7 @@
                                                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Score" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WNL-9y-spj">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Score" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WNL-9y-spj">
                                                     <rect key="frame" x="497" y="11" width="102" height="24"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="102" id="h5e-TU-5Th"/>
@@ -1259,7 +1283,7 @@
                                                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rank" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="ILl-gO-bPu">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rank" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="ILl-gO-bPu">
                                                     <rect key="frame" x="0.0" y="11" width="40" height="21"/>
                                                     <fontDescription key="fontDescription" name="Raleway-Regular" family="Raleway" pointSize="17"/>
                                                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -1356,9 +1380,10 @@
         <image name="Twitter_logo_blue.png" width="1139" height="926"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="e8m-NY-39v"/>
-        <segue reference="wME-Kt-kHd"/>
-        <segue reference="1gm-hk-pic"/>
-        <segue reference="sSu-LL-flx"/>
+        <segue reference="K2F-vh-jd6"/>
+        <segue reference="c1u-0G-0HR"/>
+        <segue reference="gBY-fT-6K7"/>
+        <segue reference="mVx-Xt-MqE"/>
+        <segue reference="LWu-eY-gMd"/>
     </inferredMetricsTieBreakers>
 </document>

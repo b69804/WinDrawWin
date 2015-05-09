@@ -37,7 +37,7 @@
     [weekQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (!error) {
             for (PFObject *object in objects) {
-                NSString *currentWeek = object[@"CurrentWeek"];
+                currentWeek = object[@"CurrentWeek"];
                 PFQuery *query = [PFQuery queryWithClassName:@"Week24"];
                 [query whereKey:@"Week" containsString:currentWeek];
                 [query orderByAscending:@"GameNo"];
@@ -133,15 +133,39 @@
     }
 }
 
--(IBAction)onStart:(id)sender{
-    gameNumber = 0;
-    [self nextGame];
-    homeTeamButton.hidden = false;
-    awayTeamButton.hidden = false;
-    drawButton.hidden = false;
-    start.hidden = true;
-    drawImageView.image = [UIImage imageNamed:@"Draw.png"];
-    [self StartTimer];
+-(IBAction)onStart:(id)sender
+{
+    PFQuery *weekQuery = [PFQuery queryWithClassName:@"CurrentWeek"];
+    [weekQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error){
+        if (!error) {
+            for (PFObject *object in objects) {
+                currentWeek = object[@"CurrentWeek"];
+                PFQuery *query = [PFQuery queryWithClassName:@"MyPicks"];
+                [query whereKey:@"WeekNo" containsString:currentWeek];
+                [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+                if (objects.count == 1) {
+                    UIAlertView *pickGames = [[UIAlertView alloc] initWithTitle:@"Picks already made!" message:@"Looks like you have already made picks for this week.  Please review your picks." delegate:self cancelButtonTitle:@"Okay" otherButtonTitles:nil];
+                    pickGames.tag = 1;
+                    [pickGames show];
+                } else {
+                    gameNumber = 0;
+                    [self nextGame];
+                    homeTeamButton.hidden = false;
+                    awayTeamButton.hidden = false;
+                    drawButton.hidden = false;
+                    start.hidden = true;
+                    drawImageView.image = [UIImage imageNamed:@"Draw.png"];
+                    [self StartTimer];
+                }
+                    
+                }];
+            }
+        } else {
+            NSLog(@"Error: %@ %@", error, [error userInfo]);
+        }
+    
+    }];
+    
 }
 
 - (void)nextGame{
@@ -150,8 +174,10 @@
         paused = YES;
         
         UIAlertView *noMoreGames = [[UIAlertView alloc] initWithTitle:@"All Games Selected" message:@"You have made all your selections for this week.  Let's see what you picked." delegate:self cancelButtonTitle:@"Okay" otherButtonTitles:nil];
+        noMoreGames.tag = 2;
         [noMoreGames show];
     } else {
+        drawImageView.image = [UIImage imageNamed:@""];
         eachGame = [gamesThisWeek objectAtIndex:gameNumber];
         NSString *hTeam = eachGame[@"HomeTeam"];
         NSLog(@"%@", hTeam);
@@ -400,9 +426,11 @@
 
 -(void) alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
-    if (buttonIndex == 0)
+    if (alertView.tag == 2)
     {
         [self writeFile];
+    } else if (alertView.tag == 1){
+        [self performSegueWithIdentifier:@"myPicks" sender:self];
     }
 }
 

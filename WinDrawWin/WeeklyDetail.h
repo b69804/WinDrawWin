@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "UserScores.h"
 
-@interface WeeklyDetail : UIViewController <UITableViewDataSource, UITableViewDelegate>
+@interface WeeklyDetail : UIViewController <UITableViewDataSource, UITableViewDelegate, UIActionSheetDelegate>
 {
     NSMutableArray *selectedArray;
     NSMutableDictionary *resultArray;
@@ -17,10 +17,13 @@
     IBOutlet UILabel *thisWeekLabel;
     IBOutlet UIButton *tweet;
     IBOutlet UIButton *facebook;
+    NSString *highScore;
 }
 
 @property (nonatomic, strong)UserScores *thatWeeksUsersScores;
 
 -(IBAction)done:(UIStoryboardSegue *)segue;
+-(IBAction)shareViaTwitter:(id)sender;
+-(IBAction)shareViaFacebook:(id)sender;
 
 @end

@@ -10,6 +10,7 @@
 #import "resultDetailCell.h"
 #import "UserScores.h"
 #import <Parse/Parse.h>
+#import <Social/Social.h>
 
 
 @interface WeeklyDetail ()
@@ -66,6 +67,91 @@
     
 }
 
+-(IBAction)shareViaTwitter:(id)sender
+{
+    UIActionSheet *sharingSheet = [[UIActionSheet alloc] initWithTitle:@"Tweet my Weekly Score!"
+                                                              delegate:self
+                                                     cancelButtonTitle:@"Cancel"
+                                                destructiveButtonTitle:nil
+                                                     otherButtonTitles:@"Tweet", nil];
+    sharingSheet.tag = 1;
+    [sharingSheet showInView:self.view];
+
+}
+-(IBAction)shareViaFacebook:(id)sender
+{
+    UIActionSheet *sharingSheet = [[UIActionSheet alloc] initWithTitle:@"Share my Weekly Score!"
+                                                              delegate:self
+                                                     cancelButtonTitle:@"Cancel"
+                                                destructiveButtonTitle:nil
+                                                     otherButtonTitles:@"Share on Facebook", nil];
+    sharingSheet.tag = 2;
+    [sharingSheet showInView:self.view];
+
+}
+
+-(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if (actionSheet.tag == 1)
+    {
+        if ([SLComposeViewController isAvailableForServiceType:SLServiceTypeTwitter])
+        {
+            SLComposeViewController *userTweet = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeTwitter];
+            [userTweet setInitialText:[NSString stringWithFormat:@"My High Score for this week is %@ on WinDrawWin.  Can you beat it?", highScore]];
+            [userTweet setCompletionHandler:^(SLComposeViewControllerResult result)
+             {
+                 if (result == SLComposeViewControllerResultCancelled)
+                 {
+                     NSLog(@"Cancelled.");
+                 }
+                 else if (result == SLComposeViewControllerResultDone)
+                 {
+                     NSLog(@"Tweet Sent.");
+                 }
+             }];
+            [self presentViewController:userTweet animated:YES completion:nil];
+        }
+        else
+        {
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Twitter"
+                                                            message:@"You must have your Twitter account setup on this iPhone.  Please go to your settings and link your Twitter account."
+                                                           delegate:self
+                                                  cancelButtonTitle:@"OK"
+                                                  otherButtonTitles:nil];
+            [alert show];
+        }
+    }
+    else if (actionSheet.tag == 2)
+    {
+        if ([SLComposeViewController isAvailableForServiceType:SLServiceTypeFacebook])
+        {
+            SLComposeViewController *shareOnFacebook = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeFacebook];
+            [shareOnFacebook setInitialText:@"I just completed the Social.framework Tutorial by @iosdevtutorials !"];
+            [shareOnFacebook setCompletionHandler:^(SLComposeViewControllerResult result)
+             {
+                 if (result == SLComposeViewControllerResultCancelled)
+                 {
+                     NSLog(@"Cancelled.");
+                 }
+                 else if (result == SLComposeViewControllerResultDone)
+                 {
+                     NSLog(@"Shared on Facebook.");
+                 }
+             }];
+            [self presentViewController:shareOnFacebook animated:YES completion:nil];
+        }
+        else
+        {
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Facebook"
+                                                            message:@"You must have your facebook account setup on this iPhone.  Please go to your Settings and link your Facebook account."
+                                                           delegate:self
+                                                  cancelButtonTitle:@"OK"
+                                                  otherButtonTitles:nil];
+            [alert show];
+        }
+    }
+}
+
 -(void)compareResults
 {
     resultArray = [[NSMutableDictionary alloc] init];
@@ -102,6 +188,7 @@
                         NSNumber *numberScore = [NSNumber numberWithFloat:myNewScore];
                         PFObject *myHighScore = [PFObject objectWithClassName:@"Rankings"];
                         myHighScore[@"Score"] = [numberScore stringValue];
+                        highScore = [numberScore stringValue];
                         myHighScore[@"User"] = [PFUser currentUser].username;
                         myHighScore[@"WeekNo"] = _thatWeeksUsersScores.weekNumber;
                         [myHighScore saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error){
@@ -114,11 +201,11 @@
                         }];
                     } else {
                         [selectedWeeklyScores reloadData];
-                        NSString *Test;
+                    
                         for (PFObject *object in objects) {
-                            Test = object[@"Score"];
+                            highScore = object[@"Score"];
                         }
-                        thisWeekLabel.text = [NSString stringWithFormat:@"Results for Week %@  Score: %@", _thatWeeksUsersScores.weekNumber, Test];
+                        thisWeekLabel.text = [NSString stringWithFormat:@"Results for Week %@  Score: %@", _thatWeeksUsersScores.weekNumber, highScore];
                     }
                 }];
             }

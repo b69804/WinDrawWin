@@ -12,7 +12,7 @@
 
 @class selectedPick;
 
-@interface ChooseGames : UIViewController
+@interface ChooseGames : UIViewController <UIAlertViewDelegate>
 
 
 {
@@ -36,6 +36,7 @@
     NSMutableArray *allPicks;
     NSMutableArray *allTeams;
     NSMutableDictionary *dictionaryOfTeams;
+    NSString *currentWeek;
 }
 
 
