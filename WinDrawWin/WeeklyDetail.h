@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "UserScores.h"
 
-@interface WeeklyDetail : UIViewController <UITableViewDataSource, UITableViewDelegate, UIActionSheetDelegate>
+@interface WeeklyDetail : UIViewController <UITableViewDataSource, UITableViewDelegate, UIActionSheetDelegate, UIAlertViewDelegate>
 {
     NSMutableArray *selectedArray;
     NSMutableDictionary *resultArray;

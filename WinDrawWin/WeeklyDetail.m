@@ -69,87 +69,68 @@
 
 -(IBAction)shareViaTwitter:(id)sender
 {
-    UIActionSheet *sharingSheet = [[UIActionSheet alloc] initWithTitle:@"Tweet my Weekly Score!"
-                                                              delegate:self
-                                                     cancelButtonTitle:@"Cancel"
-                                                destructiveButtonTitle:nil
-                                                     otherButtonTitles:@"Tweet", nil];
-    sharingSheet.tag = 1;
-    [sharingSheet showInView:self.view];
+    if ([SLComposeViewController isAvailableForServiceType:SLServiceTypeTwitter])
+    {
+        SLComposeViewController *userTweet = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeTwitter];
+        [userTweet setInitialText:[NSString stringWithFormat:@"My High Score for this week is %@ on WinDrawWin.  Can you beat it?", highScore]];
+        [userTweet setCompletionHandler:^(SLComposeViewControllerResult result)
+         {
+             if (result == SLComposeViewControllerResultCancelled)
+             {
+                 NSLog(@"Cancelled.");
+             }
+             else if (result == SLComposeViewControllerResultDone)
+             {
+                 NSLog(@"Tweet Sent.");
+             }
+         }];
+        [self presentViewController:userTweet animated:YES completion:nil];
+    }
+    else
+    {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Twitter"
+                                                        message:@"You must have your Twitter account setup on this iPhone.  Please go to your settings and link your Twitter account."
+                                                       delegate:self
+                                              cancelButtonTitle:@"OK"
+                                              otherButtonTitles:nil];
+        [alert show];
+    }
 
 }
 -(IBAction)shareViaFacebook:(id)sender
 {
-    UIActionSheet *sharingSheet = [[UIActionSheet alloc] initWithTitle:@"Share my Weekly Score!"
-                                                              delegate:self
-                                                     cancelButtonTitle:@"Cancel"
-                                                destructiveButtonTitle:nil
-                                                     otherButtonTitles:@"Share on Facebook", nil];
-    sharingSheet.tag = 2;
-    [sharingSheet showInView:self.view];
+    if ([SLComposeViewController isAvailableForServiceType:SLServiceTypeFacebook])
+    {
+        SLComposeViewController *shareOnFacebook = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeFacebook];
+        [shareOnFacebook setInitialText:[NSString stringWithFormat:@"My High Score for this week is %@ on WinDrawWin.  Can you beat it?", highScore]];
+        [shareOnFacebook setCompletionHandler:^(SLComposeViewControllerResult result)
+         {
+             if (result == SLComposeViewControllerResultCancelled)
+             {
+                 NSLog(@"Cancelled.");
+             }
+             else if (result == SLComposeViewControllerResultDone)
+             {
+                 NSLog(@"Shared on Facebook.");
+             }
+         }];
+        [self presentViewController:shareOnFacebook animated:YES completion:nil];
+    }
+    else
+    {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Facebook"
+                                                        message:@"You must have your facebook account setup on this iPhone.  Please go to your Settings and link your Facebook account."
+                                                       delegate:self
+                                              cancelButtonTitle:@"OK"
+                                              otherButtonTitles:nil];
+        [alert show];
+    }
 
 }
 
--(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
-    if (actionSheet.tag == 1)
-    {
-        if ([SLComposeViewController isAvailableForServiceType:SLServiceTypeTwitter])
-        {
-            SLComposeViewController *userTweet = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeTwitter];
-            [userTweet setInitialText:[NSString stringWithFormat:@"My High Score for this week is %@ on WinDrawWin.  Can you beat it?", highScore]];
-            [userTweet setCompletionHandler:^(SLComposeViewControllerResult result)
-             {
-                 if (result == SLComposeViewControllerResultCancelled)
-                 {
-                     NSLog(@"Cancelled.");
-                 }
-                 else if (result == SLComposeViewControllerResultDone)
-                 {
-                     NSLog(@"Tweet Sent.");
-                 }
-             }];
-            [self presentViewController:userTweet animated:YES completion:nil];
-        }
-        else
-        {
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Twitter"
-                                                            message:@"You must have your Twitter account setup on this iPhone.  Please go to your settings and link your Twitter account."
-                                                           delegate:self
-                                                  cancelButtonTitle:@"OK"
-                                                  otherButtonTitles:nil];
-            [alert show];
-        }
-    }
-    else if (actionSheet.tag == 2)
-    {
-        if ([SLComposeViewController isAvailableForServiceType:SLServiceTypeFacebook])
-        {
-            SLComposeViewController *shareOnFacebook = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeFacebook];
-            [shareOnFacebook setInitialText:@"I just completed the Social.framework Tutorial by @iosdevtutorials !"];
-            [shareOnFacebook setCompletionHandler:^(SLComposeViewControllerResult result)
-             {
-                 if (result == SLComposeViewControllerResultCancelled)
-                 {
-                     NSLog(@"Cancelled.");
-                 }
-                 else if (result == SLComposeViewControllerResultDone)
-                 {
-                     NSLog(@"Shared on Facebook.");
-                 }
-             }];
-            [self presentViewController:shareOnFacebook animated:YES completion:nil];
-        }
-        else
-        {
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Facebook"
-                                                            message:@"You must have your facebook account setup on this iPhone.  Please go to your Settings and link your Facebook account."
-                                                           delegate:self
-                                                  cancelButtonTitle:@"OK"
-                                                  otherButtonTitles:nil];
-            [alert show];
-        }
-    }
+    
 }
 
 -(void)compareResults

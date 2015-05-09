@@ -1212,7 +1212,7 @@
                                     <constraint firstAttribute="height" constant="50" id="XWT-f0-tRh"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JPi-63-dV0">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="16" translatesAutoresizingMaskIntoConstraints="NO" id="JPi-63-dV0">
                                 <rect key="frame" x="148" y="70" width="305" height="51"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="305" id="Ekq-JJ-i31"/>
@@ -1382,8 +1382,8 @@
     <inferredMetricsTieBreakers>
         <segue reference="K2F-vh-jd6"/>
         <segue reference="c1u-0G-0HR"/>
-        <segue reference="gBY-fT-6K7"/>
-        <segue reference="mVx-Xt-MqE"/>
+        <segue reference="bpW-vO-7AA"/>
+        <segue reference="2lg-y9-2Ty"/>
         <segue reference="LWu-eY-gMd"/>
     </inferredMetricsTieBreakers>
 </document>
