@@ -22,6 +22,13 @@
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reachabilityDidChange:) name:kReachabilityChangedNotification object:nil];
     
+    NSUserDefaults *thisUsersDefaults = [NSUserDefaults standardUserDefaults];
+    BOOL timeSetting = [thisUsersDefaults boolForKey:@"time"];
+    if (timeSetting == YES) {
+        gameTime.hidden = true;
+        countdown.hidden = true;
+    }
+    
     PFUser *currentUser = [PFUser currentUser];
     if (currentUser == nil){
         [self performSegueWithIdentifier:@"logout" sender:self];

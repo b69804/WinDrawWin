@@ -24,6 +24,7 @@
     IBOutlet UIImageView *awayImageView;
     IBOutlet UIImageView *drawImageView;
     IBOutlet UILabel *countdown;
+    IBOutlet UILabel *gameTime;
     NSTimer *timer;
     BOOL paused;
     int timeSec;

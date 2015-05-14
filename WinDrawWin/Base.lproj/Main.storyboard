@@ -547,6 +547,7 @@
                         <outlet property="countdown" destination="bRu-XP-Bdj" id="cYa-K7-sM2"/>
                         <outlet property="drawButton" destination="fC6-2Y-4Ia" id="255-Wf-beU"/>
                         <outlet property="drawImageView" destination="4eL-vs-zhz" id="HEb-lJ-h9e"/>
+                        <outlet property="gameTime" destination="ytl-5l-57U" id="Swm-Jn-EPl"/>
                         <outlet property="homeImageView" destination="pHU-on-th5" id="Rut-ZE-zKU"/>
                         <outlet property="homeTeamButton" destination="m6x-Zl-JOE" id="lsT-Op-srT"/>
                         <outlet property="start" destination="6Hs-4Q-kqK" id="Zor-to-Hdn"/>
@@ -607,7 +608,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
-                            <tableView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="62" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="vPG-Lq-YOP">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="62" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="vPG-Lq-YOP">
                                 <rect key="frame" x="0.0" y="106" width="600" height="414"/>
                                 <color key="backgroundColor" white="1" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <prototypes>
@@ -1070,7 +1071,7 @@
         <!--Settings-->
         <scene sceneID="DMf-W1-cXt">
             <objects>
-                <viewController title="Settings" id="PQL-Dx-Ba0" sceneMemberID="viewController">
+                <viewController title="Settings" id="PQL-Dx-Ba0" customClass="Settings" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="aMc-C6-fBK"/>
                         <viewControllerLayoutGuide type="bottom" id="Igg-Av-bgQ"/>
@@ -1130,6 +1131,9 @@
                             </label>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="v5s-xu-oN6">
                                 <rect key="frame" x="404" y="117" width="51" height="31"/>
+                                <connections>
+                                    <action selector="changeTwitterSwitch:" destination="PQL-Dx-Ba0" eventType="touchUpInside" id="xVo-wd-82z"/>
+                                </connections>
                             </switch>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Allow WinDrawWin to share to your Facebook Account?" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="v0N-Hr-Rsl">
                                 <rect key="frame" x="147" y="177" width="243" height="72"/>
@@ -1143,8 +1147,11 @@
                             </label>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2Mg-ok-e4q">
                                 <rect key="frame" x="404" y="197" width="51" height="31"/>
+                                <connections>
+                                    <action selector="changeFacebookSwitch:" destination="PQL-Dx-Ba0" eventType="touchUpInside" id="NV4-Qi-7ZU"/>
+                                </connections>
                             </switch>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Turn Off Time Constraints for making picks?" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="STo-CQ-br5">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hide Clock when making picks?" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="STo-CQ-br5">
                                 <rect key="frame" x="147" y="257" width="243" height="72"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="72" id="Bm0-IQ-bZD"/>
@@ -1156,6 +1163,9 @@
                             </label>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="qdV-SM-O69">
                                 <rect key="frame" x="404" y="277" width="51" height="31"/>
+                                <connections>
+                                    <action selector="changeTimeSwitch:" destination="PQL-Dx-Ba0" eventType="touchUpInside" id="RKo-nR-usN"/>
+                                </connections>
                             </switch>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -1185,6 +1195,11 @@
                             <constraint firstItem="v5s-xu-oN6" firstAttribute="top" secondItem="kZl-ZR-G44" secondAttribute="bottom" constant="47" id="ynJ-Ee-RV9"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="facebookSwitch" destination="2Mg-ok-e4q" id="W8P-hd-NRt"/>
+                        <outlet property="timeSwitch" destination="qdV-SM-O69" id="WY2-Bv-rUG"/>
+                        <outlet property="twitterSwitch" destination="v5s-xu-oN6" id="LUd-eB-CGl"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vII-ss-CoO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1380,10 +1395,10 @@
         <image name="Twitter_logo_blue.png" width="1139" height="926"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="K2F-vh-jd6"/>
-        <segue reference="c1u-0G-0HR"/>
-        <segue reference="bpW-vO-7AA"/>
-        <segue reference="2lg-y9-2Ty"/>
+        <segue reference="5AW-KK-EeF"/>
+        <segue reference="gBY-fT-6K7"/>
+        <segue reference="pX7-a8-GR7"/>
+        <segue reference="BHo-yK-k6Z"/>
         <segue reference="LWu-eY-gMd"/>
     </inferredMetricsTieBreakers>
 </document>

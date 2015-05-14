@@ -20,6 +20,18 @@
 @implementation WeeklyDetail
 
 - (void)viewDidLoad {
+    
+    NSUserDefaults *thisUsersDefaults = [NSUserDefaults standardUserDefaults];
+    BOOL twitter = [thisUsersDefaults boolForKey:@"twitter"];
+    if (twitter == NO){
+        tweet.hidden = true;
+    }
+    
+    BOOL fBook = [thisUsersDefaults boolForKey:@"facebook"];
+    if (fBook == NO){
+        facebook.hidden = true;
+    }
+    
     [super viewDidLoad];
 }
 
@@ -137,8 +149,8 @@
 {
     resultArray = [[NSMutableDictionary alloc] init];
     PFQuery *resultsQuery = [PFQuery queryWithClassName:@"Week24"];
-    [resultsQuery whereKey:@"resultAvailable" containsString:@"yes"];
     [resultsQuery whereKey:@"Week" containsString:_thatWeeksUsersScores.weekNumber];
+    //[resultsQuery whereKey:@"resultAvailable" containsString:@"yes"];
     [resultsQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (!error) {
             for (PFObject *object in objects){
@@ -158,8 +170,9 @@
                         myPick.isCorrect = false;
                     }
                 }
+                NSString *userName = [PFUser currentUser].username;
                 PFQuery *highScoreQuery = [PFQuery queryWithClassName:@"Rankings"];
-                [highScoreQuery whereKey:@"User" containsString:[PFUser currentUser].username];
+                [highScoreQuery whereKey:@"User" containsString:userName];
                 [highScoreQuery whereKey:@"WeekNo" containsString:_thatWeeksUsersScores.weekNumber];
                 [highScoreQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
                     if (objects.count == 0) {

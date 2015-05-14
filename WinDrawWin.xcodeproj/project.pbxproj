@@ -82,6 +82,7 @@
 		5D9C2BB51AFC67EC009B7D3B /* Twitter_logo_blue.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D9C2BB41AFC67EC009B7D3B /* Twitter_logo_blue.png */; };
 		5D9C2BB91AFC6A76009B7D3B /* Facebook_03.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D9C2BB81AFC6A76009B7D3B /* Facebook_03.png */; };
 		5D9C2BBB1AFD9935009B7D3B /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D9C2BBA1AFD9935009B7D3B /* Social.framework */; };
+		5D9C2BBE1B04E304009B7D3B /* Settings.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D9C2BBD1B04E304009B7D3B /* Settings.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -191,6 +192,8 @@
 		5D9C2BB41AFC67EC009B7D3B /* Twitter_logo_blue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Twitter_logo_blue.png; sourceTree = "<group>"; };
 		5D9C2BB81AFC6A76009B7D3B /* Facebook_03.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Facebook_03.png; sourceTree = "<group>"; };
 		5D9C2BBA1AFD9935009B7D3B /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
+		5D9C2BBC1B04E304009B7D3B /* Settings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Settings.h; sourceTree = "<group>"; };
+		5D9C2BBD1B04E304009B7D3B /* Settings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Settings.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -285,6 +288,8 @@
 				5D9C2B7C1AF2A296009B7D3B /* WeeklyDetail.m */,
 				5D9C2B7E1AF2A2C1009B7D3B /* resultDetailCell.h */,
 				5D9C2B7F1AF2A2C1009B7D3B /* resultDetailCell.m */,
+				5D9C2BBC1B04E304009B7D3B /* Settings.h */,
+				5D9C2BBD1B04E304009B7D3B /* Settings.m */,
 				5D2C8AB31A827C4F000C15A9 /* Main.storyboard */,
 				5D2C8AB81A827C4F000C15A9 /* LaunchScreen.xib */,
 				5D9C2BB41AFC67EC009B7D3B /* Twitter_logo_blue.png */,
@@ -435,9 +440,11 @@
 				TargetAttributes = {
 					5D2C8AA51A827C4F000C15A9 = {
 						CreatedOnToolsVersion = 6.1.1;
+						DevelopmentTeam = 82AN2VZD75;
 					};
 					5D2C8ABE1A827C4F000C15A9 = {
 						CreatedOnToolsVersion = 6.1.1;
+						DevelopmentTeam = 82AN2VZD75;
 						TestTargetID = 5D2C8AA51A827C4F000C15A9;
 					};
 				};
@@ -525,6 +532,7 @@
 				5D9C2B511AEECB5C009B7D3B /* MyPicks.m in Sources */,
 				5D9C2B7D1AF2A296009B7D3B /* WeeklyDetail.m in Sources */,
 				5D9C2B6D1AF1AF45009B7D3B /* UserRankings.m in Sources */,
+				5D9C2BBE1B04E304009B7D3B /* Settings.m in Sources */,
 				5D9C2B6A1AF1A731009B7D3B /* Rankings.m in Sources */,
 				5D9C2B4E1AEE8C59009B7D3B /* Team.m in Sources */,
 				5D9C2B861AF2C0B4009B7D3B /* Login.m in Sources */,
@@ -598,7 +606,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Matthew Ashton (3XJGUXSGM2)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Matthew Ashton (3XJGUXSGM2)";
 				COPY_PHASE_STRIP = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -618,6 +627,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				PROVISIONING_PROFILE = "839cb784-245b-4561-95e4-f66d523f0791";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -639,7 +649,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Matthew Ashton (3XJGUXSGM2)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Matthew Ashton (3XJGUXSGM2)";
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -652,6 +663,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
+				PROVISIONING_PROFILE = "839cb784-245b-4561-95e4-f66d523f0791";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -661,6 +673,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/parse-library-1",
@@ -668,6 +682,7 @@
 				INFOPLIST_FILE = WinDrawWin/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -675,6 +690,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/parse-library-1",
@@ -682,6 +699,7 @@
 				INFOPLIST_FILE = WinDrawWin/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
@@ -689,6 +707,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -700,6 +720,7 @@
 				INFOPLIST_FILE = WinDrawWinTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/WinDrawWin.app/WinDrawWin";
 			};
 			name = Debug;
@@ -708,6 +729,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -715,6 +738,7 @@
 				INFOPLIST_FILE = WinDrawWinTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/WinDrawWin.app/WinDrawWin";
 			};
 			name = Release;

@@ -153,7 +153,7 @@
         [self performSegueWithIdentifier:@"goToMakePicks" sender:self];
     } else if (alertView.tag == 2){
         NSLog(@"Compare Results.");
-        [self calculateResults];
+        //[self calculateResults];
     }
 }
 

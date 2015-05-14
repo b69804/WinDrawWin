@@ -86,6 +86,7 @@
                 NSString *weekNumber = object[@"WeekNo"];
                 NSNumber *currentScore = object[@"MyScore"];
                 [myPickData getDataInBackgroundWithBlock:^(NSData *data, NSError *error) {
+                    [thisWeeksUserPicks removeAllObjects];
                     if (data != nil) {
                         NSMutableArray *allMyPicks = [NSKeyedUnarchiver unarchiveObjectWithData:data];
                         for (eachPick in allMyPicks) {
@@ -99,7 +100,6 @@
                         scoreForWeek33.time = [timeNumber floatValue];
                         scoreForWeek33.eachWeeksPicks = thisWeeksUserPicks;
                         [allMyScores addObject:scoreForWeek33];
-                        
                         [userWeeklyScores reloadData];
                     }
                 }];
