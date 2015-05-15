@@ -20,7 +20,11 @@
 @implementation UserProfile
 
 - (void)viewDidLoad {
+    NSString *userThatIsLoggedIn = [PFUser currentUser].username;
+    userName.text = userThatIsLoggedIn;
+    
     [super viewDidLoad];
+    
     allMyScores = [[NSMutableArray alloc] init];
     thisWeeksUserPicks = [[NSMutableArray alloc] init];
     [self getAllMyScores];
@@ -83,6 +87,9 @@
             for (PFObject *object in objects) {
                 myPickFile = object;
                 PFFile *myPickData = myPickFile[@"completedPicks"];
+                if (myPickData == nil){
+                    myPickData = myPickFile[@"myPickFile"];
+                }
                 NSString *weekNumber = object[@"WeekNo"];
                 NSNumber *currentScore = object[@"MyScore"];
                 [myPickData getDataInBackgroundWithBlock:^(NSData *data, NSError *error) {
@@ -101,6 +108,27 @@
                         scoreForWeek33.eachWeeksPicks = thisWeeksUserPicks;
                         [allMyScores addObject:scoreForWeek33];
                         [userWeeklyScores reloadData];
+                    } else {
+                        PFFile *myPickData = myPickFile[@"myPickFile"];
+                        NSString *weekNumber = object[@"WeekNo"];
+                        NSNumber *currentScore = object[@"MyScore"];
+                        [myPickData getDataInBackgroundWithBlock:^(NSData *data, NSError *error) {
+                            [thisWeeksUserPicks removeAllObjects];
+                            NSMutableArray *allMyPicks = [NSKeyedUnarchiver unarchiveObjectWithData:data];
+                            for (eachPick in allMyPicks) {
+                                [thisWeeksUserPicks addObject:eachPick];
+                            }
+                            UserScores *scoreForWeek33 = [[UserScores alloc] init];
+                            scoreForWeek33.week = [NSString stringWithFormat:@"Week %@", weekNumber];
+                            scoreForWeek33.weekNumber = weekNumber;
+                            scoreForWeek33.score = [currentScore intValue];
+                            NSNumber *timeNumber = object[@"Time"];
+                            scoreForWeek33.time = [timeNumber floatValue];
+                            scoreForWeek33.eachWeeksPicks = thisWeeksUserPicks;
+                            [allMyScores addObject:scoreForWeek33];
+                            [userWeeklyScores reloadData];
+                        }];
+                        
                     }
                 }];
             }

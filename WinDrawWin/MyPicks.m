@@ -68,7 +68,7 @@
         if (!error) {
             for (PFObject *object in objects) {
                 currentWeek = object[@"CurrentWeek"];
-                thisWeek.text = currentWeek;
+                thisWeek.text = [NSString stringWithFormat:@"My Picks for Week %@", currentWeek];
                 PFQuery *query = [PFQuery queryWithClassName:@"MyPicks"];
                 [query whereKey:@"WeekNo" containsString:currentWeek];
                 [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {

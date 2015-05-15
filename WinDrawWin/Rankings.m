@@ -47,9 +47,10 @@
     {
         PFObject *eachPerson = [allUsersRankings objectAtIndex:indexPath.row];
         NSString *userName = eachPerson[@"User"];
-        NSUInteger posInArray = [sortedArray indexOfObject:eachPerson] + 1;
+        NSUInteger posInArray = indexPath.row + 1;
         NSString *ranking = [NSString stringWithFormat:@"%lu", (unsigned long)posInArray];
-        //NSString *score = [NSString stringWithFormat:@"%d", eachPerson.score];
+        
+       // NSString *testRanking = [NSString stringWithFormat:@"%li", (long)indexPath.row];
         NSString *score = eachPerson[@"Score"];
         [rankCell refreshCellWithInfo:ranking username:userName userScore:score];
     }

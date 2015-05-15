@@ -13,6 +13,7 @@
 @interface UserProfile : UIViewController <UITableViewDataSource, UITableViewDelegate>
 {
     IBOutlet UITableView *userWeeklyScores;
+    IBOutlet UILabel *userName;
     NSMutableArray *allMyScores;
     PFObject *myPickFile;
     NSMutableArray *thisWeeksUserPicks;

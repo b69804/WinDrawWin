@@ -43,7 +43,6 @@
             <string>Raleway-Regular</string>
             <string>Raleway-Regular</string>
             <string>Raleway-Regular</string>
-            <string>Raleway-Regular</string>
         </mutableArray>
         <mutableArray key="Raleway-SemiBold.ttf">
             <string>Raleway-SemiBold</string>
@@ -609,7 +608,7 @@
                                 </state>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="62" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="vPG-Lq-YOP">
-                                <rect key="frame" x="0.0" y="106" width="600" height="414"/>
+                                <rect key="frame" x="0.0" y="106" width="600" height="420"/>
                                 <color key="backgroundColor" white="1" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="matchUpPick" rowHeight="62" id="Rpi-y1-CdG" customClass="CustomCell1">
@@ -657,19 +656,11 @@
                                     <outlet property="delegate" destination="QPI-eo-ak4" id="4GZ-ct-pme"/>
                                 </connections>
                             </tableView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="My Picks for Week" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6m8-sx-jzE">
-                                <rect key="frame" x="207" y="65" width="186" height="37"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6m8-sx-jzE">
+                                <rect key="frame" x="150" y="65" width="300" height="37"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="37" id="p1G-7a-j6w"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="Raleway-Regular" family="Raleway" pointSize="22"/>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="--" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zwn-GW-Y4d">
-                                <rect key="frame" x="401" y="65" width="42" height="37"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="42" id="sDf-zu-8lE"/>
+                                    <constraint firstAttribute="height" constant="37" id="d4p-Xm-YYS"/>
+                                    <constraint firstAttribute="width" constant="300" id="zAy-BI-1Tb"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Raleway-Regular" family="Raleway" pointSize="22"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -689,24 +680,23 @@
                             <constraint firstItem="w61-bb-YEs" firstAttribute="height" secondItem="AQK-Le-adp" secondAttribute="height" id="1Jl-3i-SJN"/>
                             <constraint firstItem="AfR-aP-rVL" firstAttribute="width" secondItem="AQK-Le-adp" secondAttribute="width" id="2YS-YZ-KYV"/>
                             <constraint firstItem="5fS-2d-WIa" firstAttribute="centerX" secondItem="INJ-RB-AFP" secondAttribute="centerX" id="4MR-zt-SjE"/>
+                            <constraint firstItem="5fS-2d-WIa" firstAttribute="centerX" secondItem="6m8-sx-jzE" secondAttribute="centerX" id="5zW-oY-8BL"/>
                             <constraint firstItem="hSM-mM-FId" firstAttribute="height" secondItem="AfR-aP-rVL" secondAttribute="height" id="616-lv-beh"/>
                             <constraint firstItem="hSM-mM-FId" firstAttribute="top" secondItem="AfR-aP-rVL" secondAttribute="top" id="7bU-Lw-LlP"/>
                             <constraint firstItem="hSM-mM-FId" firstAttribute="trailing" secondItem="INJ-RB-AFP" secondAttribute="trailing" id="81c-ni-O00"/>
-                            <constraint firstItem="Zwn-GW-Y4d" firstAttribute="centerY" secondItem="6m8-sx-jzE" secondAttribute="centerY" id="8Z2-t3-nNX"/>
                             <constraint firstItem="vPG-Lq-YOP" firstAttribute="top" secondItem="5fS-2d-WIa" secondAttribute="bottom" constant="36" id="9ov-71-Buu"/>
                             <constraint firstItem="w61-bb-YEs" firstAttribute="width" secondItem="AQK-Le-adp" secondAttribute="width" id="AfA-vw-r8o"/>
                             <constraint firstItem="vPG-Lq-YOP" firstAttribute="trailing" secondItem="hSM-mM-FId" secondAttribute="trailing" id="DuP-UL-jav"/>
                             <constraint firstItem="AfR-aP-rVL" firstAttribute="width" secondItem="hSM-mM-FId" secondAttribute="width" id="EKI-pm-i4t"/>
                             <constraint firstItem="w61-bb-YEs" firstAttribute="top" secondItem="AQK-Le-adp" secondAttribute="top" id="Gaz-am-JNB"/>
-                            <constraint firstItem="AQK-Le-adp" firstAttribute="top" secondItem="vPG-Lq-YOP" secondAttribute="bottom" constant="8" id="I6T-wD-gxj"/>
+                            <constraint firstItem="AQK-Le-adp" firstAttribute="top" secondItem="vPG-Lq-YOP" secondAttribute="bottom" constant="2" id="I6T-wD-gxj"/>
                             <constraint firstItem="5fS-2d-WIa" firstAttribute="top" secondItem="3Nc-pP-HnG" secondAttribute="bottom" id="MsW-Tq-ESV"/>
                             <constraint firstItem="hSM-mM-FId" firstAttribute="leading" secondItem="AfR-aP-rVL" secondAttribute="trailing" id="NVR-YP-Ecc"/>
                             <constraint firstAttribute="trailing" secondItem="INJ-RB-AFP" secondAttribute="trailing" id="OeQ-3V-o8d"/>
-                            <constraint firstItem="5fS-2d-WIa" firstAttribute="centerX" secondItem="6m8-sx-jzE" secondAttribute="centerX" id="QMf-86-SfQ"/>
                             <constraint firstItem="w61-bb-YEs" firstAttribute="leading" secondItem="INJ-RB-AFP" secondAttribute="leading" id="YMP-f5-wOW"/>
                             <constraint firstItem="INJ-RB-AFP" firstAttribute="leading" secondItem="YHy-Xe-DSo" secondAttribute="leading" id="aj3-ft-9Ut"/>
-                            <constraint firstItem="5fS-2d-WIa" firstAttribute="centerY" secondItem="6m8-sx-jzE" secondAttribute="centerY" constant="-38.5" id="bq2-YV-ZyX"/>
                             <constraint firstItem="INJ-RB-AFP" firstAttribute="top" secondItem="YHy-Xe-DSo" secondAttribute="top" id="cPr-nG-T7A"/>
+                            <constraint firstItem="6m8-sx-jzE" firstAttribute="top" secondItem="5fS-2d-WIa" secondAttribute="bottom" constant="-5" id="caG-fG-MPa"/>
                             <constraint firstItem="AQK-Le-adp" firstAttribute="leading" secondItem="w61-bb-YEs" secondAttribute="trailing" id="dGT-gh-6VO"/>
                             <constraint firstItem="vPG-Lq-YOP" firstAttribute="leading" secondItem="w61-bb-YEs" secondAttribute="leading" id="g5j-s1-jLz"/>
                             <constraint firstItem="hSM-mM-FId" firstAttribute="bottom" secondItem="AfR-aP-rVL" secondAttribute="bottom" id="gWa-q8-3hg"/>
@@ -715,15 +705,13 @@
                             <constraint firstItem="AfR-aP-rVL" firstAttribute="height" secondItem="hSM-mM-FId" secondAttribute="height" id="pus-WK-gBq"/>
                             <constraint firstItem="AQK-Le-adp" firstAttribute="top" secondItem="AfR-aP-rVL" secondAttribute="top" id="qAj-ft-qDG"/>
                             <constraint firstItem="AfR-aP-rVL" firstAttribute="leading" secondItem="AQK-Le-adp" secondAttribute="trailing" id="qmS-pn-ggh"/>
-                            <constraint firstItem="Zwn-GW-Y4d" firstAttribute="top" secondItem="5fS-2d-WIa" secondAttribute="bottom" constant="-5" id="rEz-Ey-baO"/>
                             <constraint firstItem="AQK-Le-adp" firstAttribute="bottom" secondItem="AfR-aP-rVL" secondAttribute="bottom" id="tCW-Ra-oC7"/>
-                            <constraint firstItem="Zwn-GW-Y4d" firstAttribute="centerX" secondItem="5fS-2d-WIa" secondAttribute="centerX" constant="122" id="uPV-t0-c0K"/>
                             <constraint firstItem="hSM-mM-FId" firstAttribute="bottom" secondItem="Ffe-aT-FGU" secondAttribute="top" id="yie-BX-DFE"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="myPicks" destination="vPG-Lq-YOP" id="fTv-mD-u4E"/>
-                        <outlet property="thisWeek" destination="Zwn-GW-Y4d" id="PAd-D3-te5"/>
+                        <outlet property="thisWeek" destination="6m8-sx-jzE" id="Ol5-ks-kPq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BeG-6b-nEg" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -788,7 +776,7 @@
                                     <segue destination="QPI-eo-ak4" kind="show" id="sSu-LL-flx"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="mashton237" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eyf-w8-j3I">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Username" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eyf-w8-j3I">
                                 <rect key="frame" x="26" y="78" width="548" height="40"/>
                                 <fontDescription key="fontDescription" name="Raleway-Bold" family="Raleway" pointSize="34"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -887,6 +875,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="userName" destination="eyf-w8-j3I" id="2gN-W3-2NZ"/>
                         <outlet property="userWeeklyScores" destination="X2y-qn-93i" id="rcF-jP-1B3"/>
                     </connections>
                 </viewController>
@@ -1396,9 +1385,9 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="5AW-KK-EeF"/>
-        <segue reference="gBY-fT-6K7"/>
-        <segue reference="pX7-a8-GR7"/>
-        <segue reference="BHo-yK-k6Z"/>
+        <segue reference="IvQ-e1-igO"/>
         <segue reference="LWu-eY-gMd"/>
+        <segue reference="BHo-yK-k6Z"/>
+        <segue reference="pX7-a8-GR7"/>
     </inferredMetricsTieBreakers>
 </document>
