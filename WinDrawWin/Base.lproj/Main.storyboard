@@ -270,7 +270,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="emailAddress" returnKeyType="done"/>
                                 <connections>
-                                    <action selector="removeKeyboard:" destination="hiH-Mr-Crt" eventType="touchUpInside" id="VM6-53-OxI"/>
+                                    <action selector="removeKeyboard:" destination="hiH-Mr-Crt" eventType="editingDidEndOnExit" id="Z8q-WX-Ijq"/>
                                 </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6je-nL-2hD">
@@ -1385,9 +1385,9 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="5AW-KK-EeF"/>
-        <segue reference="IvQ-e1-igO"/>
-        <segue reference="LWu-eY-gMd"/>
-        <segue reference="BHo-yK-k6Z"/>
+        <segue reference="ZHL-4v-3KM"/>
+        <segue reference="ZLe-h9-FA9"/>
         <segue reference="pX7-a8-GR7"/>
+        <segue reference="8AV-un-3Yx"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -55,8 +55,8 @@
     if([check1 isEqualToString:@""]){
         everythingGood = false;
         UIAlertView * alert =[[UIAlertView alloc ]
-                              initWithTitle:@"Username not valid"
-                              message:@"Please enter a Username."
+                              initWithTitle:@"We gotta know what to call you!"
+                              message:@"Please enter a Username so you can brag about your high scores!"
                               delegate:self
                               cancelButtonTitle:@"Okay"
                               otherButtonTitles: nil];
@@ -64,8 +64,8 @@
     } else if ([check2 isEqualToString:@""]){
         everythingGood = false;
         UIAlertView * alert =[[UIAlertView alloc ]
-                              initWithTitle:@"Passsword not valid"
-                              message:@"Please enter a Password."
+                              initWithTitle:@"Make your profile secure!"
+                              message:@"Please enter a Password so no one can sabotage your picks."
                               delegate:self
                               cancelButtonTitle:@"Okay"
                               otherButtonTitles: nil];
@@ -73,8 +73,8 @@
     } else if ([check3 isEqualToString:@""]){
         everythingGood = false;
         UIAlertView * alert =[[UIAlertView alloc ]
-                              initWithTitle:@"Email not valid"
-                              message:@"Please enter an Email Address."
+                              initWithTitle:@"Just in case you forget your stuff..."
+                              message:@"Please enter an Email Address so you can retrieve any of your info."
                               delegate:self
                               cancelButtonTitle:@"Okay"
                               otherButtonTitles: nil];
@@ -83,8 +83,8 @@
     } else if(check1.length < length){
         everythingGood = false;
         UIAlertView * alert =[[UIAlertView alloc ]
-                              initWithTitle:@"Username not long enough."
-                              message:@"Please enter a Username with at least 8 characters."
+                              initWithTitle:@"So close yet so far"
+                              message:@"Please enter a Username with at least 8 characters. You are a couple letters short!"
                               delegate:self
                               cancelButtonTitle:@"Okay"
                               otherButtonTitles: nil];
@@ -92,8 +92,8 @@
     } else if (check2.length < length){
         everythingGood = false;
         UIAlertView * alert =[[UIAlertView alloc ]
-                              initWithTitle:@"Passsword not long enough."
-                              message:@"Please enter a Password with at least 8 characters."
+                              initWithTitle:@"So close yet so far"
+                              message:@"Please enter a Password with at least 8 characters. You are a couple letters short!"
                               delegate:self
                               cancelButtonTitle:@"Okay"
                               otherButtonTitles: nil];

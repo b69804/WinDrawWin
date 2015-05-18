@@ -161,7 +161,7 @@
                     awayTeamButton.hidden = false;
                     drawButton.hidden = false;
                     start.hidden = true;
-                    drawImageView.image = [UIImage imageNamed:@"Draw.png"];
+                    //drawImageView.image = [UIImage imageNamed:@"Draw.png"];
                     [self StartTimer];
                 }
                     
@@ -184,29 +184,26 @@
         noMoreGames.tag = 2;
         [noMoreGames show];
     } else {
+        drawImageView.hidden = true;
         drawImageView.image = [UIImage imageNamed:@""];
         eachGame = [gamesThisWeek objectAtIndex:gameNumber];
         NSString *hTeam = eachGame[@"HomeTeam"];
-        NSLog(@"%@", hTeam);
         Team *home = [[Team alloc] init];
         home = [dictionaryOfTeams objectForKey:hTeam];
         UIImage *homeImage = [UIImage imageNamed:home.logo];
-        NSLog(@"%@", home.logo);
         homeImageView.image = homeImage;
         
         NSString *aTeam = eachGame[@"AwayTeam"];
         Team *away = [[Team alloc] init];
         away = [dictionaryOfTeams objectForKey:aTeam];
-        NSLog(@"%@", aTeam);
         UIImage *awayImage = [UIImage imageNamed:away.logo];
-        NSLog(@"%@", away.logo);
         awayImageView.image = awayImage;
         
         drawImageView.image = [UIImage imageNamed:@"Draw.png"];
+        drawImageView.hidden = false;
         
         gameNumber++;
     }
-    NSLog(@"%d", gameNumber);
 }
 
 -(void)writeFile{
