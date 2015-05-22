@@ -17,6 +17,7 @@
     NSMutableDictionary *pickDictionary;
     NSMutableArray *thisWeeksPicks;
     selectedPick *eachPick;
+    BOOL noresults;
     IBOutlet UITableView *selectedWeeklyScores;
     IBOutlet UILabel *thisWeekLabel;
     IBOutlet UIButton *tweet;

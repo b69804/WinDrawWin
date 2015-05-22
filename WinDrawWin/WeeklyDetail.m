@@ -81,15 +81,14 @@
         NSString *eachPickName = weeklyScore.teamPicked.name;
         NSString *eachMatchUp = weeklyScore.matchUp;
         UIImage *result;
-        if (weeklyScore.isCorrect) {
+        if (noresults){
+            result = [UIImage imageNamed:@"player_03.png"];
+        } else if (weeklyScore.isCorrect) {
             result = [UIImage imageNamed:@"Correct.png"];
         } else if (!weeklyScore.isCorrect){
             result = [UIImage imageNamed:@"Incorrect.png"];
         }
         [detailCell refreshCellWithInfo:eachPickName match:eachMatchUp yesOrNo:result];
-        
-        
-        
     }
     return detailCell;
 }
@@ -162,7 +161,7 @@
 
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
-    if (alertView.tag == 2){
+    if (alertView.tag == 0){
     
     }
         
@@ -255,6 +254,10 @@
     PFQuery *resultsQuery = [PFQuery queryWithClassName:@"Week24"];
     //[resultsQuery whereKey:@"Week" containsString:_thatWeeksUsersScores.weekNumber];
     [resultsQuery whereKey:@"Week" containsString:[pickDictionary objectForKey:@"weekNumber"]];
+    UIAlertView *noResultsYet = [[UIAlertView alloc] initWithTitle:@"Games still in progress"
+                                                           message:@"There is still time for an injury time winner!  Results are not available until all games have finished. Check back soon to see how you did!"delegate:self
+                                                 cancelButtonTitle:@"Okay"
+                                                 otherButtonTitles:nil];
     //[resultsQuery whereKey:@"resultAvailable" containsString:@"yes"];
     [resultsQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (!error) {
@@ -263,14 +266,13 @@
                     [resultArray setObject:object[@"Result"] forKey:object[@"GameNo"]];
                 } else {
                     NSLog(@"No results available.");
-                    for (selectedPick *myPick in [pickDictionary objectForKey:@"picksForWeek"]) {
-                        myPick.isCorrect = false;
-                    }
+                    noresults = YES;
                     [selectedWeeklyScores reloadData];
-                    UIAlertView *noResultsYet = [[UIAlertView alloc] initWithTitle:@"All Games Selected" message:@"You have made all your selections for this week.  Let's see what you picked." delegate:self cancelButtonTitle:@"Okay" otherButtonTitles:nil];
-                    noResultsYet.tag = 0;
-                    [noResultsYet show];
                 }
+            }
+            if (noresults) {
+                thisWeekLabel.text = [NSString stringWithFormat:@"Results for Week %@", [pickDictionary objectForKey:@"weekNumber"]];
+                [noResultsYet show];
             }
             if (resultArray.count == 10){
                 int numberCorrect = 0;

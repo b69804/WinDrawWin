@@ -83,6 +83,8 @@
 		5D9C2BBB1AFD9935009B7D3B /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D9C2BBA1AFD9935009B7D3B /* Social.framework */; };
 		5D9C2BBE1B04E304009B7D3B /* Settings.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D9C2BBD1B04E304009B7D3B /* Settings.m */; };
 		5D9C2BC21B0EC427009B7D3B /* raleway in Resources */ = {isa = PBXBuildFile; fileRef = 5D9C2BC11B0EC427009B7D3B /* raleway */; };
+		5D9C2BC41B0EE27E009B7D3B /* logout.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D9C2BC31B0EE27E009B7D3B /* logout.png */; };
+		5D9C2BC61B0EE884009B7D3B /* player_03.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D9C2BC51B0EE884009B7D3B /* player_03.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -194,6 +196,8 @@
 		5D9C2BBC1B04E304009B7D3B /* Settings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Settings.h; sourceTree = "<group>"; };
 		5D9C2BBD1B04E304009B7D3B /* Settings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Settings.m; sourceTree = "<group>"; };
 		5D9C2BC11B0EC427009B7D3B /* raleway */ = {isa = PBXFileReference; lastKnownFileType = folder; path = raleway; sourceTree = "<group>"; };
+		5D9C2BC31B0EE27E009B7D3B /* logout.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logout.png; sourceTree = "<group>"; };
+		5D9C2BC51B0EE884009B7D3B /* player_03.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = player_03.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -292,6 +296,7 @@
 				5D9C2BBD1B04E304009B7D3B /* Settings.m */,
 				5D2C8AB31A827C4F000C15A9 /* Main.storyboard */,
 				5D2C8AB81A827C4F000C15A9 /* LaunchScreen.xib */,
+				5D9C2BC31B0EE27E009B7D3B /* logout.png */,
 				5D9C2BB41AFC67EC009B7D3B /* Twitter_logo_blue.png */,
 				5D9C2BB81AFC6A76009B7D3B /* Facebook_03.png */,
 				5D9C2B8C1AF2E536009B7D3B /* arsenal.png */,
@@ -317,6 +322,7 @@
 				5D3E55F21AE6D9C20009DB45 /* MakePickButton.png */,
 				5D3E55F31AE6D9C20009DB45 /* MyPicksButton.png */,
 				5D9C2B8A1AF2D5E7009B7D3B /* Draw.png */,
+				5D9C2BC51B0EE884009B7D3B /* player_03.png */,
 				5D9C2B771AF2A1F1009B7D3B /* Correct.png */,
 				5D9C2B781AF2A1F1009B7D3B /* Incorrect.png */,
 				5D3E55FC1AE6DFFF0009DB45 /* MakePick_Selected.png */,
@@ -480,6 +486,7 @@
 				5D3E55F71AE6D9C20009DB45 /* MyPicksButton.png in Resources */,
 				5D9C2BA71AF2E54D009B7D3B /* stokecity.png in Resources */,
 				5D9C2BAA1AF2E54D009B7D3B /* united.png in Resources */,
+				5D9C2BC41B0EE27E009B7D3B /* logout.png in Resources */,
 				5D9C2BAB1AF2E54D009B7D3B /* villa.png in Resources */,
 				5D3E56021AE6DFFF0009DB45 /* MyProfile_Selected.png in Resources */,
 				5D9C2BC21B0EC427009B7D3B /* raleway in Resources */,
@@ -503,6 +510,7 @@
 				5D2C8ABA1A827C4F000C15A9 /* LaunchScreen.xib in Resources */,
 				5D9C2B931AF2E536009B7D3B /* citeh.png in Resources */,
 				5D9C2BA91AF2E54D009B7D3B /* swansea.png in Resources */,
+				5D9C2BC61B0EE884009B7D3B /* player_03.png in Resources */,
 				5D3E55F61AE6D9C20009DB45 /* MakePickButton.png in Resources */,
 				5D9C2BB91AFC6A76009B7D3B /* Facebook_03.png in Resources */,
 				5D9C2BA41AF2E54D009B7D3B /* QPR.png in Resources */,

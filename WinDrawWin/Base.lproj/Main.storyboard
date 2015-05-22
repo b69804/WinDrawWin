@@ -1072,6 +1072,22 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Bkgrnd.png" translatesAutoresizingMaskIntoConstraints="NO" id="xSE-D5-toZ">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hide Clock when making picks?" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="STo-CQ-br5">
+                                <rect key="frame" x="147" y="257" width="243" height="72"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="72" id="Bm0-IQ-bZD"/>
+                                    <constraint firstAttribute="width" constant="243" id="N0b-hf-Yjp"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Raleway-Regular" family="Raleway" pointSize="21"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="qdV-SM-O69">
+                                <rect key="frame" x="404" y="277" width="51" height="31"/>
+                                <connections>
+                                    <action selector="changeTimeSwitch:" destination="PQL-Dx-Ba0" eventType="touchUpInside" id="RKo-nR-usN"/>
+                                </connections>
+                            </switch>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo_Horiz.png" translatesAutoresizingMaskIntoConstraints="NO" id="kZl-ZR-G44">
                                 <rect key="frame" x="147" y="20" width="306" height="50"/>
                                 <constraints>
@@ -1079,28 +1095,12 @@
                                     <constraint firstAttribute="height" constant="50" id="Qvp-vG-9qE"/>
                                 </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S29-QP-fP6">
-                                <rect key="frame" x="229" y="482" width="143" height="44"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pIH-di-UGe">
+                                <rect key="frame" x="0.0" y="530" width="600" height="72"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="143" id="Uqd-Zk-s2Q"/>
-                                    <constraint firstAttribute="height" constant="44" id="lAZ-vG-pg3"/>
+                                    <constraint firstAttribute="height" constant="72" id="U4h-qJ-voa"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                <state key="normal" title="Back">
-                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <segue destination="60u-gm-wbN" kind="presentation" modalPresentationStyle="fullScreen" modalTransitionStyle="crossDissolve" id="8AV-un-3Yx"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pIH-di-UGe">
-                                <rect key="frame" x="215" y="534" width="171" height="58"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="171" id="pTa-Kk-M5m"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="Raleway-Regular" family="Raleway" pointSize="35"/>
-                                <state key="normal" title="Logout">
+                                <state key="normal" image="logout.png">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -1140,47 +1140,47 @@
                                     <action selector="changeFacebookSwitch:" destination="PQL-Dx-Ba0" eventType="touchUpInside" id="NV4-Qi-7ZU"/>
                                 </connections>
                             </switch>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hide Clock when making picks?" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="STo-CQ-br5">
-                                <rect key="frame" x="147" y="257" width="243" height="72"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S29-QP-fP6">
+                                <rect key="frame" x="229" y="448" width="143" height="44"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="72" id="Bm0-IQ-bZD"/>
-                                    <constraint firstAttribute="width" constant="243" id="N0b-hf-Yjp"/>
+                                    <constraint firstAttribute="width" constant="143" id="Uqd-Zk-s2Q"/>
+                                    <constraint firstAttribute="height" constant="44" id="lAZ-vG-pg3"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="Raleway-Regular" family="Raleway" pointSize="21"/>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="qdV-SM-O69">
-                                <rect key="frame" x="404" y="277" width="51" height="31"/>
+                                <fontDescription key="fontDescription" name="Raleway-Regular" family="Raleway" pointSize="35"/>
+                                <state key="normal" title="Back">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
                                 <connections>
-                                    <action selector="changeTimeSwitch:" destination="PQL-Dx-Ba0" eventType="touchUpInside" id="RKo-nR-usN"/>
+                                    <segue destination="60u-gm-wbN" kind="presentation" modalPresentationStyle="fullScreen" modalTransitionStyle="crossDissolve" id="8AV-un-3Yx"/>
                                 </connections>
-                            </switch>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="xSE-D5-toZ" firstAttribute="bottom" secondItem="Igg-Av-bgQ" secondAttribute="top" id="5jp-oo-V3C"/>
                             <constraint firstItem="BV4-P7-j2s" firstAttribute="top" secondItem="kZl-ZR-G44" secondAttribute="bottom" constant="27" id="CeQ-Y7-jZn"/>
-                            <constraint firstItem="pIH-di-UGe" firstAttribute="top" secondItem="S29-QP-fP6" secondAttribute="bottom" constant="8" symbolic="YES" id="Dcv-WI-zUL"/>
                             <constraint firstItem="kZl-ZR-G44" firstAttribute="centerX" secondItem="xSE-D5-toZ" secondAttribute="centerX" id="Fti-Fc-9YE"/>
                             <constraint firstItem="v0N-Hr-Rsl" firstAttribute="top" secondItem="BV4-P7-j2s" secondAttribute="bottom" constant="8" symbolic="YES" id="GVg-CG-Gye"/>
                             <constraint firstItem="S29-QP-fP6" firstAttribute="centerX" secondItem="kZl-ZR-G44" secondAttribute="centerX" id="GgH-7U-cco"/>
                             <constraint firstItem="v5s-xu-oN6" firstAttribute="leading" secondItem="BV4-P7-j2s" secondAttribute="trailing" constant="14" id="MON-KK-42l"/>
                             <constraint firstItem="2Mg-ok-e4q" firstAttribute="leading" secondItem="v5s-xu-oN6" secondAttribute="leading" id="MWY-Nm-ciP"/>
+                            <constraint firstItem="pIH-di-UGe" firstAttribute="top" secondItem="S29-QP-fP6" secondAttribute="bottom" constant="38" id="ScK-DV-Mqn"/>
                             <constraint firstItem="2Mg-ok-e4q" firstAttribute="top" secondItem="v5s-xu-oN6" secondAttribute="bottom" constant="49" id="UdX-R8-7jU"/>
                             <constraint firstItem="qdV-SM-O69" firstAttribute="leading" secondItem="2Mg-ok-e4q" secondAttribute="leading" id="WmG-ea-5Qx"/>
                             <constraint firstItem="xSE-D5-toZ" firstAttribute="leading" secondItem="ZrG-UK-lBD" secondAttribute="leading" id="XAL-kI-cvX"/>
                             <constraint firstItem="xSE-D5-toZ" firstAttribute="top" secondItem="ZrG-UK-lBD" secondAttribute="top" id="YM1-Uw-lAP"/>
+                            <constraint firstItem="pIH-di-UGe" firstAttribute="top" secondItem="S29-QP-fP6" secondAttribute="bottom" constant="38" id="ag8-gx-fUK"/>
                             <constraint firstAttribute="trailing" secondItem="xSE-D5-toZ" secondAttribute="trailing" id="c00-Ow-7ep"/>
                             <constraint firstItem="v5s-xu-oN6" firstAttribute="trailing" secondItem="kZl-ZR-G44" secondAttribute="trailing" id="cdA-8L-cve"/>
-                            <constraint firstItem="Igg-Av-bgQ" firstAttribute="top" secondItem="S29-QP-fP6" secondAttribute="bottom" constant="74" id="dMB-mQ-czN"/>
+                            <constraint firstAttribute="centerX" secondItem="pIH-di-UGe" secondAttribute="centerX" id="dd4-Wa-Cgu"/>
+                            <constraint firstItem="Igg-Av-bgQ" firstAttribute="top" secondItem="pIH-di-UGe" secondAttribute="bottom" constant="-2" id="hjf-K9-PZi"/>
                             <constraint firstItem="STo-CQ-br5" firstAttribute="top" secondItem="v0N-Hr-Rsl" secondAttribute="bottom" constant="8" symbolic="YES" id="n8A-Ha-p6G"/>
                             <constraint firstItem="kZl-ZR-G44" firstAttribute="top" secondItem="aMc-C6-fBK" secondAttribute="bottom" id="o7F-N0-5Fk"/>
                             <constraint firstItem="qdV-SM-O69" firstAttribute="leading" secondItem="STo-CQ-br5" secondAttribute="trailing" constant="14" id="oyS-So-goN"/>
-                            <constraint firstItem="pIH-di-UGe" firstAttribute="centerX" secondItem="S29-QP-fP6" secondAttribute="centerX" id="s0t-1I-Sg2"/>
+                            <constraint firstItem="pIH-di-UGe" firstAttribute="leading" secondItem="xSE-D5-toZ" secondAttribute="leading" id="qjE-Sa-4z1"/>
                             <constraint firstItem="qdV-SM-O69" firstAttribute="top" secondItem="2Mg-ok-e4q" secondAttribute="bottom" constant="49" id="vf3-rX-APA"/>
                             <constraint firstItem="2Mg-ok-e4q" firstAttribute="leading" secondItem="v0N-Hr-Rsl" secondAttribute="trailing" constant="14" id="vmO-33-Iqf"/>
-                            <constraint firstItem="Igg-Av-bgQ" firstAttribute="top" secondItem="pIH-di-UGe" secondAttribute="bottom" constant="8" symbolic="YES" id="yjx-rP-3I8"/>
                             <constraint firstItem="v5s-xu-oN6" firstAttribute="top" secondItem="kZl-ZR-G44" secondAttribute="bottom" constant="47" id="ynJ-Ee-RV9"/>
                         </constraints>
                     </view>
@@ -1382,12 +1382,13 @@
         <image name="RankingButton.png" width="376" height="231"/>
         <image name="Rankings_Selected.png" width="376" height="231"/>
         <image name="Twitter_logo_blue.png" width="1139" height="926"/>
+        <image name="logout.png" width="600" height="72"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="5AW-KK-EeF"/>
         <segue reference="ZHL-4v-3KM"/>
-        <segue reference="ZLe-h9-FA9"/>
-        <segue reference="pX7-a8-GR7"/>
+        <segue reference="LWu-eY-gMd"/>
         <segue reference="8AV-un-3Yx"/>
+        <segue reference="pX7-a8-GR7"/>
     </inferredMetricsTieBreakers>
 </document>
