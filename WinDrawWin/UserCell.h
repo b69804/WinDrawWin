@@ -15,6 +15,7 @@
 }
 
 
--(void)refreshCellWithInfo: (NSString *)thisWeek myScore:(NSString *) myScore;
+//-(void)refreshCellWithInfo: (NSString *)thisWeek myScore:(NSString *) myScore;
+-(void)refreshCellWithInfo: (NSString *)thisWeek;
 
 @end

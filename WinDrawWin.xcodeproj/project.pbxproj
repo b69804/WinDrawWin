@@ -36,7 +36,6 @@
 		5D3E55F71AE6D9C20009DB45 /* MyPicksButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D3E55F31AE6D9C20009DB45 /* MyPicksButton.png */; };
 		5D3E55F81AE6D9C20009DB45 /* MyProfileButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D3E55F41AE6D9C20009DB45 /* MyProfileButton.png */; };
 		5D3E55F91AE6D9C20009DB45 /* RankingButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D3E55F51AE6D9C20009DB45 /* RankingButton.png */; };
-		5D3E55FB1AE6DCDD0009DB45 /* raleway in Resources */ = {isa = PBXBuildFile; fileRef = 5D3E55FA1AE6DCDD0009DB45 /* raleway */; };
 		5D3E56001AE6DFFF0009DB45 /* MakePick_Selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D3E55FC1AE6DFFF0009DB45 /* MakePick_Selected.png */; };
 		5D3E56011AE6DFFF0009DB45 /* MyPicks_Selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D3E55FD1AE6DFFF0009DB45 /* MyPicks_Selected.png */; };
 		5D3E56021AE6DFFF0009DB45 /* MyProfile_Selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D3E55FE1AE6DFFF0009DB45 /* MyProfile_Selected.png */; };
@@ -83,6 +82,7 @@
 		5D9C2BB91AFC6A76009B7D3B /* Facebook_03.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D9C2BB81AFC6A76009B7D3B /* Facebook_03.png */; };
 		5D9C2BBB1AFD9935009B7D3B /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D9C2BBA1AFD9935009B7D3B /* Social.framework */; };
 		5D9C2BBE1B04E304009B7D3B /* Settings.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D9C2BBD1B04E304009B7D3B /* Settings.m */; };
+		5D9C2BC21B0EC427009B7D3B /* raleway in Resources */ = {isa = PBXBuildFile; fileRef = 5D9C2BC11B0EC427009B7D3B /* raleway */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -131,7 +131,6 @@
 		5D3E55F31AE6D9C20009DB45 /* MyPicksButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MyPicksButton.png; sourceTree = "<group>"; };
 		5D3E55F41AE6D9C20009DB45 /* MyProfileButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MyProfileButton.png; sourceTree = "<group>"; };
 		5D3E55F51AE6D9C20009DB45 /* RankingButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = RankingButton.png; sourceTree = "<group>"; };
-		5D3E55FA1AE6DCDD0009DB45 /* raleway */ = {isa = PBXFileReference; lastKnownFileType = folder; path = raleway; sourceTree = "<group>"; };
 		5D3E55FC1AE6DFFF0009DB45 /* MakePick_Selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MakePick_Selected.png; sourceTree = "<group>"; };
 		5D3E55FD1AE6DFFF0009DB45 /* MyPicks_Selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MyPicks_Selected.png; sourceTree = "<group>"; };
 		5D3E55FE1AE6DFFF0009DB45 /* MyProfile_Selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MyProfile_Selected.png; sourceTree = "<group>"; };
@@ -194,6 +193,7 @@
 		5D9C2BBA1AFD9935009B7D3B /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		5D9C2BBC1B04E304009B7D3B /* Settings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Settings.h; sourceTree = "<group>"; };
 		5D9C2BBD1B04E304009B7D3B /* Settings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Settings.m; sourceTree = "<group>"; };
+		5D9C2BC11B0EC427009B7D3B /* raleway */ = {isa = PBXFileReference; lastKnownFileType = folder; path = raleway; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -253,7 +253,7 @@
 		5D2C8AA81A827C4F000C15A9 /* WinDrawWin */ = {
 			isa = PBXGroup;
 			children = (
-				5D3E55FA1AE6DCDD0009DB45 /* raleway */,
+				5D9C2BC11B0EC427009B7D3B /* raleway */,
 				5D2C8AAD1A827C4F000C15A9 /* AppDelegate.h */,
 				5D2C8AAE1A827C4F000C15A9 /* AppDelegate.m */,
 				5D9C2B841AF2C0B4009B7D3B /* Login.h */,
@@ -482,6 +482,7 @@
 				5D9C2BAA1AF2E54D009B7D3B /* united.png in Resources */,
 				5D9C2BAB1AF2E54D009B7D3B /* villa.png in Resources */,
 				5D3E56021AE6DFFF0009DB45 /* MyProfile_Selected.png in Resources */,
+				5D9C2BC21B0EC427009B7D3B /* raleway in Resources */,
 				5D9C2BA01AF2E54D009B7D3B /* everton.png in Resources */,
 				5D9C2BAF1AF2E55A009B7D3B /* westham.png in Resources */,
 				5D9C2BB21AF2F233009B7D3B /* lcfc.png in Resources */,
@@ -505,7 +506,6 @@
 				5D3E55F61AE6D9C20009DB45 /* MakePickButton.png in Resources */,
 				5D9C2BB91AFC6A76009B7D3B /* Facebook_03.png in Resources */,
 				5D9C2BA41AF2E54D009B7D3B /* QPR.png in Resources */,
-				5D3E55FB1AE6DCDD0009DB45 /* raleway in Resources */,
 				5D9C2BB31AF2F233009B7D3B /* nufc.png in Resources */,
 				5D2C8AB71A827C4F000C15A9 /* Images.xcassets in Resources */,
 				5D9C2BA21AF2E54D009B7D3B /* liverpool.png in Resources */,

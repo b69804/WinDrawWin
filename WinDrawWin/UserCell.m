@@ -20,10 +20,16 @@
     // Configure the view for the selected state
 }
 
--(void)refreshCellWithInfo: (NSString *)thisWeek myScore:(NSString *) myScore
+-(void)refreshCellWithInfo: (NSString *)thisWeek
+{
+    eachWeek.text = thisWeek;
+    
+}
+
+/*-(void)refreshCellWithInfo: (NSString *)thisWeek myScore:(NSString *) myScore
 {
     eachWeek.text = thisWeek;
     scoreForThatWeek.text = myScore;
-}
+}*/
 
 @end

@@ -18,6 +18,8 @@
     PFObject *myPickFile;
     NSMutableArray *thisWeeksUserPicks;
     selectedPick *eachPick;
+    NSString *passedWeek;
+    NSMutableArray *passedStrings;
 }
 
 -(void)getAllMyScores;

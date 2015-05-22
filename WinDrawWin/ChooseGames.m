@@ -184,7 +184,6 @@
         noMoreGames.tag = 2;
         [noMoreGames show];
     } else {
-        drawImageView.hidden = true;
         drawImageView.image = [UIImage imageNamed:@""];
         eachGame = [gamesThisWeek objectAtIndex:gameNumber];
         NSString *hTeam = eachGame[@"HomeTeam"];
@@ -200,8 +199,6 @@
         awayImageView.image = awayImage;
         
         drawImageView.image = [UIImage imageNamed:@"Draw.png"];
-        drawImageView.hidden = false;
-        
         gameNumber++;
     }
 }

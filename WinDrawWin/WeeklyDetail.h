@@ -12,15 +12,21 @@
 @interface WeeklyDetail : UIViewController <UITableViewDataSource, UITableViewDelegate, UIActionSheetDelegate, UIAlertViewDelegate>
 {
     NSMutableArray *selectedArray;
+    NSMutableArray *allMyScoresArray;
     NSMutableDictionary *resultArray;
+    NSMutableDictionary *pickDictionary;
+    NSMutableArray *thisWeeksPicks;
+    selectedPick *eachPick;
     IBOutlet UITableView *selectedWeeklyScores;
     IBOutlet UILabel *thisWeekLabel;
     IBOutlet UIButton *tweet;
     IBOutlet UIButton *facebook;
     NSString *highScore;
+    
 }
 
 @property (nonatomic, strong)UserScores *thatWeeksUsersScores;
+@property (nonatomic, strong)NSString *passedWeekNo;
 
 -(IBAction)done:(UIStoryboardSegue *)segue;
 -(IBAction)shareViaTwitter:(id)sender;
