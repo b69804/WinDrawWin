@@ -31,11 +31,14 @@
     [application registerUserNotificationSettings:settings];
     [application registerForRemoteNotifications];
     
+    
+    
     // Initialize Reachability
     Reachability *reachability = [Reachability reachabilityWithHostname:@"www.google.com"];
     
     // Start Monitoring
     [reachability startNotifier];
+    [application setStatusBarStyle:UIStatusBarStyleLightContent];
     
     return YES;
 }

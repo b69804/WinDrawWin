@@ -18,6 +18,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     // Do any additional setup after loading the view.
 }
 
@@ -36,7 +37,9 @@
     }
 }
 
-
+- (UIStatusBarStyle) preferredStatusBarStyle {
+    return UIStatusBarStyleLightContent;
+}
 
 -(IBAction)login:(id)sender{
     BOOL everythingGood = true;
@@ -67,7 +70,6 @@
         [PFUser logInWithUsernameInBackground:user.text password:password.text block:^(PFUser *loggedInUser, NSError *error) {
             if(loggedInUser){
                 [self performSegueWithIdentifier:@"login" sender:self];
-                NSLog(@"Logged In.");
             } else {
                 UIAlertView * alert =[[UIAlertView alloc ]
                                       initWithTitle:@"Not able to login."
