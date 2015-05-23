@@ -108,6 +108,22 @@
         [newUser signUpInBackgroundWithBlock:^(BOOL succeeded, NSError *error){
             if (!error) {
                 [self performSegueWithIdentifier:@"createdUser" sender:self];
+            } else if (error.code == 202){
+                UIAlertView * alert =[[UIAlertView alloc ]
+                                      initWithTitle:@"Username already in use!"
+                                      message:@"Somebody is already climbing the leaderboards with that name.  Please choose another one!"
+                                      delegate:self
+                                      cancelButtonTitle:@"Okay"
+                                      otherButtonTitles: nil];
+                [alert show];
+            }else if (error.code == 203){
+                UIAlertView * alert =[[UIAlertView alloc ]
+                                      initWithTitle:@"Email already in use!"
+                                      message:@"There is already an account registered with that email address.  Please use a different email or head on back to the main page to login and start making picks."
+                                      delegate:self
+                                      cancelButtonTitle:@"Okay"
+                                      otherButtonTitles: nil];
+                [alert show];
             } else {
                 UIAlertView * alert =[[UIAlertView alloc ]
                                       initWithTitle:@"Registration not Complete"

@@ -45,8 +45,6 @@
 {
     [selectedWeeklyScores reloadData];
     [self getPicksForPassedWeek];
-    //[self compareResults];
-    
 }
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -56,9 +54,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    
     return [thisWeeksPicks count];
-    //return [_thatWeeksUsersScores.eachWeeksPicks count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -66,17 +62,6 @@
     resultDetailCell *detailCell = [tableView dequeueReusableCellWithIdentifier:@"weeklyResultCell"];
     if (detailCell != nil)
     {
-        /*selectedPick *weeklyScore = [_thatWeeksUsersScores.eachWeeksPicks objectAtIndex:indexPath.row];
-        NSString *eachPickName = weeklyScore.teamPicked.name;
-        NSString *eachMatchUp = weeklyScore.matchUp;
-        UIImage *result;
-        if (weeklyScore.isCorrect) {
-            result = [UIImage imageNamed:@"Correct.png"];
-        } else if (!weeklyScore.isCorrect){
-            result = [UIImage imageNamed:@"Incorrect.png"];
-        }
-        [detailCell refreshCellWithInfo:eachPickName match:eachMatchUp yesOrNo:result];*/
-        
         selectedPick *weeklyScore = [[pickDictionary objectForKey:@"picksForWeek"] objectAtIndex:indexPath.row];
         NSString *eachPickName = weeklyScore.teamPicked.name;
         NSString *eachMatchUp = weeklyScore.matchUp;
@@ -186,20 +171,11 @@
                 NSString *weekNumber = object[@"WeekNo"];
                 NSNumber *currentScore = object[@"MyScore"];
                 [myPickData getDataInBackgroundWithBlock:^(NSData *data, NSError *error) {
-                   // [thisWeeksPicks removeAllObjects];
                     if (currentScore != nil) {
                         NSMutableArray *allMyPicks = [NSKeyedUnarchiver unarchiveObjectWithData:data];
                         for (eachPick in allMyPicks) {
                             [thisWeeksPicks addObject:eachPick];
                         }
-                        /*UserScores *scoreForWeek33 = [[UserScores alloc] init];
-                        scoreForWeek33.week = [NSString stringWithFormat:@"Week %@", weekNumber];
-                        scoreForWeek33.weekNumber = weekNumber;
-                        scoreForWeek33.score = [currentScore intValue];
-                        NSNumber *timeNumber = object[@"Time"];
-                        scoreForWeek33.time = [timeNumber floatValue];
-                        scoreForWeek33.eachWeeksPicks = thisWeeksPicks;
-                        [allMyScoresArray addObject:scoreForWeek33];*/
                         NSNumber *timeNumber = object[@"Time"];
                         [pickDictionary setObject:[NSString stringWithFormat:@"Week %@", weekNumber] forKey:@"week"];
                         [pickDictionary setObject:weekNumber forKey:@"weekNumber"];
@@ -214,23 +190,13 @@
                         PFFile *myPickData = myPickFile[@"myPickFile"];
                         NSString *weekNumber = object[@"WeekNo"];
                         [myPickData getDataInBackgroundWithBlock:^(NSData *data, NSError *error) {
-                            //[thisWeeksPicks removeAllObjects];
                             NSMutableArray *allMyPicks = [NSKeyedUnarchiver unarchiveObjectWithData:data];
                             for (eachPick in allMyPicks) {
                                 [thisWeeksPicks addObject:eachPick];
                             }
-                            /*UserScores *scoreForWeek33 = [[UserScores alloc] init];
-                            scoreForWeek33.week = [NSString stringWithFormat:@"Week %@", weekNumber];
-                            scoreForWeek33.weekNumber = weekNumber;
-                            scoreForWeek33.score = [currentScore intValue];
-                            NSNumber *timeNumber = object[@"Time"];
-                            scoreForWeek33.time = [timeNumber floatValue];
-                            scoreForWeek33.eachWeeksPicks = thisWeeksPicks;
-                            [allMyScoresArray addObject:scoreForWeek33];*/
                             NSNumber *timeNumber = object[@"Time"];
                             [pickDictionary setObject:[NSString stringWithFormat:@"Week %@", weekNumber] forKey:@"week"];
                             [pickDictionary setObject:weekNumber forKey:@"weekNumber"];
-                            //[pickDictionary setObject:currentScore forKey:@"score"];
                             [pickDictionary setObject:timeNumber forKey:@"time"];
                             [pickDictionary setObject:thisWeeksPicks forKey:@"picksForWeek"];
                             
@@ -252,13 +218,11 @@
 {
     resultArray = [[NSMutableDictionary alloc] init];
     PFQuery *resultsQuery = [PFQuery queryWithClassName:@"Week24"];
-    //[resultsQuery whereKey:@"Week" containsString:_thatWeeksUsersScores.weekNumber];
     [resultsQuery whereKey:@"Week" containsString:[pickDictionary objectForKey:@"weekNumber"]];
     UIAlertView *noResultsYet = [[UIAlertView alloc] initWithTitle:@"Games still in progress"
                                                            message:@"There is still time for an injury time winner!  Results are not available until all games have finished. Check back soon to see how you did!"delegate:self
                                                  cancelButtonTitle:@"Okay"
                                                  otherButtonTitles:nil];
-    //[resultsQuery whereKey:@"resultAvailable" containsString:@"yes"];
     [resultsQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (!error) {
             for (PFObject *object in objects){
@@ -276,18 +240,6 @@
             }
             if (resultArray.count == 10){
                 int numberCorrect = 0;
-                /*for (selectedPick *myPick in _thatWeeksUsersScores.eachWeeksPicks) {
-                    NSNumber *game = myPick.gameNumber;
-                    NSString *resultToCompare = [resultArray objectForKey:game];
-                    if ([myPick.teamPicked.nickname isEqualToString:resultToCompare]) {
-                        myPick.isCorrect = true;
-                        (numberCorrect++);
-                    } else {
-                        myPick.isCorrect = false;
-                    }
-                }*/
-                
-                
                 for (selectedPick *myPick in [pickDictionary objectForKey:@"picksForWeek"]) {
                     NSNumber *game = myPick.gameNumber;
                     NSString *resultToCompare = [resultArray objectForKey:game];
@@ -302,13 +254,11 @@
                 NSString *userName = [PFUser currentUser].username;
                 PFQuery *highScoreQuery = [PFQuery queryWithClassName:@"Rankings"];
                 [highScoreQuery whereKey:@"User" containsString:userName];
-                //[highScoreQuery whereKey:@"WeekNo" containsString:_thatWeeksUsersScores.weekNumber];
                 [highScoreQuery whereKey:@"WeekNo" containsString:[pickDictionary objectForKey:@"weekNumber"]];
                 [highScoreQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
                     if (objects.count == 0) {
                         NSLog(@"No High Score");
                         NSInteger myScore = numberCorrect * 10;
-                        //float myNewScore = (myScore + _thatWeeksUsersScores.time);
                         NSNumber *timeNumber = [pickDictionary objectForKey:@"time"];
                         float myNewScore = (myScore + [timeNumber floatValue]);
                         NSNumber *numberScore = [NSNumber numberWithFloat:myNewScore];
@@ -317,12 +267,10 @@
                         highScore = [numberScore stringValue];
                         myHighScore[@"User"] = [PFUser currentUser].username;
                         myHighScore[@"WeekNo"] = [pickDictionary objectForKey:@"weekNumber"];
-                        //myHighScore[@"WeekNo"] = _thatWeeksUsersScores.weekNumber;
                         [pickDictionary setObject:numberScore forKey:@"score"];
                         [myHighScore saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error){
                             if (succeeded) {
                                 [selectedWeeklyScores reloadData];
-                                /*thisWeekLabel.text = [NSString stringWithFormat:@"Results for Week %@  Score: %@", _thatWeeksUsersScores.weekNumber, [numberScore stringValue]];*/
                                 thisWeekLabel.text = [NSString stringWithFormat:@"Results for Week %@  Score: %@", [pickDictionary objectForKey:@"weekNumber"], [numberScore stringValue]];
                                 
                                 
@@ -332,7 +280,6 @@
                         }];
                     } else {
                         [selectedWeeklyScores reloadData];
-                    
                         for (PFObject *object in objects) {
                             highScore = object[@"Score"];
                         }

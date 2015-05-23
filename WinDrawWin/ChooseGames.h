@@ -38,8 +38,11 @@
     NSMutableArray *allTeams;
     NSMutableDictionary *dictionaryOfTeams;
     NSString *currentWeek;
+    IBOutlet UIProgressView *progressView;
 }
 
+@property (nonatomic, strong) UIProgressView *progressView;
+@property (nonatomic, strong) NSTimer *myTimer;
 
 -(IBAction)onHomeTeamSelected:(id)sender;
 -(IBAction)onAwayTeamSelected:(id)sender;

@@ -43,6 +43,8 @@
             <string>Raleway-Regular</string>
             <string>Raleway-Regular</string>
             <string>Raleway-Regular</string>
+            <string>Raleway-Regular</string>
+            <string>Raleway-Regular</string>
         </mutableArray>
         <mutableArray key="Raleway-SemiBold.ttf">
             <string>Raleway-SemiBold</string>
@@ -364,21 +366,6 @@
                                     <constraint firstAttribute="height" constant="50" id="jQq-te-8pV"/>
                                 </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Hs-4Q-kqK">
-                                <rect key="frame" x="223" y="442" width="154" height="38"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="38" id="5dx-2I-0gQ"/>
-                                    <constraint firstAttribute="width" constant="154" id="cwr-qr-4mX"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="Raleway-Regular" family="Raleway" pointSize="20"/>
-                                <state key="normal" title="Start Predicting!">
-                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="onStart:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="ZGm-AU-U3l"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9xW-g6-LQ1">
                                 <rect key="frame" x="0.0" y="530" width="150" height="70"/>
                                 <constraints>
@@ -482,6 +469,25 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="4eL-vs-zhz">
                                 <rect key="frame" x="36" y="333" width="528" height="52"/>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Hs-4Q-kqK">
+                                <rect key="frame" x="202" y="442" width="196" height="38"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="38" id="5dx-2I-0gQ"/>
+                                    <constraint firstAttribute="width" constant="196" id="cwr-qr-4mX"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Raleway-Regular" family="Raleway" pointSize="24"/>
+                                <state key="normal" title="Start Predicting!">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="onStart:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="ZGm-AU-U3l"/>
+                                </connections>
+                            </button>
+                            <progressView hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="OAk-p2-mCo">
+                                <rect key="frame" x="0.0" y="520" width="600" height="2"/>
+                                <color key="progressTintColor" red="0.92941176469999998" green="0.10980392160000001" blue="0.14117647059999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </progressView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -490,6 +496,7 @@
                             <constraint firstItem="m6x-Zl-JOE" firstAttribute="centerX" secondItem="nen-O9-MWB" secondAttribute="centerX" id="2eW-eu-C4a"/>
                             <constraint firstItem="o4g-rW-2eX" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="3aZ-bD-5Sc"/>
                             <constraint firstItem="Bxb-bX-GH7" firstAttribute="height" secondItem="jvb-xi-pZf" secondAttribute="height" id="4Hi-Nh-Oph"/>
+                            <constraint firstItem="OAk-p2-mCo" firstAttribute="leading" secondItem="9xW-g6-LQ1" secondAttribute="leading" id="4bW-KS-zIn"/>
                             <constraint firstItem="ytl-5l-57U" firstAttribute="centerX" secondItem="nen-O9-MWB" secondAttribute="centerX" constant="-30" id="4mH-ev-hc8"/>
                             <constraint firstItem="ytl-5l-57U" firstAttribute="top" secondItem="nen-O9-MWB" secondAttribute="bottom" constant="10" id="5DQ-3Q-tvG"/>
                             <constraint firstItem="qtb-FP-bwO" firstAttribute="bottom" secondItem="2fi-mo-0CV" secondAttribute="top" id="5Fw-R0-fAV"/>
@@ -501,6 +508,7 @@
                             <constraint firstItem="Bxb-bX-GH7" firstAttribute="leading" secondItem="qtb-FP-bwO" secondAttribute="trailing" id="BV4-U9-HRe"/>
                             <constraint firstItem="fC6-2Y-4Ia" firstAttribute="trailing" secondItem="gBq-Hk-FMg" secondAttribute="trailing" id="Bnx-Me-xCr"/>
                             <constraint firstItem="qtb-FP-bwO" firstAttribute="leading" secondItem="9xW-g6-LQ1" secondAttribute="trailing" id="D7Y-Dp-sFJ"/>
+                            <constraint firstItem="OAk-p2-mCo" firstAttribute="trailing" secondItem="jvb-xi-pZf" secondAttribute="trailing" id="EUe-UT-hmx"/>
                             <constraint firstItem="JNV-zg-m0E" firstAttribute="bottom" secondItem="gBq-Hk-FMg" secondAttribute="bottom" id="FLR-fV-Ahk"/>
                             <constraint firstItem="gBq-Hk-FMg" firstAttribute="leading" secondItem="m6x-Zl-JOE" secondAttribute="leading" id="GE8-ZR-TrP"/>
                             <constraint firstItem="fC6-2Y-4Ia" firstAttribute="leading" secondItem="gBq-Hk-FMg" secondAttribute="leading" id="Gkq-TK-SWP"/>
@@ -524,6 +532,7 @@
                             <constraint firstItem="9xW-g6-LQ1" firstAttribute="leading" secondItem="o4g-rW-2eX" secondAttribute="leading" id="fgg-YD-sOR"/>
                             <constraint firstItem="fC6-2Y-4Ia" firstAttribute="centerX" secondItem="6Hs-4Q-kqK" secondAttribute="centerX" id="gyE-Ee-GHT"/>
                             <constraint firstItem="qtb-FP-bwO" firstAttribute="top" secondItem="Bxb-bX-GH7" secondAttribute="top" id="h50-JQ-dKG"/>
+                            <constraint firstItem="9xW-g6-LQ1" firstAttribute="top" secondItem="OAk-p2-mCo" secondAttribute="bottom" constant="8" symbolic="YES" id="ixb-mw-fwh"/>
                             <constraint firstItem="jvb-xi-pZf" firstAttribute="trailing" secondItem="o4g-rW-2eX" secondAttribute="trailing" id="ka8-tc-Vlr"/>
                             <constraint firstItem="nen-O9-MWB" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="kh7-LS-hQm"/>
                             <constraint firstItem="nen-O9-MWB" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" id="nMk-SR-em1"/>
@@ -549,6 +558,7 @@
                         <outlet property="gameTime" destination="ytl-5l-57U" id="Swm-Jn-EPl"/>
                         <outlet property="homeImageView" destination="pHU-on-th5" id="Rut-ZE-zKU"/>
                         <outlet property="homeTeamButton" destination="m6x-Zl-JOE" id="lsT-Op-srT"/>
+                        <outlet property="progressView" destination="OAk-p2-mCo" id="bEd-Vp-SFr"/>
                         <outlet property="start" destination="6Hs-4Q-kqK" id="Zor-to-Hdn"/>
                     </connections>
                 </viewController>
@@ -1095,6 +1105,21 @@
                                     <constraint firstAttribute="height" constant="50" id="Qvp-vG-9qE"/>
                                 </constraints>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S29-QP-fP6">
+                                <rect key="frame" x="229" y="448" width="143" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="143" id="Uqd-Zk-s2Q"/>
+                                    <constraint firstAttribute="height" constant="44" id="lAZ-vG-pg3"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Raleway-Regular" family="Raleway" pointSize="35"/>
+                                <state key="normal" title="Back">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="60u-gm-wbN" kind="presentation" modalPresentationStyle="fullScreen" modalTransitionStyle="crossDissolve" id="8AV-un-3Yx"/>
+                                </connections>
+                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pIH-di-UGe">
                                 <rect key="frame" x="0.0" y="530" width="600" height="72"/>
                                 <constraints>
@@ -1140,19 +1165,30 @@
                                     <action selector="changeFacebookSwitch:" destination="PQL-Dx-Ba0" eventType="touchUpInside" id="NV4-Qi-7ZU"/>
                                 </connections>
                             </switch>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S29-QP-fP6">
-                                <rect key="frame" x="229" y="448" width="143" height="44"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u3s-x6-XrV">
+                                <rect key="frame" x="191" y="338" width="219" height="40"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="143" id="Uqd-Zk-s2Q"/>
-                                    <constraint firstAttribute="height" constant="44" id="lAZ-vG-pg3"/>
+                                    <constraint firstAttribute="width" secondItem="u3s-x6-XrV" secondAttribute="height" multiplier="225:41" id="H7L-ad-PHt"/>
+                                    <constraint firstAttribute="width" secondItem="u3s-x6-XrV" secondAttribute="height" multiplier="225:41" id="XtT-Ax-h7f"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="Raleway-Regular" family="Raleway" pointSize="35"/>
-                                <state key="normal" title="Back">
+                                <fontDescription key="fontDescription" name="Raleway-Regular" family="Raleway" pointSize="23"/>
+                                <state key="normal" title="Change Username">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="60u-gm-wbN" kind="presentation" modalPresentationStyle="fullScreen" modalTransitionStyle="crossDissolve" id="8AV-un-3Yx"/>
+                                    <action selector="changeUsername:" destination="PQL-Dx-Ba0" eventType="touchUpInside" id="a6W-TJ-rqd"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eOM-gd-x4A">
+                                <rect key="frame" x="191" y="386" width="219" height="40"/>
+                                <fontDescription key="fontDescription" name="Raleway-Regular" family="Raleway" pointSize="23"/>
+                                <state key="normal" title="Change Password">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="changePassword:" destination="PQL-Dx-Ba0" eventType="touchUpInside" id="EIB-32-IRT"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -1160,6 +1196,7 @@
                         <constraints>
                             <constraint firstItem="xSE-D5-toZ" firstAttribute="bottom" secondItem="Igg-Av-bgQ" secondAttribute="top" id="5jp-oo-V3C"/>
                             <constraint firstItem="BV4-P7-j2s" firstAttribute="top" secondItem="kZl-ZR-G44" secondAttribute="bottom" constant="27" id="CeQ-Y7-jZn"/>
+                            <constraint firstItem="eOM-gd-x4A" firstAttribute="leading" secondItem="u3s-x6-XrV" secondAttribute="leading" id="FV7-AM-Tdn"/>
                             <constraint firstItem="kZl-ZR-G44" firstAttribute="centerX" secondItem="xSE-D5-toZ" secondAttribute="centerX" id="Fti-Fc-9YE"/>
                             <constraint firstItem="v0N-Hr-Rsl" firstAttribute="top" secondItem="BV4-P7-j2s" secondAttribute="bottom" constant="8" symbolic="YES" id="GVg-CG-Gye"/>
                             <constraint firstItem="S29-QP-fP6" firstAttribute="centerX" secondItem="kZl-ZR-G44" secondAttribute="centerX" id="GgH-7U-cco"/>
@@ -1174,17 +1211,23 @@
                             <constraint firstAttribute="trailing" secondItem="xSE-D5-toZ" secondAttribute="trailing" id="c00-Ow-7ep"/>
                             <constraint firstItem="v5s-xu-oN6" firstAttribute="trailing" secondItem="kZl-ZR-G44" secondAttribute="trailing" id="cdA-8L-cve"/>
                             <constraint firstAttribute="centerX" secondItem="pIH-di-UGe" secondAttribute="centerX" id="dd4-Wa-Cgu"/>
+                            <constraint firstItem="xSE-D5-toZ" firstAttribute="centerY" secondItem="u3s-x6-XrV" secondAttribute="centerY" constant="-57.5" id="hjN-i6-IiT"/>
                             <constraint firstItem="Igg-Av-bgQ" firstAttribute="top" secondItem="pIH-di-UGe" secondAttribute="bottom" constant="-2" id="hjf-K9-PZi"/>
+                            <constraint firstItem="eOM-gd-x4A" firstAttribute="top" secondItem="u3s-x6-XrV" secondAttribute="bottom" constant="8" symbolic="YES" id="k0x-5C-Wnr"/>
                             <constraint firstItem="STo-CQ-br5" firstAttribute="top" secondItem="v0N-Hr-Rsl" secondAttribute="bottom" constant="8" symbolic="YES" id="n8A-Ha-p6G"/>
                             <constraint firstItem="kZl-ZR-G44" firstAttribute="top" secondItem="aMc-C6-fBK" secondAttribute="bottom" id="o7F-N0-5Fk"/>
                             <constraint firstItem="qdV-SM-O69" firstAttribute="leading" secondItem="STo-CQ-br5" secondAttribute="trailing" constant="14" id="oyS-So-goN"/>
                             <constraint firstItem="pIH-di-UGe" firstAttribute="leading" secondItem="xSE-D5-toZ" secondAttribute="leading" id="qjE-Sa-4z1"/>
+                            <constraint firstItem="u3s-x6-XrV" firstAttribute="centerX" secondItem="kZl-ZR-G44" secondAttribute="centerX" constant="0.5" id="uhh-NI-JUM"/>
                             <constraint firstItem="qdV-SM-O69" firstAttribute="top" secondItem="2Mg-ok-e4q" secondAttribute="bottom" constant="49" id="vf3-rX-APA"/>
                             <constraint firstItem="2Mg-ok-e4q" firstAttribute="leading" secondItem="v0N-Hr-Rsl" secondAttribute="trailing" constant="14" id="vmO-33-Iqf"/>
                             <constraint firstItem="v5s-xu-oN6" firstAttribute="top" secondItem="kZl-ZR-G44" secondAttribute="bottom" constant="47" id="ynJ-Ee-RV9"/>
+                            <constraint firstItem="eOM-gd-x4A" firstAttribute="trailing" secondItem="u3s-x6-XrV" secondAttribute="trailing" id="zFz-Qf-Hu4"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="changePassword" destination="eOM-gd-x4A" id="8di-02-SM1"/>
+                        <outlet property="changeUsername" destination="u3s-x6-XrV" id="ehY-wG-62d"/>
                         <outlet property="facebookSwitch" destination="2Mg-ok-e4q" id="W8P-hd-NRt"/>
                         <outlet property="timeSwitch" destination="qdV-SM-O69" id="WY2-Bv-rUG"/>
                         <outlet property="twitterSwitch" destination="v5s-xu-oN6" id="LUd-eB-CGl"/>
@@ -1385,10 +1428,10 @@
         <image name="logout.png" width="600" height="72"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="5AW-KK-EeF"/>
-        <segue reference="ZHL-4v-3KM"/>
-        <segue reference="LWu-eY-gMd"/>
-        <segue reference="8AV-un-3Yx"/>
+        <segue reference="K2F-vh-jd6"/>
         <segue reference="pX7-a8-GR7"/>
+        <segue reference="gBY-fT-6K7"/>
+        <segue reference="mVx-Xt-MqE"/>
+        <segue reference="LWu-eY-gMd"/>
     </inferredMetricsTieBreakers>
 </document>

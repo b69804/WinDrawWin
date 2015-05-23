@@ -18,6 +18,8 @@
 
 @implementation ChooseGames
 
+@synthesize progressView;
+
 - (void)viewDidLoad {
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reachabilityDidChange:) name:kReachabilityChangedNotification object:nil];
@@ -128,7 +130,6 @@
     Reachability *reachability = (Reachability *)[notification object];
     
     if ([reachability isReachable]) {
-        NSLog(@"Reachable");
     } else {
         UIAlertView * alert =[[UIAlertView alloc ]
                               initWithTitle:@"Check your Interwebs!"
@@ -150,21 +151,19 @@
                 PFQuery *query = [PFQuery queryWithClassName:@"MyPicks"];
                 [query whereKey:@"WeekNo" containsString:currentWeek];
                 [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-                if (objects.count == 1) {
-                    UIAlertView *pickGames = [[UIAlertView alloc] initWithTitle:@"Picks already made!" message:@"Looks like you have already made picks for this week.  Please review your picks." delegate:self cancelButtonTitle:@"Okay" otherButtonTitles:nil];
-                    pickGames.tag = 1;
-                    [pickGames show];
-                } else {
-                    gameNumber = 0;
-                    [self nextGame];
-                    homeTeamButton.hidden = false;
-                    awayTeamButton.hidden = false;
-                    drawButton.hidden = false;
-                    start.hidden = true;
-                    //drawImageView.image = [UIImage imageNamed:@"Draw.png"];
-                    [self StartTimer];
-                }
-                    
+                    if (objects.count == 1) {
+                        UIAlertView *pickGames = [[UIAlertView alloc] initWithTitle:@"Picks already made!" message:@"Looks like you have already made picks for this week.  Please review your picks." delegate:self cancelButtonTitle:@"Okay" otherButtonTitles:nil];
+                        pickGames.tag = 1;
+                        [pickGames show];
+                    } else {
+                        gameNumber = 0;
+                        [self nextGame];
+                        homeTeamButton.hidden = false;
+                        awayTeamButton.hidden = false;
+                        drawButton.hidden = false;
+                        start.hidden = true;
+                        [self StartTimer];
+                    }  
                 }];
             }
         } else {
@@ -184,7 +183,7 @@
         noMoreGames.tag = 2;
         [noMoreGames show];
     } else {
-        drawImageView.image = [UIImage imageNamed:@""];
+        drawImageView.hidden = true;
         eachGame = [gamesThisWeek objectAtIndex:gameNumber];
         NSString *hTeam = eachGame[@"HomeTeam"];
         Team *home = [[Team alloc] init];
@@ -199,6 +198,8 @@
         awayImageView.image = awayImage;
         
         drawImageView.image = [UIImage imageNamed:@"Draw.png"];
+        
+        drawImageView.hidden = false;
         gameNumber++;
     }
 }
@@ -215,13 +216,19 @@
             myPicks[@"WeekNo"] = eachGame[@"Week"];
             myTimeForPicks = [NSNumber numberWithInt:(90 - timeSec)];
             myPicks[@"Time"] = myTimeForPicks;
-            [myPicks saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error){
-                if (succeeded) {
-                    [self performSegueWithIdentifier:@"myPicks" sender:self];
-                } else {
-                    NSLog(@"Did not save.");
-                }
-            }];
+            Reachability *reachability = [Reachability reachabilityForInternetConnection];
+            NetworkStatus internetStatus = [reachability currentReachabilityStatus];
+            if (internetStatus != NotReachable){
+                [myPicks saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error){
+                    if (succeeded) {
+                        progressView.hidden = false;
+                        [self startCount];
+                        //[self performSegueWithIdentifier:@"myPicks" sender:self];
+                    } else {
+                        NSLog(@"Did not save.");
+                    }
+                }];
+            }
         } else {
             NSLog(@"Did not save.");
         }
@@ -251,6 +258,26 @@
         NSString* timeNow = [NSString stringWithFormat:@"%02d", timeSec];
         countdown.text= timeNow;
     }
+}
+
+- (void)startCount
+{
+    self.myTimer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(updateUI:) userInfo:nil repeats:YES];
+}
+
+- (void)updateUI:(NSTimer *)timer
+{
+    static int count =0; count++;
+    
+    if (count <=5)
+    {
+        self.progressView.progress = (float)count/5.0f;
+    } else
+    {
+        [self.myTimer invalidate];
+        self.myTimer = nil;
+        [self performSegueWithIdentifier:@"myPicks" sender:self];
+    } 
 }
 
 -(void)createAllTeams{

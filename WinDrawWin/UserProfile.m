@@ -34,7 +34,6 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [userWeeklyScores reloadData];
-   // [self getAllMyScores];
     [self getScores];
 }
 
@@ -50,7 +49,6 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    //return [allMyScores count];
     return [passedStrings count];
 }
 
@@ -60,11 +58,6 @@
     UserCell *userCell = [tableView dequeueReusableCellWithIdentifier:@"userCell"];
     if (userCell != nil)
     {
-        //UserScores *weeklyScore = [allMyScores objectAtIndex:indexPath.row];
-        //NSString *thisWeek = weeklyScore.week;
-        //NSString *thisWeeksScore = [NSString stringWithFormat:@"%d", weeklyScore.score];
-        
-        //[userCell refreshCellWithInfo: (NSString *)thisWeek myScore:(NSString *) thisWeeksScore];
         NSString *thisWeek = [passedStrings objectAtIndex:indexPath.row];
         NSString *weekFormat = [NSString stringWithFormat:@"Week %@", thisWeek];
         [userCell refreshCellWithInfo: (NSString *)weekFormat];
@@ -80,10 +73,6 @@
         WeeklyDetail *detailView = segue.destinationViewController;
         UITableViewCell *cell = (UITableViewCell*)sender;
         NSIndexPath *indexPath = [userWeeklyScores indexPathForCell:cell];
-        
-        /*UserScores *weeklyScore = [allMyScores objectAtIndex:indexPath.row];
-        detailView.thatWeeksUsersScores = weeklyScore;*/
-        
         passedWeek = [passedStrings objectAtIndex:indexPath.row];
         detailView.passedWeekNo = passedWeek;
     }
@@ -91,7 +80,6 @@
 
 - (void)getScores
 {
-    //allMyScores = [[NSMutableArray alloc] init];
     passedStrings = [[NSMutableArray alloc] init];
     PFQuery *query = [PFQuery queryWithClassName:@"MyPicks"];
     [query orderByDescending:@"WeekNo"];
@@ -118,7 +106,6 @@
                     } else {
                         PFFile *myPickData = myPickFile[@"myPickFile"];
                         NSString *weekNumber = object[@"WeekNo"];
-                        //NSNumber *currentScore = object[@"MyScore"];
                         [passedStrings addObject:weekNumber];
                         [passedStrings sortUsingSelector:@selector(localizedCaseInsensitiveCompare:)];
                         [userWeeklyScores  reloadData];
@@ -130,16 +117,13 @@
                             }
                             [userWeeklyScores reloadData];
                         }];
-                        
                     }
                 }];
             }
         } else {
-            
             NSLog(@"Error: %@ %@", error, [error userInfo]);
         }
     }];
-    
 }
 
 -(void)getAllMyScores
