@@ -45,6 +45,7 @@
             <string>Raleway-Regular</string>
             <string>Raleway-Regular</string>
             <string>Raleway-Regular</string>
+            <string>Raleway-Regular</string>
         </mutableArray>
         <mutableArray key="Raleway-SemiBold.ttf">
             <string>Raleway-SemiBold</string>
@@ -124,14 +125,27 @@
                                     <segue destination="hiH-Mr-Crt" kind="presentation" modalTransitionStyle="coverVertical" id="w8n-Us-KWq"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vdA-it-Ska">
+                                <rect key="frame" x="200" y="485" width="201" height="38"/>
+                                <fontDescription key="fontDescription" name="Raleway-Regular" family="Raleway" pointSize="22"/>
+                                <state key="normal" title="Forgot Username?">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="forgotMyName:" destination="pBD-mH-jBt" eventType="touchUpInside" id="pFc-iS-B5g"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="Rjq-xR-MHu" firstAttribute="leading" secondItem="NMU-Ae-wSo" secondAttribute="leading" id="0Wz-Li-wIF"/>
                             <constraint firstItem="IFc-gy-Lsf" firstAttribute="leading" secondItem="oiA-NG-SLo" secondAttribute="leading" id="0tB-af-ShZ"/>
+                            <constraint firstItem="vdA-it-Ska" firstAttribute="top" secondItem="Rjq-xR-MHu" secondAttribute="bottom" constant="8" symbolic="YES" id="3lB-cI-bbY"/>
                             <constraint firstItem="Rjq-xR-MHu" firstAttribute="trailing" secondItem="NMU-Ae-wSo" secondAttribute="trailing" id="3vp-Uj-ixQ"/>
                             <constraint firstItem="OfO-gD-60D" firstAttribute="trailing" secondItem="nbY-tx-uEW" secondAttribute="trailing" id="4UE-7I-5ZX"/>
                             <constraint firstItem="4Zl-Eu-JX7" firstAttribute="top" secondItem="gQW-wZ-dAk" secondAttribute="bottom" id="CgN-Ap-iSt"/>
+                            <constraint firstItem="vdA-it-Ska" firstAttribute="trailing" secondItem="Rjq-xR-MHu" secondAttribute="trailing" id="Cs5-xp-jNI"/>
                             <constraint firstItem="nbY-tx-uEW" firstAttribute="centerX" secondItem="4Zl-Eu-JX7" secondAttribute="centerX" id="Lam-7E-n9p"/>
                             <constraint firstItem="IFc-gy-Lsf" firstAttribute="bottom" secondItem="27Z-SM-Wcr" secondAttribute="top" id="SNL-tF-4QI"/>
                             <constraint firstItem="IFc-gy-Lsf" firstAttribute="top" secondItem="oiA-NG-SLo" secondAttribute="top" id="XVa-DO-Lxf"/>
@@ -140,6 +154,7 @@
                             <constraint firstItem="FKO-Lr-1T5" firstAttribute="centerX" secondItem="4Zl-Eu-JX7" secondAttribute="centerX" id="dzu-jA-YCd"/>
                             <constraint firstItem="nbY-tx-uEW" firstAttribute="top" secondItem="4Zl-Eu-JX7" secondAttribute="bottom" constant="244" id="fsK-pa-OQ9"/>
                             <constraint firstItem="NMU-Ae-wSo" firstAttribute="leading" secondItem="OfO-gD-60D" secondAttribute="leading" id="jF2-8K-37W"/>
+                            <constraint firstItem="vdA-it-Ska" firstAttribute="leading" secondItem="Rjq-xR-MHu" secondAttribute="leading" id="jVa-rI-eFz"/>
                             <constraint firstItem="nbY-tx-uEW" firstAttribute="top" secondItem="FKO-Lr-1T5" secondAttribute="bottom" constant="8" id="ndF-La-gHz"/>
                             <constraint firstItem="Rjq-xR-MHu" firstAttribute="top" secondItem="NMU-Ae-wSo" secondAttribute="bottom" constant="8" symbolic="YES" id="qCB-D3-Zqs"/>
                             <constraint firstAttribute="trailing" secondItem="IFc-gy-Lsf" secondAttribute="trailing" id="sVT-WH-snw"/>
@@ -151,6 +166,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="forgotUsername" destination="vdA-it-Ska" id="Qfu-XL-uvo"/>
                         <outlet property="loginButton" destination="NMU-Ae-wSo" id="ApF-5U-Jwn"/>
                         <outlet property="password" destination="OfO-gD-60D" id="udP-tX-lO6"/>
                         <outlet property="setupAccount" destination="Rjq-xR-MHu" id="GdN-QD-rlY"/>
@@ -1105,21 +1121,6 @@
                                     <constraint firstAttribute="height" constant="50" id="Qvp-vG-9qE"/>
                                 </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S29-QP-fP6">
-                                <rect key="frame" x="229" y="448" width="143" height="44"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="143" id="Uqd-Zk-s2Q"/>
-                                    <constraint firstAttribute="height" constant="44" id="lAZ-vG-pg3"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="Raleway-Regular" family="Raleway" pointSize="35"/>
-                                <state key="normal" title="Back">
-                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <segue destination="60u-gm-wbN" kind="presentation" modalPresentationStyle="fullScreen" modalTransitionStyle="crossDissolve" id="8AV-un-3Yx"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pIH-di-UGe">
                                 <rect key="frame" x="0.0" y="530" width="600" height="72"/>
                                 <constraints>
@@ -1166,13 +1167,12 @@
                                 </connections>
                             </switch>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u3s-x6-XrV">
-                                <rect key="frame" x="191" y="338" width="219" height="40"/>
+                                <rect key="frame" x="145" y="337" width="243" height="37"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="u3s-x6-XrV" secondAttribute="height" multiplier="225:41" id="H7L-ad-PHt"/>
-                                    <constraint firstAttribute="width" secondItem="u3s-x6-XrV" secondAttribute="height" multiplier="225:41" id="XtT-Ax-h7f"/>
+                                    <constraint firstAttribute="height" constant="37" id="poj-19-wOJ"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="Raleway-Regular" family="Raleway" pointSize="23"/>
-                                <state key="normal" title="Change Username">
+                                <fontDescription key="fontDescription" name="Raleway-Regular" family="Raleway" pointSize="20"/>
+                                <state key="normal" title="Change Username/Email">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -1180,9 +1180,28 @@
                                     <action selector="changeUsername:" destination="PQL-Dx-Ba0" eventType="touchUpInside" id="a6W-TJ-rqd"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S29-QP-fP6">
+                                <rect key="frame" x="229" y="478" width="143" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="143" id="Uqd-Zk-s2Q"/>
+                                    <constraint firstAttribute="height" constant="44" id="lAZ-vG-pg3"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Raleway-Regular" family="Raleway" pointSize="30"/>
+                                <state key="normal" title="Back">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="60u-gm-wbN" kind="presentation" modalPresentationStyle="fullScreen" modalTransitionStyle="crossDissolve" id="8AV-un-3Yx"/>
+                                </connections>
+                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eOM-gd-x4A">
-                                <rect key="frame" x="191" y="386" width="219" height="40"/>
-                                <fontDescription key="fontDescription" name="Raleway-Regular" family="Raleway" pointSize="23"/>
+                                <rect key="frame" x="147" y="382" width="169" height="37"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="169" id="2Bo-DT-3Oc"/>
+                                    <constraint firstAttribute="height" constant="37" id="NUy-wy-Cca"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Raleway-Regular" family="Raleway" pointSize="20"/>
                                 <state key="normal" title="Change Password">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -1196,33 +1215,33 @@
                         <constraints>
                             <constraint firstItem="xSE-D5-toZ" firstAttribute="bottom" secondItem="Igg-Av-bgQ" secondAttribute="top" id="5jp-oo-V3C"/>
                             <constraint firstItem="BV4-P7-j2s" firstAttribute="top" secondItem="kZl-ZR-G44" secondAttribute="bottom" constant="27" id="CeQ-Y7-jZn"/>
-                            <constraint firstItem="eOM-gd-x4A" firstAttribute="leading" secondItem="u3s-x6-XrV" secondAttribute="leading" id="FV7-AM-Tdn"/>
                             <constraint firstItem="kZl-ZR-G44" firstAttribute="centerX" secondItem="xSE-D5-toZ" secondAttribute="centerX" id="Fti-Fc-9YE"/>
                             <constraint firstItem="v0N-Hr-Rsl" firstAttribute="top" secondItem="BV4-P7-j2s" secondAttribute="bottom" constant="8" symbolic="YES" id="GVg-CG-Gye"/>
                             <constraint firstItem="S29-QP-fP6" firstAttribute="centerX" secondItem="kZl-ZR-G44" secondAttribute="centerX" id="GgH-7U-cco"/>
                             <constraint firstItem="v5s-xu-oN6" firstAttribute="leading" secondItem="BV4-P7-j2s" secondAttribute="trailing" constant="14" id="MON-KK-42l"/>
                             <constraint firstItem="2Mg-ok-e4q" firstAttribute="leading" secondItem="v5s-xu-oN6" secondAttribute="leading" id="MWY-Nm-ciP"/>
-                            <constraint firstItem="pIH-di-UGe" firstAttribute="top" secondItem="S29-QP-fP6" secondAttribute="bottom" constant="38" id="ScK-DV-Mqn"/>
+                            <constraint firstItem="u3s-x6-XrV" firstAttribute="leading" secondItem="STo-CQ-br5" secondAttribute="leading" constant="-2" id="O7D-kM-RX6"/>
+                            <constraint firstItem="pIH-di-UGe" firstAttribute="top" secondItem="S29-QP-fP6" secondAttribute="bottom" constant="8" id="ScK-DV-Mqn"/>
                             <constraint firstItem="2Mg-ok-e4q" firstAttribute="top" secondItem="v5s-xu-oN6" secondAttribute="bottom" constant="49" id="UdX-R8-7jU"/>
                             <constraint firstItem="qdV-SM-O69" firstAttribute="leading" secondItem="2Mg-ok-e4q" secondAttribute="leading" id="WmG-ea-5Qx"/>
                             <constraint firstItem="xSE-D5-toZ" firstAttribute="leading" secondItem="ZrG-UK-lBD" secondAttribute="leading" id="XAL-kI-cvX"/>
+                            <constraint firstItem="eOM-gd-x4A" firstAttribute="top" secondItem="u3s-x6-XrV" secondAttribute="bottom" constant="8" symbolic="YES" id="XTx-Ai-Kdd"/>
                             <constraint firstItem="xSE-D5-toZ" firstAttribute="top" secondItem="ZrG-UK-lBD" secondAttribute="top" id="YM1-Uw-lAP"/>
-                            <constraint firstItem="pIH-di-UGe" firstAttribute="top" secondItem="S29-QP-fP6" secondAttribute="bottom" constant="38" id="ag8-gx-fUK"/>
+                            <constraint firstItem="pIH-di-UGe" firstAttribute="top" secondItem="S29-QP-fP6" secondAttribute="bottom" constant="8" id="ag8-gx-fUK"/>
                             <constraint firstAttribute="trailing" secondItem="xSE-D5-toZ" secondAttribute="trailing" id="c00-Ow-7ep"/>
                             <constraint firstItem="v5s-xu-oN6" firstAttribute="trailing" secondItem="kZl-ZR-G44" secondAttribute="trailing" id="cdA-8L-cve"/>
                             <constraint firstAttribute="centerX" secondItem="pIH-di-UGe" secondAttribute="centerX" id="dd4-Wa-Cgu"/>
-                            <constraint firstItem="xSE-D5-toZ" firstAttribute="centerY" secondItem="u3s-x6-XrV" secondAttribute="centerY" constant="-57.5" id="hjN-i6-IiT"/>
+                            <constraint firstItem="u3s-x6-XrV" firstAttribute="leading" secondItem="eOM-gd-x4A" secondAttribute="leading" constant="-2" id="eVi-iQ-uFM"/>
                             <constraint firstItem="Igg-Av-bgQ" firstAttribute="top" secondItem="pIH-di-UGe" secondAttribute="bottom" constant="-2" id="hjf-K9-PZi"/>
-                            <constraint firstItem="eOM-gd-x4A" firstAttribute="top" secondItem="u3s-x6-XrV" secondAttribute="bottom" constant="8" symbolic="YES" id="k0x-5C-Wnr"/>
                             <constraint firstItem="STo-CQ-br5" firstAttribute="top" secondItem="v0N-Hr-Rsl" secondAttribute="bottom" constant="8" symbolic="YES" id="n8A-Ha-p6G"/>
+                            <constraint firstItem="u3s-x6-XrV" firstAttribute="trailing" secondItem="STo-CQ-br5" secondAttribute="trailing" constant="-2" id="nqu-j7-TFC"/>
                             <constraint firstItem="kZl-ZR-G44" firstAttribute="top" secondItem="aMc-C6-fBK" secondAttribute="bottom" id="o7F-N0-5Fk"/>
                             <constraint firstItem="qdV-SM-O69" firstAttribute="leading" secondItem="STo-CQ-br5" secondAttribute="trailing" constant="14" id="oyS-So-goN"/>
                             <constraint firstItem="pIH-di-UGe" firstAttribute="leading" secondItem="xSE-D5-toZ" secondAttribute="leading" id="qjE-Sa-4z1"/>
-                            <constraint firstItem="u3s-x6-XrV" firstAttribute="centerX" secondItem="kZl-ZR-G44" secondAttribute="centerX" constant="0.5" id="uhh-NI-JUM"/>
                             <constraint firstItem="qdV-SM-O69" firstAttribute="top" secondItem="2Mg-ok-e4q" secondAttribute="bottom" constant="49" id="vf3-rX-APA"/>
                             <constraint firstItem="2Mg-ok-e4q" firstAttribute="leading" secondItem="v0N-Hr-Rsl" secondAttribute="trailing" constant="14" id="vmO-33-Iqf"/>
+                            <constraint firstItem="u3s-x6-XrV" firstAttribute="top" secondItem="STo-CQ-br5" secondAttribute="bottom" constant="8" symbolic="YES" id="yBi-1S-mQJ"/>
                             <constraint firstItem="v5s-xu-oN6" firstAttribute="top" secondItem="kZl-ZR-G44" secondAttribute="bottom" constant="47" id="ynJ-Ee-RV9"/>
-                            <constraint firstItem="eOM-gd-x4A" firstAttribute="trailing" secondItem="u3s-x6-XrV" secondAttribute="trailing" id="zFz-Qf-Hu4"/>
                         </constraints>
                     </view>
                     <connections>
@@ -1432,6 +1451,6 @@
         <segue reference="pX7-a8-GR7"/>
         <segue reference="IvQ-e1-igO"/>
         <segue reference="LWu-eY-gMd"/>
-        <segue reference="mVx-Xt-MqE"/>
+        <segue reference="8AV-un-3Yx"/>
     </inferredMetricsTieBreakers>
 </document>

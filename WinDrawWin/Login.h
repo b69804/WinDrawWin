@@ -12,11 +12,13 @@
 {
     IBOutlet UIButton *loginButton;
     IBOutlet UIButton *setupAccount;
+    IBOutlet UIButton *forgotUsername;
     IBOutlet UITextField *user;
     IBOutlet UITextField *password;
 }
 
 -(IBAction)login:(id)sender;
+-(IBAction)forgotMyName:(id)sender;
 - (BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender;
 -(IBAction)removeKeyboard:(id)sender;
 

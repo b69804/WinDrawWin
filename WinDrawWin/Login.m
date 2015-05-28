@@ -37,6 +37,15 @@
     }
 }
 
+-(IBAction)forgotMyName:(id)sender
+{
+    UIAlertView * alert =[[UIAlertView alloc ] initWithTitle:@"Can't remember your Username?" message:@"Please enter the email address associated with your account and we will show you your Username!" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles: nil];
+    alert.alertViewStyle = UIAlertViewStylePlainTextInput;
+    [alert addButtonWithTitle:@"Show me my Username!"];
+    alert.tag = 4;
+    [alert show];
+}
+
 - (UIStatusBarStyle) preferredStatusBarStyle {
     return UIStatusBarStyleLightContent;
 }
@@ -107,9 +116,45 @@
         [alertView dismissWithClickedButtonIndex:1 animated:YES];
         if (buttonIndex == 0) {
             UITextField *username = [alertView textFieldAtIndex:0];
-            [PFUser requestPasswordResetForEmailInBackground:username.text];
+            //[PFUser requestPasswordResetForEmailInBackground:username.text];
+            [PFUser requestPasswordResetForEmailInBackground:username.text block:^(BOOL succeeded, NSError *error){
+                if (error.code == 125) {
+                    UIAlertView * invalidEmail =[[UIAlertView alloc ]
+                                                  initWithTitle:@"No email address found!"
+                                                  message:@"We could try locate a WinDrawWin account under that email address.  Please try again or create a new account!"
+                                                  delegate:self
+                                                  cancelButtonTitle:@"Okay"
+                                                  otherButtonTitles: nil];
+                    [invalidEmail show];
+                }
+                
+            }];
+            
             user.text = @"";
             password.text = @"";
+        }
+    } else if (alertView.tag == 4) {
+        if (buttonIndex == 1){
+            NSString *email = [alertView textFieldAtIndex:0].text;
+            PFQuery *query = [PFUser query];
+            [query whereKey:@"email" equalTo:email];
+            [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error){
+                if (!error) {
+                    for (PFObject *object in objects) {
+                        NSString *thisUsersUsername = object[@"username"];
+                        NSString *alertMessage = [NSString stringWithFormat:@"The Username associated with the given Email address is:\n %@", thisUsersUsername];
+                        UIAlertView * alert =[[UIAlertView alloc ]
+                                              initWithTitle:@"Found your Username!"
+                                              message:alertMessage
+                                              delegate:self
+                                              cancelButtonTitle:@"Okay"
+                                              otherButtonTitles: nil];
+                        [alert show];
+                    }
+                } else {
+                
+                }
+            }];
         }
     }
 }
