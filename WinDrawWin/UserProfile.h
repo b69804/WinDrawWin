@@ -22,6 +22,4 @@
     NSMutableArray *passedStrings;
 }
 
--(void)getAllMyScores;
-
 @end

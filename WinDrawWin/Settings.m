@@ -17,6 +17,7 @@
 
 - (void)viewDidLoad {
 
+    // User settings for Twitter
     NSUserDefaults *thisUsersDefaults = [NSUserDefaults standardUserDefaults];
     twitterSettings = [thisUsersDefaults objectForKey:@"twitter"];
     if (twitterSettings == NO){
@@ -24,14 +25,14 @@
     } else if (twitterSettings){
         [twitterSwitch setOn:YES];
     }
-    
+    // User settings for Facebook
     facebookSettings = [thisUsersDefaults objectForKey:@"facebook"];
     if (facebookSettings == NO){
         [facebookSwitch setOn:NO];
     } else if (facebookSettings){
         [facebookSwitch setOn:YES];
     }
-    
+    // User settings for Time
     timeSettings = [thisUsersDefaults objectForKey:@"time"];
     if (timeSettings == NO){
         [timeSwitch setOn:NO];
@@ -47,6 +48,7 @@
     // Dispose of any resources that can be recreated.
 }
 
+// Selects Twitter Settings
 - (IBAction)changeTwitterSwitch:(id)sender{
     
     if([sender isOn]){
@@ -65,6 +67,7 @@
     
 }
 
+// Selects Facebook Settings
 - (IBAction)changeFacebookSwitch:(id)sender{
     
     if([sender isOn]){
@@ -83,6 +86,7 @@
     
 }
 
+// Changes Time label setting
 - (IBAction)changeTimeSwitch:(id)sender{
     
     if([sender isOn]){
@@ -101,6 +105,7 @@
     
 }
 
+// Allows user to change password
 - (IBAction)changePassword:(id)sender{
  
     UIAlertView * alert =[[UIAlertView alloc ] initWithTitle:@"Change your Password" message:@"Enter a new Password.  Keep your picks secure!" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles: nil];
@@ -110,9 +115,7 @@
     [alert show];
 }
 
-
-
-
+// Allows User to change Username or Email
 - (IBAction)changeUsername:(id)sender{
     UIAlertView * alert =[[UIAlertView alloc ] initWithTitle:@"Change your Username or Email" message:@"Please choose what you would like to change..." delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles: nil];
     alert.alertViewStyle = UIAlertViewStyleDefault;
@@ -127,6 +130,7 @@
     BOOL everythingGood = true;
     int length = 8;
     if (alertView.tag == 0) {
+        // Allows user to change Username
         if (buttonIndex == 1) {
             UIAlertView * alert =[[UIAlertView alloc ] initWithTitle:@"Change your Username" message:@"Enter a new Username.  We need to know what to put at the top of the leaderboards!" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles: nil];
             alert.alertViewStyle = UIAlertViewStylePlainTextInput;
@@ -134,7 +138,9 @@
             [alert addButtonWithTitle:@"Change Now!"];
             alert.tag = 3;
             [alert show];
-        } else if (buttonIndex == 2) {
+        }
+        // Allows user to change Email
+        else if (buttonIndex == 2) {
             UIAlertView * alert =[[UIAlertView alloc ] initWithTitle:@"Change your Email" message:@"Enter a new Email Address.  We need to know what to use if you forget something!" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles: nil];
             alert.alertViewStyle = UIAlertViewStylePlainTextInput;
             [[alert textFieldAtIndex:0] setPlaceholder:@"Change Email"];
@@ -143,7 +149,7 @@
             [alert show];
         }
     }
-    
+    // Checks various requirements for Username
     if (alertView.tag == 3) {
         UITextField *username = [alertView textFieldAtIndex:0];
         NSString *newUserName = username.text;
@@ -166,6 +172,7 @@
                                       otherButtonTitles: nil];
                 [alert show];
             }
+        // Saves new Username
             if (everythingGood) {
                 PFUser *UsersNewName = [PFUser currentUser];
                 UsersNewName.username = newUserName;
@@ -199,6 +206,7 @@
             }];
         }
     }
+    //  Checks Email requirements
     if (alertView.tag == 4) {
         UITextField *email = [alertView textFieldAtIndex:0];
         NSString *newEmail = email.text;
@@ -212,6 +220,7 @@
                                   otherButtonTitles: nil];
             [alert show];
         }
+        // Saves new Email
         if (everythingGood) {
             PFUser *UsersNewEmail = [PFUser currentUser];
             UsersNewEmail.email = newEmail;
@@ -245,6 +254,7 @@
             }];
         }
     }
+    // Checks Password Requirements
     if (alertView.tag == 1) {
         if (buttonIndex == 1) {
             UITextField *password = [alertView textFieldAtIndex:0];
@@ -267,6 +277,7 @@
                                       otherButtonTitles: nil];
                 [alert show];
             }
+            // Saves new Password if new Password meets requirements
             if (everythingGood) {
                 PFUser *UsersNewPassword = [PFUser currentUser];
                 UsersNewPassword.password = newPassWord;

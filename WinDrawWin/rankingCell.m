@@ -20,6 +20,7 @@
     // Configure the view for the selected state
 }
 
+// Refreshes with the User's info and rank.  Info is populated from Parse.
 -(void)refreshCellWithInfo: (NSString *)userRank username:(NSString *) username  userScore:(NSString *) userScore
 {
     rank.text = userRank;

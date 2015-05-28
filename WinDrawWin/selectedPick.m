@@ -12,15 +12,16 @@
 
 @synthesize teamPicked, matchUp, isCorrect, gameNumber;
 
+// Encodes selected pick to be saved to a file on Parse
 - (void)encodeWithCoder:(NSCoder *)encoder
 {
-    
     [encoder encodeObject:self.teamPicked forKey:@"teamPicked"];
     [encoder encodeObject:self.matchUp forKey:@"matchUp"];
     [encoder encodeObject:self.gameNumber forKey:@"gameNumber"];
     [encoder encodeBool:self.isCorrect forKey:@"isCorrect"];
 }
 
+// Allows for pick to be decoded when being read from Parse
 - (id)initWithCoder:(NSCoder *)decoder
 {
     self = [super init];

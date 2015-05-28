@@ -37,6 +37,7 @@
     }
 }
 
+// Used to provide user a way to retrieve their Username using their provided email address
 -(IBAction)forgotMyName:(id)sender
 {
     UIAlertView * alert =[[UIAlertView alloc ] initWithTitle:@"Can't remember your Username?" message:@"Please enter the email address associated with your account and we will show you your Username!" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles: nil];
@@ -50,6 +51,7 @@
     return UIStatusBarStyleLightContent;
 }
 
+// Checks login credentials and logs user in.  If there is an error, the User is told what is wrong.
 -(IBAction)login:(id)sender{
     BOOL everythingGood = true;
     NSString *check1 = user.text;
@@ -75,6 +77,7 @@
         alert.tag = 2;
         [alert show];
     }
+    // If Username and password meet requirements, the user is logged into Parse
     if (everythingGood) {
         [PFUser logInWithUsernameInBackground:user.text password:password.text block:^(PFUser *loggedInUser, NSError *error) {
             if(loggedInUser){
@@ -95,6 +98,7 @@
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
+    // Password is incorrect, but Username is accurate.  Password is able to be reset.
     if (alertView.tag == 1)
     {
         [alertView dismissWithClickedButtonIndex:0 animated:YES];
@@ -111,12 +115,12 @@
         }
     } else if (alertView.tag == 2) {
         [alertView dismissWithClickedButtonIndex:0 animated:YES];
-    
     } else if(alertView.tag == 3) {
+        // Alert if no email is found for User
         [alertView dismissWithClickedButtonIndex:1 animated:YES];
         if (buttonIndex == 0) {
             UITextField *username = [alertView textFieldAtIndex:0];
-            //[PFUser requestPasswordResetForEmailInBackground:username.text];
+            // Password reset from Parse is sent
             [PFUser requestPasswordResetForEmailInBackground:username.text block:^(BOOL succeeded, NSError *error){
                 if (error.code == 125) {
                     UIAlertView * invalidEmail =[[UIAlertView alloc ]
@@ -159,7 +163,7 @@
     }
 }
 
-
+// Test for internet connectivity
 - (void)reachabilityDidChange:(NSNotification *)notification {
     Reachability *reachability = (Reachability *)[notification object];
     
@@ -179,7 +183,7 @@
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
     
 }
-
+// Logs user in if they have already been logged in previously.
 - (BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender{
     PFUser *userLoggedIn = [PFUser currentUser];
     if ([identifier isEqualToString:@"login" ]) {

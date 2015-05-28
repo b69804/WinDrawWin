@@ -23,6 +23,4 @@
     NSString *currentWeek;
 }
 
--(void)calculateResults;
-
 @end

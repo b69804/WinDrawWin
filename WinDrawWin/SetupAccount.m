@@ -29,6 +29,7 @@
     // Dispose of any resources that can be recreated.
 }
 
+// Checks for internet connectivity
 - (void)reachabilityDidChange:(NSNotification *)notification {
     Reachability *reachability = (Reachability *)[notification object];
     
@@ -45,6 +46,7 @@
     }
 }
 
+// Checks for various username and password requirements.
 -(IBAction)createAccount:(id)sender{
     
     BOOL everythingGood = true;
@@ -99,7 +101,7 @@
                               otherButtonTitles: nil];
         [alert show];
     }
-    
+    // User account is created if everything is good.
     if (everythingGood) {
         PFUser *newUser = [PFUser user];
         newUser.username = user.text;

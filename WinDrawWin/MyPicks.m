@@ -45,6 +45,7 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reachabilityDidChange:) name:kReachabilityChangedNotification object:nil];
 }
 
+// Checks internet availability
 - (void)reachabilityDidChange:(NSNotification *)notification {
     Reachability *reachability = (Reachability *)[notification object];
     
@@ -62,6 +63,7 @@
     }
 }
 
+// Gets the users picks for that week.  If no picks are present, user is presented an Alert directing them to make picks.
 -(void)getFile{
     PFQuery *weekQuery = [PFQuery queryWithClassName:@"CurrentWeek"];
     [weekQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
@@ -152,66 +154,8 @@
     {
         [self performSegueWithIdentifier:@"goToMakePicks" sender:self];
     } else if (alertView.tag == 2){
-        NSLog(@"Compare Results.");
-        //[self calculateResults];
+        
     }
-}
-
-
--(void)calculateResults{
-    int numberCorrect = 0;
-    for (selectedPick *myPick in userPicks) {
-        NSNumber *game = myPick.gameNumber;
-        NSString *resultToCompare = [resultArray objectForKey:game];
-        if ([myPick.teamPicked.nickname isEqualToString:resultToCompare]) {
-            myPick.isCorrect = true;
-            numberCorrect++;
-        } else {
-            myPick.isCorrect = false;
-        }
-    }
-    NSInteger myScore = numberCorrect * 10;
-    NSMutableArray *newData = [[NSMutableArray alloc] init];
-    [newData addObjectsFromArray:userPicks];
-    NSData *data = [NSKeyedArchiver archivedDataWithRootObject:newData];
-    PFFile *file = [PFFile fileWithName:@"matchPicks.txt" data:data];
-    [file saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-        if (succeeded) {
-            PFQuery *query = [PFQuery queryWithClassName:@"MyPicks"];
-            [query getObjectInBackgroundWithId:objectID block:^(PFObject *updatedPicks, NSError *error) {
-                NSNumber *myTime = updatedPicks[@"Time"];
-                float myNewTime = [myTime floatValue];
-                float myNewScore = (myScore + myNewTime);
-                NSNumber *numberScore = [NSNumber numberWithFloat:myNewScore];
-                PFObject *myHighScore = [PFObject objectWithClassName:@"Rankings"];
-                myHighScore[@"Score"] = [numberScore stringValue];
-                myHighScore[@"User"] = [PFUser currentUser].username;
-                myHighScore[@"WeekNo"] = currentWeek;
-                [myHighScore saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-                    if (succeeded) {
-                        [updatedPicks saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error){
-                            if (succeeded) {
-                                NSLog(@"Saved.");
-                                updatedPicks[@"completedPicks"] = file;
-                                updatedPicks[@"MyScore"] = numberScore;
-                                [updatedPicks saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error){
-                                    if (succeeded) {
-                                        NSLog(@"Saved.");
-                                    } else {
-                                        NSLog(@"Did not save.");
-                                    }
-                                }];
-                            } else {
-                                NSLog(@"Did not save.");
-                            }
-                        }];
-                        } else {
-                    }
-                }];
-                
-            }];
-        }
-    }];
 }
 
 @end

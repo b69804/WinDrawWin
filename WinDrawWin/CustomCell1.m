@@ -20,6 +20,7 @@
     // Configure the view for the selected state
 }
 
+// Refreshes Cell with the User's pick and the matchup
 -(void)refreshCellWithInfo: (NSString*)myPick matchUp:(NSString *) matchUp
 {
     pick.text = myPick;

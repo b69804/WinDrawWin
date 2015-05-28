@@ -20,16 +20,12 @@
     // Configure the view for the selected state
 }
 
+
+// Refreshes cell with the week that the picks will be displayed for.
 -(void)refreshCellWithInfo: (NSString *)thisWeek
 {
     eachWeek.text = thisWeek;
     
 }
-
-/*-(void)refreshCellWithInfo: (NSString *)thisWeek myScore:(NSString *) myScore
-{
-    eachWeek.text = thisWeek;
-    scoreForThatWeek.text = myScore;
-}*/
 
 @end

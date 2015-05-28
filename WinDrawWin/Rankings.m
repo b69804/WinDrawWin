@@ -57,6 +57,7 @@
     return rankCell;
 }
 
+// Gets all the Rankings for the current week.  Current week is set on Parse.
 - (void)getAllUsers
 {
     PFQuery *weekQuery = [PFQuery queryWithClassName:@"CurrentWeek"];

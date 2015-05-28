@@ -12,6 +12,7 @@
 
 @synthesize name, nickname, stadium, allTeams, logo;
 
+// Encodes team to be saved properly
 - (void)encodeWithCoder:(NSCoder *)encoder
 {
     
@@ -21,6 +22,7 @@
     [encoder encodeObject:self.logo forKey:@"logo"];
 }
 
+// Encodes team to be decoded properly
 - (id)initWithCoder:(NSCoder *)decoder
 {
     self = [super init];

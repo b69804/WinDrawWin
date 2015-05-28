@@ -23,7 +23,7 @@
 - (void)viewDidLoad {
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reachabilityDidChange:) name:kReachabilityChangedNotification object:nil];
-    
+    // User defaults for time label
     NSUserDefaults *thisUsersDefaults = [NSUserDefaults standardUserDefaults];
     BOOL timeSetting = [thisUsersDefaults boolForKey:@"time"];
     if (timeSetting == YES) {
@@ -35,13 +35,13 @@
     if (currentUser == nil){
         [self performSegueWithIdentifier:@"logout" sender:self];
     }
-    
     gamesThisWeek = [[NSMutableArray alloc]init];
     choosenPick = [[selectedPick alloc] init];
     allPicks = [[NSMutableArray alloc] init];
     allTeams = [[NSMutableArray alloc] init];
     dictionaryOfTeams = [[NSMutableDictionary alloc] init];
     [self createAllTeams];
+    // get the games for the current week.  Current week is set in Parse.
     PFQuery *weekQuery = [PFQuery queryWithClassName:@"CurrentWeek"];
     [weekQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (!error) {
@@ -76,6 +76,7 @@
     // Dispose of any resources that can be recreated.
 }
 
+// Home team is selected and that pick is logged.
 -(IBAction)onHomeTeamSelected:(id)sender{
     NSString *hTeam = eachGame[@"HomeTeam"];
     NSString *aTeam = eachGame[@"AwayTeam"];
@@ -92,6 +93,7 @@
     [self nextGame];
 }
 
+// Away team is set and pick is logged.
 -(IBAction)onAwayTeamSelected:(id)sender{
     NSString *hTeam = eachGame[@"HomeTeam"];
     NSString *aTeam = eachGame[@"AwayTeam"];
@@ -108,6 +110,7 @@
     [self nextGame];
 }
 
+// Draw is selected and pick is logged.
 -(IBAction)onDrawselected:(id)sender{
     NSString *hTeam = eachGame[@"HomeTeam"];
     NSString *aTeam = eachGame[@"AwayTeam"];
@@ -126,6 +129,7 @@
     [self nextGame];
 }
 
+// Checks internet connectivity
 - (void)reachabilityDidChange:(NSNotification *)notification {
     Reachability *reachability = (Reachability *)[notification object];
     
@@ -141,6 +145,7 @@
     }
 }
 
+// Starts the Game Pick process.  Also checks if user made picks.
 -(IBAction)onStart:(id)sender
 {
     PFQuery *weekQuery = [PFQuery queryWithClassName:@"CurrentWeek"];
@@ -174,6 +179,7 @@
     
 }
 
+// Loads the next game matchup
 - (void)nextGame{
     
     if (gameNumber == 10) {
@@ -204,6 +210,7 @@
     }
 }
 
+// Saves completed picks to Parse.
 -(void)writeFile{
     NSData *data = [NSKeyedArchiver archivedDataWithRootObject:allPicks];
     PFUser* current = [PFUser currentUser];
@@ -223,7 +230,6 @@
                     if (succeeded) {
                         progressView.hidden = false;
                         [self startCount];
-                        //[self performSegueWithIdentifier:@"myPicks" sender:self];
                     } else {
                         NSLog(@"Did not save.");
                     }
@@ -235,12 +241,15 @@
     }];
 }
 
+// Starts timer
 -(void) StartTimer
 {
     timer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(timerTick:) userInfo:nil repeats:YES];
     [[NSRunLoop currentRunLoop] addTimer:timer forMode:NSDefaultRunLoopMode];
 }
 
+
+// Starts game timer
 - (void)timerTick:(NSTimer *)timer
 {
     if (paused == NO){
@@ -260,11 +269,13 @@
     }
 }
 
+// Timer for progress bar
 - (void)startCount
 {
     self.myTimer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(updateUI:) userInfo:nil repeats:YES];
 }
 
+// Updates progress bar
 - (void)updateUI:(NSTimer *)timer
 {
     static int count =0; count++;
@@ -280,6 +291,7 @@
     } 
 }
 
+// Creates Array for all EPL Teams.
 -(void)createAllTeams{
     
     Team *arsenal = [[Team alloc] init];
