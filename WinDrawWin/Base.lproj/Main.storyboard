@@ -397,7 +397,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="tkI-iD-N90" kind="show" id="K2F-vh-jd6"/>
+                                    <segue destination="tkI-iD-N90" kind="presentation" modalPresentationStyle="fullScreen" modalTransitionStyle="flipHorizontal" id="K2F-vh-jd6"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jvb-xi-pZf">
@@ -615,7 +615,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="tkI-iD-N90" kind="presentation" modalTransitionStyle="crossDissolve" id="5AW-KK-EeF"/>
+                                    <segue destination="tkI-iD-N90" kind="presentation" modalPresentationStyle="fullScreen" modalTransitionStyle="flipHorizontal" id="5AW-KK-EeF"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hSM-mM-FId">
@@ -624,7 +624,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="60u-gm-wbN" kind="presentation" modalTransitionStyle="crossDissolve" id="BHo-yK-k6Z"/>
+                                    <segue destination="60u-gm-wbN" kind="presentation" modalPresentationStyle="fullScreen" modalTransitionStyle="flipHorizontal" id="BHo-yK-k6Z"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AQK-Le-adp">
@@ -775,7 +775,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="vXZ-lx-hvc" kind="show" id="1gm-hk-pic"/>
+                                    <segue destination="vXZ-lx-hvc" kind="presentation" modalPresentationStyle="fullScreen" modalTransitionStyle="flipHorizontal" id="1gm-hk-pic"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c4L-YR-Z0r">
@@ -784,7 +784,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="tkI-iD-N90" kind="show" id="e8m-NY-39v"/>
+                                    <segue destination="tkI-iD-N90" kind="presentation" modalPresentationStyle="fullScreen" modalTransitionStyle="flipHorizontal" id="e8m-NY-39v"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="txf-xe-gfR">
@@ -799,7 +799,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="QPI-eo-ak4" kind="show" id="sSu-LL-flx"/>
+                                    <segue destination="QPI-eo-ak4" kind="presentation" modalPresentationStyle="fullScreen" modalTransitionStyle="flipHorizontal" id="sSu-LL-flx"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Username" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eyf-w8-j3I">
@@ -837,7 +837,7 @@
                                         <color key="backgroundColor" red="0.92941176469999998" green="0.10980392160000001" blue="0.14117647059999999" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                         <connections>
                                             <outlet property="eachWeek" destination="MrZ-L7-fwp" id="Bms-0a-50u"/>
-                                            <segue destination="xV9-wL-nCv" kind="showDetail" identifier="weeklyDetailSegue" id="Hqs-hk-mh6"/>
+                                            <segue destination="xV9-wL-nCv" kind="presentation" identifier="weeklyDetailSegue" modalPresentationStyle="fullScreen" modalTransitionStyle="crossDissolve" id="Hqs-hk-mh6"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -858,7 +858,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="PQL-Dx-Ba0" kind="presentation" modalPresentationStyle="fullScreen" modalTransitionStyle="crossDissolve" id="fvJ-sq-PMs"/>
+                                    <segue destination="PQL-Dx-Ba0" kind="presentation" modalPresentationStyle="fullScreen" modalTransitionStyle="coverVertical" id="fvJ-sq-PMs"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -1008,7 +1008,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="60u-gm-wbN" kind="presentation" modalPresentationStyle="fullScreen" modalTransitionStyle="crossDissolve" id="wME-Kt-kHd"/>
+                                    <segue destination="60u-gm-wbN" kind="presentation" modalPresentationStyle="fullScreen" modalTransitionStyle="flipHorizontal" id="wME-Kt-kHd"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="jw3-XJ-iZQ">
@@ -1294,7 +1294,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="vXZ-lx-hvc" kind="show" id="c1u-0G-0HR"/>
+                                    <segue destination="vXZ-lx-hvc" kind="presentation" modalPresentationStyle="fullScreen" modalTransitionStyle="flipHorizontal" id="c1u-0G-0HR"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2u4-ti-ybn">
@@ -1309,7 +1309,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="60u-gm-wbN" kind="show" id="bpW-vO-7AA"/>
+                                    <segue destination="60u-gm-wbN" kind="presentation" modalPresentationStyle="fullScreen" modalTransitionStyle="flipHorizontal" id="bpW-vO-7AA"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hgJ-Od-3pU">
@@ -1318,7 +1318,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="QPI-eo-ak4" kind="show" id="2lg-y9-2Ty"/>
+                                    <segue destination="QPI-eo-ak4" kind="presentation" modalPresentationStyle="fullScreen" modalTransitionStyle="flipHorizontal" id="2lg-y9-2Ty"/>
                                 </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="g5l-6P-IKa">
@@ -1447,10 +1447,10 @@
         <image name="logout.png" width="600" height="72"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="K2F-vh-jd6"/>
-        <segue reference="pX7-a8-GR7"/>
-        <segue reference="IvQ-e1-igO"/>
+        <segue reference="sSu-LL-flx"/>
+        <segue reference="bpW-vO-7AA"/>
+        <segue reference="e8m-NY-39v"/>
+        <segue reference="1gm-hk-pic"/>
         <segue reference="LWu-eY-gMd"/>
-        <segue reference="8AV-un-3Yx"/>
     </inferredMetricsTieBreakers>
 </document>
