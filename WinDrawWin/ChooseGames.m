@@ -184,7 +184,7 @@
     
     if (gameNumber == 10) {
         paused = YES;
-        
+        [self writeFile];
         UIAlertView *noMoreGames = [[UIAlertView alloc] initWithTitle:@"All Games Selected" message:@"You have made all your selections for this week.  Let's see what you picked." delegate:self cancelButtonTitle:@"Okay" otherButtonTitles:nil];
         noMoreGames.tag = 2;
         [noMoreGames show];
@@ -287,7 +287,7 @@
     {
         [self.myTimer invalidate];
         self.myTimer = nil;
-        [self performSegueWithIdentifier:@"myPicks" sender:self];
+        //[self performSegueWithIdentifier:@"myPicks" sender:self];
     } 
 }
 
@@ -468,7 +468,8 @@
 {
     if (alertView.tag == 2)
     {
-        [self writeFile];
+       // [self writeFile];
+        [self performSegueWithIdentifier:@"myPicks" sender:self];
     } else if (alertView.tag == 1){
         [self performSegueWithIdentifier:@"myPicks" sender:self];
     }

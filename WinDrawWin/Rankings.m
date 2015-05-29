@@ -67,13 +67,14 @@
                 currentWeek = object[@"RankingWeek"];
             }
             PFQuery *query = [PFQuery queryWithClassName:@"Rankings"];
-            [query orderByAscending:@"Score"];
+            [query orderByDescending:@"Score"];
             [query whereKey:@"WeekNo" containsString:currentWeek];
             [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error){
                 if (!error) {
                     for (PFObject *object in objects) {
                         [allUsersRankings addObject:object];
                     }
+                    
                     [rankTable reloadData];
                     weekString.text = [NSString stringWithFormat:@"Rankings for Week %@", currentWeek];
                 } else {
