@@ -149,7 +149,6 @@
     if (alertView.tag == 0){
     
     }
-        
 }
 
 - (void)getPicksForPassedWeek
@@ -203,7 +202,6 @@
                             [self compareResults];
                             
                         }];
-                        
                     }
                 }];
             }
@@ -211,7 +209,6 @@
             NSLog(@"Error: %@ %@", error, [error userInfo]);
         }
     }];
-    
 }
 
 -(void)compareResults
@@ -272,8 +269,6 @@
                             if (succeeded) {
                                 [selectedWeeklyScores reloadData];
                                 thisWeekLabel.text = [NSString stringWithFormat:@"Results for Week %@  Score: %@", [pickDictionary objectForKey:@"weekNumber"], [numberScore stringValue]];
-                                
-                                
                             } else {
                                 
                             }
@@ -291,10 +286,6 @@
             NSLog(@"Error: %@ %@", error, [error userInfo]);
         }
     }];
-    
 }
-
-
-
 
 @end

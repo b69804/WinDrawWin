@@ -11,13 +11,10 @@
 @implementation rankingCell
 
 - (void)awakeFromNib {
-    // Initialization code
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
-
-    // Configure the view for the selected state
 }
 
 // Refreshes with the User's info and rank.  Info is populated from Parse.

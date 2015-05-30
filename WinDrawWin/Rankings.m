@@ -20,14 +20,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     allUsersRankings = [[NSMutableArray alloc] init];
-    //[self createRankingsInfo];
     [self getAllUsers];
-    // Do any additional setup after loading the view.
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -49,8 +46,6 @@
         NSString *userName = eachPerson[@"User"];
         NSUInteger posInArray = indexPath.row + 1;
         NSString *ranking = [NSString stringWithFormat:@"%lu", (unsigned long)posInArray];
-        
-       // NSString *testRanking = [NSString stringWithFormat:@"%li", (long)indexPath.row];
         NSString *score = eachPerson[@"Score"];
         [rankCell refreshCellWithInfo:ranking username:userName userScore:score];
     }
@@ -74,7 +69,6 @@
                     for (PFObject *object in objects) {
                         [allUsersRankings addObject:object];
                     }
-                    
                     [rankTable reloadData];
                     weekString.text = [NSString stringWithFormat:@"Rankings for Week %@", currentWeek];
                 } else {

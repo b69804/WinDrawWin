@@ -23,12 +23,10 @@
     [super viewDidLoad];
     userPicks = [[NSMutableArray alloc] init];
     resultArray = [[NSMutableDictionary alloc] init];
-    // Do any additional setup after loading the view.
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 -(void)viewDidAppear:(BOOL)animated{
@@ -113,7 +111,6 @@
                             }
                         }];
                     } else {
-                        // Log details of the failure
                         NSLog(@"Error: %@ %@", error, [error userInfo]);
                     }
                 }];
