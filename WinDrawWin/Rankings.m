@@ -20,7 +20,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     allUsersRankings = [[NSMutableArray alloc] init];
-    dictionaryOfRankings = [[NSMutableDictionary alloc] init];
     [self getAllUsers]; // Gets all Rankings 
 }
 
