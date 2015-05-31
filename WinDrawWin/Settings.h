@@ -14,7 +14,6 @@
     IBOutlet UISwitch *twitterSwitch;
     IBOutlet UISwitch *facebookSwitch;
     IBOutlet UISwitch *timeSwitch;
-    IBOutlet UISwitch *notificationsSwitch;
     IBOutlet UIButton *changeUsername;
     IBOutlet UIButton *changePassword;
     
