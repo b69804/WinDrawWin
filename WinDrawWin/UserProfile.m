@@ -88,6 +88,7 @@
                 if (myPickData == nil){
                     myPickData = myPickFile[@"myPickFile"];
                 }
+                // Sorts scores for weeks by week number
                 NSString *weekNumber = object[@"WeekNo"];
                 [passedStrings addObject:weekNumber];
                 [passedStrings sortUsingSelector:@selector(localizedCaseInsensitiveCompare:)];
@@ -96,7 +97,7 @@
                     if (data != nil) {
                         NSMutableArray *allMyPicks = [NSKeyedUnarchiver unarchiveObjectWithData:data];
                         for (eachPick in allMyPicks) {
-                            [thisWeeksUserPicks addObject:eachPick];
+                            [thisWeeksUserPicks addObject:eachPick]; // Each week is added an array of weekly picks
                         }
                         [userWeeklyScores reloadData];
                         
@@ -110,7 +111,7 @@
                             [thisWeeksUserPicks removeAllObjects];
                             NSMutableArray *allMyPicks = [NSKeyedUnarchiver unarchiveObjectWithData:data];
                             for (eachPick in allMyPicks) {
-                                [thisWeeksUserPicks addObject:eachPick];
+                                [thisWeeksUserPicks addObject:eachPick]; // Each week is added an array of weekly picks
                             }
                             [userWeeklyScores reloadData];
                         }];

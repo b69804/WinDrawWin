@@ -20,7 +20,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     allUsersRankings = [[NSMutableArray alloc] init];
-    [self getAllUsers];
+    [self getAllUsers]; // Gets all Rankings 
 }
 
 - (void)didReceiveMemoryWarning {
@@ -61,6 +61,7 @@
             for (PFObject *object in objects) {
                 currentWeek = object[@"RankingWeek"];
             }
+            // Users with high scores are added and ordered by score
             PFQuery *query = [PFQuery queryWithClassName:@"Rankings"];
             [query orderByDescending:@"Score"];
             [query whereKey:@"WeekNo" containsString:currentWeek];
@@ -70,7 +71,7 @@
                         [allUsersRankings addObject:object];
                     }
                     [rankTable reloadData];
-                    weekString.text = [NSString stringWithFormat:@"Rankings for Week %@", currentWeek];
+                    weekString.text = [NSString stringWithFormat:@"Rankings for Week %@", currentWeek]; // Sets the label for the current week
                 } else {
                     NSLog(@"Error: %@ %@", error, [error userInfo]);
                 }

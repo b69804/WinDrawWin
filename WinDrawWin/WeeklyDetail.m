@@ -20,7 +20,7 @@
 @implementation WeeklyDetail
 
 - (void)viewDidLoad {
-    
+    // Gets the user's selections for Facebook and Twitter settings
     NSUserDefaults *thisUsersDefaults = [NSUserDefaults standardUserDefaults];
     BOOL twitter = [thisUsersDefaults boolForKey:@"twitter"];
     if (twitter == NO){
@@ -83,6 +83,7 @@
     
 }
 
+// Allows for posting to Twitter
 -(IBAction)shareViaTwitter:(id)sender
 {
     if ([SLComposeViewController isAvailableForServiceType:SLServiceTypeTwitter])
@@ -104,15 +105,18 @@
     }
     else
     {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Twitter"
-                                                        message:@"You must have your Twitter account setup on this iPhone.  Please go to your settings and link your Twitter account."
-                                                       delegate:self
-                                              cancelButtonTitle:@"OK"
-                                              otherButtonTitles:nil];
+        UIAlertView *alert = [[UIAlertView alloc]  // Alert stating no Twitter account is logged in
+                              initWithTitle:@"Twitter"
+                              message:@"You must have your Twitter account setup on this iPhone.  Please go to your settings and link your Twitter account."
+                              delegate:self
+                              cancelButtonTitle:@"OK"
+                              otherButtonTitles:nil];
         [alert show];
     }
 
 }
+
+// Allows for sharing to Facebook
 -(IBAction)shareViaFacebook:(id)sender
 {
     if ([SLComposeViewController isAvailableForServiceType:SLServiceTypeFacebook])
@@ -134,11 +138,12 @@
     }
     else
     {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Facebook"
-                                                        message:@"You must have your facebook account setup on this iPhone.  Please go to your Settings and link your Facebook account."
-                                                       delegate:self
-                                              cancelButtonTitle:@"OK"
-                                              otherButtonTitles:nil];
+        UIAlertView *alert = [[UIAlertView alloc]  // Alert stating no Facebook account logged in
+                              initWithTitle:@"Facebook"
+                              message:@"You must have your facebook account setup on this iPhone.  Please go to your Settings and link your Facebook account."
+                              delegate:self
+                              cancelButtonTitle:@"OK"
+                              otherButtonTitles:nil];
         [alert show];
     }
 
@@ -151,6 +156,7 @@
     }
 }
 
+// Get the picks for the selected week
 - (void)getPicksForPassedWeek
 {
     allMyScoresArray = [[NSMutableArray alloc] init];
@@ -167,6 +173,7 @@
                 if (myPickData == nil){
                     myPickData = myPickFile[@"myPickFile"];
                 }
+                // Gets week-specific picks
                 NSString *weekNumber = object[@"WeekNo"];
                 NSNumber *currentScore = object[@"MyScore"];
                 [myPickData getDataInBackgroundWithBlock:^(NSData *data, NSError *error) {
@@ -175,6 +182,7 @@
                         for (eachPick in allMyPicks) {
                             [thisWeeksPicks addObject:eachPick];
                         }
+                        // Adds all the picks to dictionary of all Picks for that week
                         NSNumber *timeNumber = object[@"Time"];
                         [pickDictionary setObject:[NSString stringWithFormat:@"Week %@", weekNumber] forKey:@"week"];
                         [pickDictionary setObject:weekNumber forKey:@"weekNumber"];
@@ -182,10 +190,9 @@
                         [pickDictionary setObject:timeNumber forKey:@"time"];
                         [pickDictionary setObject:thisWeeksPicks forKey:@"picksForWeek"];
                         
-                        [self compareResults];
+                        [self compareResults]; // Compares results to outcomes
                         
                     } else {
-                        NSLog(@"No matchPick file. Getting myPickFile.");
                         PFFile *myPickData = myPickFile[@"myPickFile"];
                         NSString *weekNumber = object[@"WeekNo"];
                         [myPickData getDataInBackgroundWithBlock:^(NSData *data, NSError *error) {
@@ -193,13 +200,14 @@
                             for (eachPick in allMyPicks) {
                                 [thisWeeksPicks addObject:eachPick];
                             }
+                            // Adds all the picks to dictionary of all Picks for that week
                             NSNumber *timeNumber = object[@"Time"];
                             [pickDictionary setObject:[NSString stringWithFormat:@"Week %@", weekNumber] forKey:@"week"];
                             [pickDictionary setObject:weekNumber forKey:@"weekNumber"];
                             [pickDictionary setObject:timeNumber forKey:@"time"];
                             [pickDictionary setObject:thisWeeksPicks forKey:@"picksForWeek"];
                             
-                            [self compareResults];
+                            [self compareResults]; // Compares results to outcomes
                             
                         }];
                     }
@@ -211,15 +219,18 @@
     }];
 }
 
+// Compares the user's picks to the actual game outcomes.  A score is calculated based on number correct and time it took to complete the picks
 -(void)compareResults
 {
     resultArray = [[NSMutableDictionary alloc] init];
     PFQuery *resultsQuery = [PFQuery queryWithClassName:@"Week24"];
     [resultsQuery whereKey:@"Week" containsString:[pickDictionary objectForKey:@"weekNumber"]];
-    UIAlertView *noResultsYet = [[UIAlertView alloc] initWithTitle:@"Games still in progress"
-                                                           message:@"There is still time for an injury time winner!  Results are not available until all games have finished. Check back soon to see how you did!"delegate:self
-                                                 cancelButtonTitle:@"Okay"
-                                                 otherButtonTitles:nil];
+    UIAlertView *noResultsYet = [[UIAlertView alloc] // Alert saying that games are not completed for that week
+                                 initWithTitle:@"Games still in progress"
+                                 message:@"There is still time for an injury time winner!  Results are not available until all games have finished. Check back soon to see how you did!"
+                                 delegate:self
+                                 cancelButtonTitle:@"Okay"
+                                 otherButtonTitles:nil];
     [resultsQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (!error) {
             for (PFObject *object in objects){

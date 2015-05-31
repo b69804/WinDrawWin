@@ -18,8 +18,6 @@
 
 - (void)viewDidLoad {
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reachabilityDidChange:) name:kReachabilityChangedNotification object:nil];
-    
-    
     [super viewDidLoad];
 }
 
@@ -46,7 +44,6 @@
 
 // Checks for various username and password requirements.
 -(IBAction)createAccount:(id)sender{
-    
     BOOL everythingGood = true;
     NSString *check1 = user.text;
     NSString *check2 = password.text;
@@ -54,7 +51,7 @@
     int length = 8;
     if([check1 isEqualToString:@""]){
         everythingGood = false;
-        UIAlertView * alert =[[UIAlertView alloc ]
+        UIAlertView * alert =[[UIAlertView alloc ] // Alert for no username entered
                               initWithTitle:@"We gotta know what to call you!"
                               message:@"Please enter a Username so you can brag about your high scores!"
                               delegate:self
@@ -63,7 +60,7 @@
         [alert show];
     } else if ([check2 isEqualToString:@""]){
         everythingGood = false;
-        UIAlertView * alert =[[UIAlertView alloc ]
+        UIAlertView * alert =[[UIAlertView alloc ] // Alert for no password entered
                               initWithTitle:@"Make your profile secure!"
                               message:@"Please enter a Password so no one can sabotage your picks."
                               delegate:self
@@ -72,7 +69,7 @@
         [alert show];
     } else if ([check3 isEqualToString:@""]){
         everythingGood = false;
-        UIAlertView * alert =[[UIAlertView alloc ]
+        UIAlertView * alert =[[UIAlertView alloc ] // Alert for no email entered
                               initWithTitle:@"Just in case you forget your stuff..."
                               message:@"Please enter an Email Address so you can retrieve any of your info."
                               delegate:self
@@ -82,7 +79,7 @@
     
     } else if(check1.length < length){
         everythingGood = false;
-        UIAlertView * alert =[[UIAlertView alloc ]
+        UIAlertView * alert =[[UIAlertView alloc ] // Alert for username length requirement
                               initWithTitle:@"So close yet so far"
                               message:@"Please enter a Username with at least 8 characters. You are a couple letters short!"
                               delegate:self
@@ -91,7 +88,7 @@
         [alert show];
     } else if (check2.length < length){
         everythingGood = false;
-        UIAlertView * alert =[[UIAlertView alloc ]
+        UIAlertView * alert =[[UIAlertView alloc ] // Alert for password length requirement
                               initWithTitle:@"So close yet so far"
                               message:@"Please enter a Password with at least 8 characters. You are a couple letters short!"
                               delegate:self
@@ -107,9 +104,9 @@
         newUser.email = email.text;
         [newUser signUpInBackgroundWithBlock:^(BOOL succeeded, NSError *error){
             if (!error) {
-                [self performSegueWithIdentifier:@"createdUser" sender:self];
+                [self performSegueWithIdentifier:@"createdUser" sender:self]; // User account is created
             } else if (error.code == 202){
-                UIAlertView * alert =[[UIAlertView alloc ]
+                UIAlertView * alert =[[UIAlertView alloc ] // Alert stating username is already in use
                                       initWithTitle:@"Username already in use!"
                                       message:@"Somebody is already climbing the leaderboards with that name.  Please choose another one!"
                                       delegate:self
@@ -117,7 +114,7 @@
                                       otherButtonTitles: nil];
                 [alert show];
             }else if (error.code == 203){
-                UIAlertView * alert =[[UIAlertView alloc ]
+                UIAlertView * alert =[[UIAlertView alloc ]  // Alert stating email is already registered with WinDrawWin
                                       initWithTitle:@"Email already in use!"
                                       message:@"There is already an account registered with that email address.  Please use a different email or head on back to the main page to login and start making picks."
                                       delegate:self
@@ -125,7 +122,7 @@
                                       otherButtonTitles: nil];
                 [alert show];
             } else {
-                UIAlertView * alert =[[UIAlertView alloc ]
+                UIAlertView * alert =[[UIAlertView alloc ] // General alert for registration issue
                                       initWithTitle:@"Registration not Complete"
                                       message:@"There was an issue with your Registration. Please try again."
                                       delegate:self

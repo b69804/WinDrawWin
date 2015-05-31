@@ -40,7 +40,12 @@
 // Used to provide user a way to retrieve their Username using their provided email address
 -(IBAction)forgotMyName:(id)sender
 {
-    UIAlertView * alert =[[UIAlertView alloc ] initWithTitle:@"Can't remember your Username?" message:@"Please enter the email address associated with your account and we will show you your Username!" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles: nil];
+    UIAlertView * alert =[[UIAlertView alloc ] // Alert to retrieve Username
+                          initWithTitle:@"Can't remember your Username?"
+                          message:@"Please enter the email address associated with your account and we will show you your Username!"
+                          delegate:self
+                          cancelButtonTitle:@"Cancel"
+                          otherButtonTitles: nil];
     alert.alertViewStyle = UIAlertViewStylePlainTextInput;
     [alert addButtonWithTitle:@"Show me my Username!"];
     alert.tag = 4;
@@ -58,7 +63,7 @@
     NSString *check2 = password.text;
     if([check1 isEqualToString:@""]){
         everythingGood = false;
-        UIAlertView * alert =[[UIAlertView alloc ]
+        UIAlertView * alert =[[UIAlertView alloc ] // Alert for Username issue
                               initWithTitle:@"Need your Username"
                               message:@"Please enter your Username."
                               delegate:self
@@ -68,7 +73,7 @@
         [alert show];
     } else if ([check2 isEqualToString:@""]){
         everythingGood = false;
-        UIAlertView * alert =[[UIAlertView alloc ]
+        UIAlertView * alert =[[UIAlertView alloc ] // Alert for Password Issue
                               initWithTitle:@"Need your Passsword"
                               message:@"Please enter your Password."
                               delegate:self
@@ -81,9 +86,9 @@
     if (everythingGood) {
         [PFUser logInWithUsernameInBackground:user.text password:password.text block:^(PFUser *loggedInUser, NSError *error) {
             if(loggedInUser){
-                [self performSegueWithIdentifier:@"login" sender:self];
+                [self performSegueWithIdentifier:@"login" sender:self]; // User is logged into WinDrawWin
             } else {
-                UIAlertView * alert =[[UIAlertView alloc ]
+                UIAlertView * alert =[[UIAlertView alloc ] // Alert to show there is an error with Login
                                       initWithTitle:@"Not able to login."
                                       message:@"Please check your Username or Password!"
                                       delegate:self
@@ -103,7 +108,7 @@
     {
         [alertView dismissWithClickedButtonIndex:0 animated:YES];
         if (buttonIndex == 1) {
-            UIAlertView * passwordReset =[[UIAlertView alloc ]
+            UIAlertView * passwordReset =[[UIAlertView alloc ] // Alert to retrieve/reset password
                                   initWithTitle:@"Lost your Password?"
                                   message:@"Please enter your email address below. Click Okay to send an email to your registered email address to reset your password."
                                   delegate:self
@@ -123,7 +128,7 @@
             // Password reset from Parse is sent
             [PFUser requestPasswordResetForEmailInBackground:username.text block:^(BOOL succeeded, NSError *error){
                 if (error.code == 125) {
-                    UIAlertView * invalidEmail =[[UIAlertView alloc ]
+                    UIAlertView * invalidEmail =[[UIAlertView alloc ] // Alert stating that no account is found
                                                   initWithTitle:@"No email address found!"
                                                   message:@"We could try locate a WinDrawWin account under that email address.  Please try again or create a new account!"
                                                   delegate:self
@@ -133,7 +138,6 @@
                 }
                 
             }];
-            
             user.text = @"";
             password.text = @"";
         }
@@ -147,7 +151,7 @@
                     for (PFObject *object in objects) {
                         NSString *thisUsersUsername = object[@"username"];
                         NSString *alertMessage = [NSString stringWithFormat:@"The Username associated with the given Email address is:\n %@", thisUsersUsername];
-                        UIAlertView * alert =[[UIAlertView alloc ]
+                        UIAlertView * alert =[[UIAlertView alloc ] // Presents Username to user
                                               initWithTitle:@"Found your Username!"
                                               message:alertMessage
                                               delegate:self
@@ -166,7 +170,6 @@
 // Test for internet connectivity
 - (void)reachabilityDidChange:(NSNotification *)notification {
     Reachability *reachability = (Reachability *)[notification object];
-    
     if ([reachability isReachable]) {
         
     } else {
@@ -183,6 +186,7 @@
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
     
 }
+
 // Logs user in if they have already been logged in previously.
 - (BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender{
     PFUser *userLoggedIn = [PFUser currentUser];
@@ -194,13 +198,12 @@
     return YES;
 }
 
-
+// Allows the user to dismiss the keyboard
 -(IBAction)removeKeyboard:(id)sender
 {
     UITextField *theField = (UITextField*)sender;
     [theField resignFirstResponder];
 }
-
 
 
 @end

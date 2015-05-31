@@ -40,7 +40,7 @@
     allPicks = [[NSMutableArray alloc] init];
     allTeams = [[NSMutableArray alloc] init];
     dictionaryOfTeams = [[NSMutableDictionary alloc] init];
-    [self createAllTeams];
+    [self createAllTeams]; // Creates all the EPL teams
     // get the games for the current week.  Current week is set in Parse.
     PFQuery *weekQuery = [PFQuery queryWithClassName:@"CurrentWeek"];
     [weekQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
@@ -53,7 +53,7 @@
                 [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
                     if (!error) {
                         for (PFObject *object in objects) {
-                            [gamesThisWeek addObject:object];
+                            [gamesThisWeek addObject:object]; // Adds game objects from Parse
                         }
                     } else {
                         NSLog(@"Error: %@ %@", error, [error userInfo]);
@@ -89,7 +89,7 @@
     NSString *match = [NSString stringWithFormat:@"%@ vs %@", fullHome, fullAway];
     choosenPick.matchUp = match;
     choosenPick.gameNumber = eachGame[@"GameNo"];
-    [allPicks addObject:choosenPick];
+    [allPicks addObject:choosenPick];  // Home team is picked, and the matchup is added to the choosen picks array
     [self nextGame];
 }
 
@@ -106,7 +106,7 @@
     NSString *match = [NSString stringWithFormat:@"%@ vs %@", fullHome, fullAway];
     choosenPick.matchUp = match;
     choosenPick.gameNumber = eachGame[@"GameNo"];
-    [allPicks addObject:choosenPick];
+    [allPicks addObject:choosenPick]; // Away team is picked, and the matchup is added to the choosen picks array
     [self nextGame];
 }
 
@@ -125,7 +125,7 @@
     NSString *match = [NSString stringWithFormat:@"%@ vs %@", fullHome, fullAway];
     choosenPick.gameNumber = eachGame[@"GameNo"];
     choosenPick.matchUp = match;
-    [allPicks addObject:choosenPick];
+    [allPicks addObject:choosenPick]; // Draw is picked, and the matchup is added to the choosen picks array
     [self nextGame];
 }
 
@@ -148,6 +148,7 @@
 // Starts the Game Pick process.  Also checks if user made picks.
 -(IBAction)onStart:(id)sender
 {
+    [allPicks removeAllObjects];
     PFQuery *weekQuery = [PFQuery queryWithClassName:@"CurrentWeek"];
     [weekQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error){
         if (!error) {
@@ -155,19 +156,25 @@
                 currentWeek = object[@"CurrentWeek"];
                 PFQuery *query = [PFQuery queryWithClassName:@"MyPicks"];
                 [query whereKey:@"WeekNo" containsString:currentWeek];
+                // if picks are present for the user, an alert is shown
                 [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
                     if (objects.count == 1) {
-                        UIAlertView *pickGames = [[UIAlertView alloc] initWithTitle:@"Picks already made!" message:@"Looks like you have already made picks for this week.  Please review your picks." delegate:self cancelButtonTitle:@"Okay" otherButtonTitles:nil];
+                        UIAlertView *pickGames = [[UIAlertView alloc] // Alert stating picks have already been made
+                                                  initWithTitle:@"Picks already made!"
+                                                  message:@"Looks like you have already made picks for this week.  Please review your picks."
+                                                  delegate:self
+                                                  cancelButtonTitle:@"Okay"
+                                                  otherButtonTitles:nil];
                         pickGames.tag = 1;
                         [pickGames show];
                     } else {
                         gameNumber = 0;
-                        [self nextGame];
+                        [self nextGame]; // Next game is loaded
                         homeTeamButton.hidden = false;
                         awayTeamButton.hidden = false;
                         drawButton.hidden = false;
                         start.hidden = true;
-                        [self StartTimer];
+                        [self StartTimer]; // Timer starts
                     }  
                 }];
             }
@@ -184,11 +191,17 @@
     
     if (gameNumber == 10) {
         paused = YES;
-        [self writeFile];
-        UIAlertView *noMoreGames = [[UIAlertView alloc] initWithTitle:@"All Games Selected" message:@"You have made all your selections for this week.  Let's see what you picked." delegate:self cancelButtonTitle:@"Okay" otherButtonTitles:nil];
+        [self writeFile]; // Saves file to Parse
+        UIAlertView *noMoreGames = [[UIAlertView alloc] // When all picks are made, alert is shown saying all picks are made
+                                    initWithTitle:@"All Games Selected"
+                                    message:@"You have made all your selections for this week.  Let's see what you picked."
+                                    delegate:self
+                                    cancelButtonTitle:@"Okay"
+                                    otherButtonTitles:nil];
         noMoreGames.tag = 2;
         [noMoreGames show];
     } else {
+        // Gets next match up from array.  Loads images to buttons
         drawImageView.hidden = true;
         eachGame = [gamesThisWeek objectAtIndex:gameNumber];
         NSString *hTeam = eachGame[@"HomeTeam"];
@@ -218,7 +231,7 @@
     [file saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         if (succeeded) {
             PFObject *myPicks = [PFObject objectWithClassName:@"MyPicks"];
-            myPicks.ACL = [PFACL ACLWithUser:current];
+            myPicks.ACL = [PFACL ACLWithUser:current]; // Sets the picks to only the current user
             myPicks[@"myPickFile"] = file;
             myPicks[@"WeekNo"] = eachGame[@"Week"];
             myTimeForPicks = [NSNumber numberWithInt:(90 - timeSec)];
@@ -229,7 +242,7 @@
                 [myPicks saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error){
                     if (succeeded) {
                         progressView.hidden = false;
-                        [self startCount];
+                        [self startCount]; // Starts progress bar while data is saving
                     } else {
                         NSLog(@"Did not save.");
                     }
@@ -287,7 +300,6 @@
     {
         [self.myTimer invalidate];
         self.myTimer = nil;
-        //[self performSegueWithIdentifier:@"myPicks" sender:self];
     } 
 }
 
@@ -468,7 +480,6 @@
 {
     if (alertView.tag == 2)
     {
-       // [self writeFile];
         [self performSegueWithIdentifier:@"myPicks" sender:self];
     } else if (alertView.tag == 1){
         [self performSegueWithIdentifier:@"myPicks" sender:self];

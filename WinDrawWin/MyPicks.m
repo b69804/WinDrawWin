@@ -73,24 +73,31 @@
                 [query whereKey:@"WeekNo" containsString:currentWeek];
                 [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
                     if (objects.count == 0) {
-                        UIAlertView *pickGames = [[UIAlertView alloc] initWithTitle:@"Make Your Picks!" message:@"Looks like you have not made picks yet.  Let's get you started!" delegate:self cancelButtonTitle:@"Okay" otherButtonTitles:nil];
+                        UIAlertView *pickGames = [[UIAlertView alloc] // Alerts the user to make picks for the week
+                                                  initWithTitle:@"Make Your Picks!"
+                                                  message:@"Looks like you have not made picks yet.  Let's get you started!"
+                                                  delegate:self
+                                                  cancelButtonTitle:@"Okay"
+                                                  otherButtonTitles:nil];
                         pickGames.tag = 1;
                         [pickGames show];
                     } else if (!error) {
                         for (PFObject *object in objects) {
                             myPickFile = object;
                             objectID = myPickFile.objectId;
-                            PFFile *myPickData = myPickFile[@"myPickFile"];
+                            PFFile *myPickData = myPickFile[@"myPickFile"]; // Gets the file for the user's picks
                             [myPickData getDataInBackgroundWithBlock:^(NSData *data, NSError *error) {
                                 if (data != nil) {
                                     NSMutableArray *allMyPicks = [NSKeyedUnarchiver unarchiveObjectWithData:data];
                                     for (testing in allMyPicks) {
+                                        // Creats array of all the users picks for the current week
                                         [userPicks addObject:testing];
                                     }
                                     [myPicks reloadData];
                                 }
                             }];
                         }
+                        // Query to determine if results are available for the current week
                         PFQuery *resultsQuery = [PFQuery queryWithClassName:@"Week24"];
                         [resultsQuery whereKey:@"Week" containsString:currentWeek];
                         [resultsQuery whereKey:@"resultAvailable" containsString:@"yes"];
@@ -98,11 +105,17 @@
                             if (!error) {
                                 for (PFObject *object in objects){
                                     if ([object[@"resultAvailable"] isEqualToString:@"yes"]) {
+                                        // Creates an array of results
                                         [resultArray setObject:object[@"Result"] forKey:object[@"GameNo"]];
                                     }
                                 }
                                 if (resultArray.count == 10){
-                                    UIAlertView *results = [[UIAlertView alloc] initWithTitle:@"Results are In!" message:@"All games have finished for this week.  Head over to your profile to see how you did." delegate:self cancelButtonTitle:@"Okay" otherButtonTitles:nil];
+                                    UIAlertView *results = [[UIAlertView alloc] // Alert stating that results are in
+                                                            initWithTitle:@"Results are In!"
+                                                            message:@"All games have finished for this week.  Head over to your profile to see how you did."
+                                                            delegate:self
+                                                            cancelButtonTitle:@"Okay"
+                                                            otherButtonTitles:nil];
                                     results.tag = 2;
                                     [results show];
                                 }

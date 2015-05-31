@@ -108,7 +108,12 @@
 // Allows user to change password
 - (IBAction)changePassword:(id)sender{
  
-    UIAlertView * alert =[[UIAlertView alloc ] initWithTitle:@"Change your Password" message:@"Enter a new Password.  Keep your picks secure!" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles: nil];
+    UIAlertView * alert =[[UIAlertView alloc ]
+                          initWithTitle:@"Change your Password"
+                          message:@"Enter a new Password.  Keep your picks secure!"
+                          delegate:self
+                          cancelButtonTitle:@"Cancel"
+                          otherButtonTitles: nil];
     alert.alertViewStyle = UIAlertViewStyleSecureTextInput;
     [alert addButtonWithTitle:@"Change Now!"];
     alert.tag = 1;
@@ -117,7 +122,12 @@
 
 // Allows User to change Username or Email
 - (IBAction)changeUsername:(id)sender{
-    UIAlertView * alert =[[UIAlertView alloc ] initWithTitle:@"Change your Username or Email" message:@"Please choose what you would like to change..." delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles: nil];
+    UIAlertView * alert =[[UIAlertView alloc ]
+                          initWithTitle:@"Change your Username or Email"
+                          message:@"Please choose what you would like to change..."
+                          delegate:self
+                          cancelButtonTitle:@"Cancel"
+                          otherButtonTitles: nil];
     alert.alertViewStyle = UIAlertViewStyleDefault;
     [alert addButtonWithTitle:@"Change Username"];
     [alert addButtonWithTitle:@"Change Email"];
@@ -132,7 +142,12 @@
     if (alertView.tag == 0) {
         // Allows user to change Username
         if (buttonIndex == 1) {
-            UIAlertView * alert =[[UIAlertView alloc ] initWithTitle:@"Change your Username" message:@"Enter a new Username.  We need to know what to put at the top of the leaderboards!" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles: nil];
+            UIAlertView * alert =[[UIAlertView alloc ]
+                                  initWithTitle:@"Change your Username"
+                                  message:@"Enter a new Username.  We need to know what to put at the top of the leaderboards!"
+                                  delegate:self
+                                  cancelButtonTitle:@"Cancel"
+                                  otherButtonTitles: nil];
             alert.alertViewStyle = UIAlertViewStylePlainTextInput;
             [[alert textFieldAtIndex:0] setPlaceholder:@"Change Username"];
             [alert addButtonWithTitle:@"Change Now!"];
@@ -141,7 +156,12 @@
         }
         // Allows user to change Email
         else if (buttonIndex == 2) {
-            UIAlertView * alert =[[UIAlertView alloc ] initWithTitle:@"Change your Email" message:@"Enter a new Email Address.  We need to know what to use if you forget something!" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles: nil];
+            UIAlertView * alert =[[UIAlertView alloc ]
+                                  initWithTitle:@"Change your Email"
+                                  message:@"Enter a new Email Address.  We need to know what to use if you forget something!"
+                                  delegate:self
+                                  cancelButtonTitle:@"Cancel"
+                                  otherButtonTitles: nil];
             alert.alertViewStyle = UIAlertViewStylePlainTextInput;
             [[alert textFieldAtIndex:0] setPlaceholder:@"Change Email"];
             [alert addButtonWithTitle:@"Change Now!"];
@@ -227,7 +247,7 @@
             
             [UsersNewEmail saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error){
                 if (!error) {
-                    UIAlertView * alert =[[UIAlertView alloc ]
+                    UIAlertView * alert =[[UIAlertView alloc ] // Alert stating email is updated
                                           initWithTitle:@"Email updated!"
                                           message:@"You have successfully changed your Email!"
                                           delegate:self
@@ -235,7 +255,7 @@
                                           otherButtonTitles: nil];
                     [alert show];
                 } else if (error.code == 203){
-                    UIAlertView * alert =[[UIAlertView alloc ]
+                    UIAlertView * alert =[[UIAlertView alloc ] // Alert stating email is already in use and can not be changed
                                           initWithTitle:@"Email already in use!"
                                           message:@"There is already an account registered with that email address.  Please use a different email or head on back to the main page to login and start making picks."
                                           delegate:self
@@ -243,7 +263,7 @@
                                           otherButtonTitles: nil];
                     [alert show];
                 } else {
-                    UIAlertView * alert =[[UIAlertView alloc ]
+                    UIAlertView * alert =[[UIAlertView alloc ]  // Successful alert
                                           initWithTitle:@"Registration not Complete"
                                           message:@"There was an issue with your Registration. Please try again."
                                           delegate:self
@@ -261,7 +281,7 @@
             NSString *newPassWord = password.text;
             if([newPassWord isEqualToString:@""]){
                 everythingGood = false;
-                UIAlertView * alert =[[UIAlertView alloc ]
+                UIAlertView * alert =[[UIAlertView alloc ] // Alert for password issue
                                       initWithTitle:@"You gotta put in a Password"
                                       message:@"Please enter a Password so no one can sabotage your picks."
                                       delegate:self
@@ -270,7 +290,7 @@
                 [alert show];
             } else if (newPassWord.length < length){
                 everythingGood = false;
-                UIAlertView * alert =[[UIAlertView alloc ]
+                UIAlertView * alert =[[UIAlertView alloc ] // Alert for password length
                                       initWithTitle:@"So close yet so far"
                                       message:@"Please enter a Password with at least 8 characters. You are a couple letters short!"                                      delegate:self
                                       cancelButtonTitle:@"Okay"
@@ -284,7 +304,7 @@
                 
                 [UsersNewPassword saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error){
                     if (!error) {
-                        UIAlertView * alert =[[UIAlertView alloc ]
+                        UIAlertView * alert =[[UIAlertView alloc ] // Alert for successful password
                                               initWithTitle:@"Password updated!"
                                               message:@"You have successfully changed your Password!"
                                               delegate:self
@@ -292,7 +312,7 @@
                                               otherButtonTitles: nil];
                         [alert show];
                     } else {
-                        UIAlertView * alert =[[UIAlertView alloc ]
+                        UIAlertView * alert =[[UIAlertView alloc ] // Alert for successful registration
                                               initWithTitle:@"Registration not Complete"
                                               message:@"There was an issue with your Registration. Please try again."
                                               delegate:self
