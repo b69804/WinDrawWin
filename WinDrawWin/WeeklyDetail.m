@@ -272,6 +272,7 @@
                         NSNumber *numberScore = [NSNumber numberWithFloat:myNewScore];
                         PFObject *myHighScore = [PFObject objectWithClassName:@"Rankings"];
                         myHighScore[@"Score"] = [numberScore stringValue];
+                        myHighScore[@"ScoreNumber"] = numberScore;
                         highScore = [numberScore stringValue];
                         myHighScore[@"User"] = [PFUser currentUser].username;
                         myHighScore[@"WeekNo"] = [pickDictionary objectForKey:@"weekNumber"];

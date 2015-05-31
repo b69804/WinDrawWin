@@ -20,6 +20,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     allUsersRankings = [[NSMutableArray alloc] init];
+    dictionaryOfRankings = [[NSMutableDictionary alloc] init];
     [self getAllUsers]; // Gets all Rankings 
 }
 
@@ -48,6 +49,7 @@
         NSString *ranking = [NSString stringWithFormat:@"%lu", (unsigned long)posInArray];
         NSString *score = eachPerson[@"Score"];
         [rankCell refreshCellWithInfo:ranking username:userName userScore:score];
+        
     }
     return rankCell;
 }
@@ -63,7 +65,7 @@
             }
             // Users with high scores are added and ordered by score
             PFQuery *query = [PFQuery queryWithClassName:@"Rankings"];
-            [query orderByDescending:@"Score"];
+            [query orderByDescending:@"ScoreNumber"];
             [query whereKey:@"WeekNo" containsString:currentWeek];
             [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error){
                 if (!error) {

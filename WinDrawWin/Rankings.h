@@ -12,6 +12,7 @@
 {
     IBOutlet UITableView *rankTable;
     NSMutableArray *allUsersRankings;
+    NSMutableDictionary *dictionaryOfRankings;
     NSArray *sortedArray;
     IBOutlet UILabel *weekString;
     NSString *currentWeek;
